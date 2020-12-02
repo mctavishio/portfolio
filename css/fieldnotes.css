@@ -292,8 +292,6 @@ html {
 	color: var(--warmwhite);
 	fill: var(--warmwhite);
 }
-
-
 .monospace_code {
 	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
 	font-family: var(--monospace_code);
@@ -436,6 +434,12 @@ main {
   	border-left: .5em var(--warmgray) dashed;
   	border-right: .5em var(--warmwhite) dashed;*/
 }
+main.narrow {
+	width: 90%; max-width: 1200px;
+}
+main.wide {
+	width: 90%; max-width: 1200px;
+}
 
 article {
 	padding: 1em;
@@ -466,6 +470,7 @@ h1 {
 	margin-bottom: .2em;
 	/*padding-left: 1em;
 	padding-right: 1em;*/
+	/*font-weight: bold;*/
 	font-size: 1.4em;
 	line-height: 1.4em;
 	letter-spacing: .1em;
@@ -485,7 +490,7 @@ h2 {
 	line-height: 1.1em;
 }
 body main > header > h2 {
-	font-size: 1em;
+	font-size: 1.1em;
 	line-height: 1.5em;
 	font-style: italic;
 }
@@ -506,6 +511,8 @@ h5 {
 	font-size: 1.2em;
 	line-height: 1em;
 	font-weight: bold;
+	font-family: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
+	font-family: var(--monospace_zeroslash);
 	color:#ffcc00;
 	color: var(--warmwhite);
 }
@@ -534,8 +541,8 @@ ul.circle li, ol.circle li, dl.circle dt {
 	list-style-position: outside;
 }
 ul.stanza {
-	margin-bottom: 2em;
-	font-weight: bolder;
+	margin-bottom: 1em;
+	font-weight: bold;
 }
 /*ul[data-role="archive"] {
 	padding-left: 1em;
@@ -642,11 +649,11 @@ ul.after13 > li::after {
 	content: "";
 }*/
 
-main.expand ul.stanza > li {
+main.expand ul > li {
 	display: block;
 	line-height: 2em;
 }
-main.compress ul.stanza > li {
+main.compress ul > li {
 	display: inline;
 	line-height: 2em;
 }
@@ -659,7 +666,9 @@ main ul.compress > li {
 	display: inline;
 	line-height: 2em;
 }
-
+main.portfolio {
+	background-color:rgba(25, 25, 24, 0.8);
+}
 
 #home {
 	margin-top:4em;
@@ -833,23 +842,31 @@ p.code, div.code {
 a {
 	z-index: 8888;
 	z-index: var(--zhighest);
-	font-weight:bolder;
+	font-weight:bold;
 	text-decoration: none;
 	color: #fcfbe3;
 	color: var(--warmwhite);
 }
 main a:before {
-	content: ". ";
+	color: #fcfbe3;
+	color: var(--warmwhite);
+	font-weight:bolder;
+	content: ":> ";
 }
 main a:after {
-	content: " . ";
+	color: #000000;
+	color: var(--warmblack);
+	font-weight:bolder;
+	content: " .: ";
 }
-main a.corelink:before {
+/*main a.corelink:before {
+	font-weight:bolder;
 	content: ">> ";
 }
 main a.corelink:after {
+	font-weight:bolder;
 	content: " <<";
-}
+}*/
 a:hover {
 	z-index: 8888;
 	z-index: var(--zhighest);
