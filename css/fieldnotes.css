@@ -435,10 +435,10 @@ main {
   	border-right: .5em var(--warmwhite) dashed;*/
 }
 main.narrow {
-	width: 90%; max-width: 1200px;
+	width: 90%; max-width: 600px;
 }
 main.wide {
-	width: 90%; max-width: 1200px;
+	width: 90%; max-width: 900px;
 }
 
 article {
@@ -485,7 +485,10 @@ body main > header > h1 {
 h2 {
 	margin: 0px;
 	margin-bottom: .4em;
-	color: var(--warmgray);
+	color: var(--warmwhite);
+	font-family: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
+	font-family: var(--monospace_zeroslash);
+	font-style: italic;
 	font-size: 1.1em;
 	line-height: 1.1em;
 }
