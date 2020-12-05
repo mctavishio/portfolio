@@ -277,7 +277,7 @@ z.draw = z => {
 					z.tools.logmsg("playback resumed");
 					// telegraph.innerHTML =  "(sound on)";
 					soundplaying = true;
-					soundlink.innerText = ">> turn off sound";
+					soundlink.innerText = "turn off sound";
 					soundlink.classList.add("active");
 				} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
 			}
@@ -286,7 +286,7 @@ z.draw = z => {
 					document.querySelector("#audio1").pause();
 					// telegraph.innerHTML =  "(sound off)";
 					soundplaying = false;
-					soundlink.innerText = ">> turn on sound";
+					soundlink.innerText = "turn on sound";
 					soundlink.classList.remove("active");
 				} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
 			}

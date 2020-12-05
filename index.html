@@ -61,7 +61,6 @@
 
 <ul class="info expand">
 	<li><a href="#" id="soundlink" class="corelink">turn on sound</a> <span class="typewriter small" title="telegraph" id="telegraph"></span></li>
-	<li><a href="blueatlas/index.html" id="homelink" class="corelink">return to blue atlas</a></li>
 </ul>
 <hr/>
 <article>
@@ -70,8 +69,8 @@
 	</header>
 	<div class="textContent">
 		<ul class="info expand">
-		<li><a href="bio.html">bio</a></li>
 		<li><a href="blueatlas/index.html">blue atlas</a></li>
+		<li><a href="bio.html">bio</a></li>
 		</ul>
 	</div>
 </article>
@@ -85,6 +84,7 @@
 		<li><a href="swarm/index.html">swarm</a></li>
 		<li><a href="chance/index.html">chance</a></li>
 		<li><a href="birdland/index.html">birdland (v1)</a></li>
+		<li><a href="holeinthesky/index.html">høle in the skY</a></li>
 		<li><a href="originofbirds/index.html">origin of birds</a></li>
 		<li><a href="millcity/index.html">mill city requiem</a></li>
 		<li><a href="br1nk/index.html">br1nK</a></li>
@@ -247,7 +247,7 @@ z.streams = {
 					z.tools.logmsg("playback resumed");
 					telegraph.innerHTML =  "<i>(currently playing ::: " + track.title + ")</i>";
 					soundplaying = true;
-					soundlink.innerText = ">> turn off sound";
+					soundlink.innerText = "turn off sound";
 					soundlink.classList.add("active");
 				} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
 			}
@@ -256,7 +256,7 @@ z.streams = {
 					document.querySelector("#audio1").pause();
 					telegraph.innerHTML =  " . . . >";
 					soundplaying = false;
-					soundlink.innerText = ">> turn on sound";
+					soundlink.innerText = "turn on sound";
 					soundlink.classList.remove("active");
 				} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
 			}

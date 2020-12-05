@@ -857,12 +857,12 @@ main a:before {
 	font-weight:bolder;
 	content: ":> ";
 }
-main a:after {
+/*main a:after {
 	color: #000000;
 	color: var(--warmblack);
 	font-weight:bolder;
 	content: " .: ";
-}
+}*/
 /*main a.corelink:before {
 	font-weight:bolder;
 	content: ">> ";
