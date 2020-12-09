@@ -523,7 +523,7 @@ h5 {
 .flexcontainer {
 	display: flex; /*or inline-flex*/
 	flex-direction: row; /* || column || row-reverse || column-reverse; */
-	flex-wrap: nowrap; || /* wrap || wrap-reverse; */
+	flex-wrap: nowrap; /* wrap || wrap-reverse; */
 	justify-content: flex-start; /* || flex-end || center || space-between || space-around */
 	align-items: flex-start; /* || flex-end || center || stretch || baseline */
 }
@@ -1031,7 +1031,7 @@ div.inputgroup {
 label::before {
 	content: "::: ";
 	color: #ffcc00;
-	color: var(--yellow);
+	color: var(--red);
 }
 input[type="radio"], input[type="checkbox"], input[type="number"] {
 	margin: 1em 1em;
