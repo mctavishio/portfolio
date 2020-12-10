@@ -956,11 +956,10 @@ z.radio = ( () => {
 		// video.muted = !video.muted;
 		if(!radio.soundplaying) { 
 			try {
-				audio1.currentTime = z.tools.randominteger(0,120);
+				// audio1.currentTime = z.tools.randominteger(0,120);
 				audio1.volume = 0.6;
-				audio1.playbackRate = z.tools.randominteger(4,40)/10;
+				// audio1.playbackRate = z.tools.randominteger(4,40)/10;
 				audio1.play();
-
 
 				radio.player.context.resume().then(() => {
 					z.tools.logmsg("playback resumed");
