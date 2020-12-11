@@ -133,6 +133,7 @@ const playlist = [
 			{title: "river icarus", url: "rivericaruspodcast.mp3", duration: 2110}, //35:13
 			// {title: "monks from outer space", url: "monks.mp3", duration: 380}, //6:22
 			{title: "ocean | wind | grief", url: "oceanwindgriefpodcast.mp3", duration: 1870},//31:18
+			{title: "nyx", url: "oceanwindgriefpodcast.mp3", duration: 1280},//21:26
 			{title: "night train / blue window", url: "nighttrainbluewindow/nighttrainbluewindowpodcast.mp3", duration: 2280}, //38:06
 			{title: "origin of birds", url: "originofbirdssound20140330.mp3", duration: 1360},//22:50
 			{title: "ahab's dream", url: "ahabsdreampodcast.mp3", duration: 1220},//20:24
@@ -144,8 +145,8 @@ const playlist = [
 			// {title: "the sound of everyday objects", url: "thesoundofeverydayobjectspodcast.mp3", duration: 2380},//39:42
 			{title: "between2deserts / two - the swan", url: "theswanpodcast.mp3", duration:2970}, //49:33
 			{title: "nyx ::: track #3", url: "nyx3.mp3", duration:200}, //3:20
-		{title: "cistern #5", url: "cistern20140630_5_cistern.mp3", duration:1790}, //29:51
-		{title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
+			{title: "cistern #5", url: "cistern20140630_5_cistern.mp3", duration:1790}, //29:51
+			{title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
 			// sophroniasoundscape
 			// {title: "graffiti tunnel", url: "graffititunnelpodcast.mp3", duration: 1720},//45:12
 			// {title: "graffiti 2 hands", url: "graffiti2handspodcast.mp3", duration: 3780},//1:03:13
