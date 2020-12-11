@@ -560,7 +560,8 @@ ul[data-role="narrator"] {
 	padding-left: 1em;
 	border-left: 4px solid var(--warmwhite);
 }*/
-ul[data-role="rider"] > li {
+
+*[data-role="rider"]  li {
 	font-family: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
 	font-family: var(--sans);
 	font-family: 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
