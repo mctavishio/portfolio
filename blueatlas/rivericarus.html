@@ -68,7 +68,7 @@
 <div id="subtextframe" class="frame z0"></div>
 <div id="contentframe" class="absolute zhighest" style="opacity:0">
 <div id="mainflex">
-<main id="main" class="expand" data-state="expanded" data-role="rider" >	
+<main id="main" class="compress" data-state="compressed" data-role="rider" >	
 <header>
 	<h1>river icarus / birdland</h1>
 	<h2>mctavish</h2>
@@ -185,7 +185,7 @@
 			<li>past temples & bars</li>
 			<li>iron horse, iron lung</li>
 			<li>combine turning</li>
-			<li>gold fi elds, blue smoke</li>
+			<li>gold fields, blue smoke</li>
 			<li>under the high bridge</li>
 			<li>birds & ghosts</li>
 			<li>dusty hYmn</li>
@@ -642,7 +642,7 @@
 			<li>dancing</li>
 			<li>to a jukebox</li>
 			<li>on red</li>
-			<li>checker board fl oors</li>
+			<li>checker board floors</li>
 			<li>& beer signs</li>
 			<li>this radio, this night</li>
 			<li>gleaming neon & rain</li>
@@ -691,7 +691,7 @@
 			<li>lose count</li>
 			<li>lose your grip</li>
 			<li>forget the citation</li>
-			<li>a transfi guration</li>
+			<li>a transfiguration</li>
 			<li>an illumination</li>
 			<li>that left you standing</li>
 			<li>with your heart</li>
@@ -836,7 +836,7 @@
 	</header>
 	<div class="textContent">
 		<ul class="stanza">
-			<li>in fi elds of sage</li>
+			<li>in fields of sage</li>
 			<li>whistle &</li>
 			<li>drowned rhythm</li>
 			<li>wheels, tracks &</li>
@@ -1230,7 +1230,7 @@
 			<li>ladders & & . . .</li>
 			<li>graffiti tunnel</li>
 			<li>radio pluto</li>
-			<li>stereo fi elds</li>
+			<li>stereo fields</li>
 			<li>resonance / reverberation</li>
 			<li>twisted & splintered</li>
 			<li>lines bent</li>
@@ -2298,7 +2298,7 @@
 		</ul>
 	</div>
 </article>
-<article class="poem" >
+<!-- <article class="poem" >
 	<header>
 	<h1><a href="#top">^ </a></h1>
 	</header>
@@ -2309,16 +2309,8 @@
 			<li>a score</li>
 		</ul>
 	</div>
-</article>
-<article class="poem" >
-	<header>
-	<h1><a href="#top">^ </a></h1>
-	</header>
-	<div class="textContent">
-		<ul class="stanza">
-		</ul>
-	</div>
-</article>
+</article> -->
+
 <article class="poem" >
 	<header>
 	<h1><a href="#top">^ </a></h1>
@@ -2504,16 +2496,18 @@ return acc;
 	];
 	let currenttrack = 0;
 	let soundplaying = false;
+	let track = tracks[0];
+	audio1.src = baseurl + track.url;
 	Kefir.fromEvents(soundlink, "click").onValue( e => {
 		z.tools.logmsg("play sound !");
 		if(!soundplaying) { 
 			try {
-				currenttrack = (currenttrack+1)%tracks.length;
-				let track = tracks[currenttrack];
-				audio1.src = baseurl + track.url;
+				// currenttrack = (currenttrack+1)%tracks.length;
+				// let track = tracks[currenttrack];
+				// audio1.src = baseurl + track.url;
 				// let starttime = z.tools.randominteger(0,track.duration);
-				let starttime = 0;
-				audio1.currentTime = starttime;
+				// let starttime = 0;
+				// audio1.currentTime = starttime;
 				audio1.play();
 				z.tools.logmsg("playback resumed");
 				telegraph.innerHTML =  "<i>(currently playing ::: " + track.title + ")</i>";
@@ -2633,11 +2627,16 @@ z.streams["draw"] = Kefir.combine([z.streams["clock"]], [z.streams["dimensions"]
 					if(count%2===0) {
 						stanza.el.className= "stanza " + afterclassnames1[z.tools.randominteger(0,afterclassnames1.length)];
 					}
+					else {
+						stanza["lines"].forEach( (line,l) => {
+							line.el.style["color"] = count%5===0 ? "#fcfbe3" : e.color.choices[z.tools.randominteger(0, e.color.choices.length)];
+						})
+					}
 				})
 			});
 		} catch(err) { z.tools.logerror("poem animation ::: " + err ) }
 	})
-})(7);
+})(17);
 //main
 ( dt => {
 	const element = document.querySelector("main");
@@ -2646,7 +2645,7 @@ z.streams["draw"] = Kefir.combine([z.streams["clock"]], [z.streams["dimensions"]
 		try {
 			let count = e.clock.t/dt;
 			let color = e.color.choices[z.tools.randominteger(0, e.color.choices.length)];
-			z.tools.logmsg("in BOX " + color + " color =  " + color);
+			// z.tools.logmsg("in BOX " + color + " color =  " + color);
 			Velocity({	
 				elements: element, 
 				properties: { backgroundColor:  color, backgroundColorAlpha: z.tools.randominteger(0.1,6)/10},
