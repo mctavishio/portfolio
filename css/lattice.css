@@ -536,11 +536,13 @@ h5 {
 ul.circle, ol.circle, dl.circle {
 	margin-left:30px;
 	list-style: circle;
-	list-style-position: outside;
+	list-style-position: inside;
 }
 ul.circle li, ol.circle li, dl.circle dt { 
 	display: list-item;
 	padding-bottom: .6em;
+	list-style: circle;
+	list-style-position: outside;
 }
 ul.stanza {
 	margin-bottom: 1em;
@@ -806,26 +808,10 @@ div.rhterminalentry {
 div.textalignright {
 	text-align:right;
 }
-code {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
-	font-size: 0.8em;
-}
 .center {
 	text-align: center;
 }
-div.billboard {
-	/*font-family: Courier, 'New Courier', monospace;*/
-	font-size: 2em;
-	letter-spacing: 0.15em;
-	/*background-color: var(--warmgray);*/
-	white-space: pre-wrap;
-	white-space: -moz-pre-wrap;
-	white-space: -o-pre-wrap;
-	word-wrap: break-word;
-	padding-left:2vw;
-	padding-right:2vw;
-}
+
 p.code, div.code {
 	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
 	font-family: var(--monospace_code);
