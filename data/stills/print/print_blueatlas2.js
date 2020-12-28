@@ -48,7 +48,8 @@ const colorsets = [
 	// ["#ffcc00", "#fcfbe3", "#191918"], //"warmbwyellow",
 	// ["#fcfbe3", "#191918"], //"warmbw",
 	// ["#006699", "#fcfbe3", "#191918", "#4b4b44"], //"warmbwbluegray",
-	// ["#006699", "#fcfbe3", "#191918", "#004488"], //"warmbwbluegray",
+	// ["#006699", "#fcfbe3", "#191918", "#004488"], //"warmbwblues",
+	// ["#fcfbe3", "#191918", "#4b4b44"], //"warmbwgray",
 	
 	["#006699", "#fcfbe3", "#191918"], //"warmbwblue",
 	
@@ -168,11 +169,12 @@ const colorsets = [
 
 ];
 // let width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72;
+// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
+const width = (22)*72, height = (17)*72;
 const margins = { top: Math.floor(.8*72),bottom:Math.floor(.8*72),left:Math.floor(.9*72),right:Math.floor(.9*72) };
-const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
 const title = "print_blueatlas2d_" + Date.now().toString();
 const info = { doctitle: title, Title: "blue atlas", Author: "mctavish", Subject: "blue atlas", Keywords: "net.art, webs, networks" };
-const npages = 300, nshapes = 8, dx = Math.floor(width/nshapes)+1, dy = Math.floor(height/nshapes)+1;
+const npages = 300, nshapes = 12, dx = Math.floor(width/nshapes)+1, dy = Math.floor(height/nshapes)+1;
 let doc = new PDFDocument(
 { 
 	size: [width, height],
@@ -254,8 +256,8 @@ doc.fontSize(18);
 		if (tools.randominteger(0,10) < 4) {
 		color = colors[tools.randominteger(0,colors.length)];
 		// let x = tools.randominteger(0,nshapes);
-		let x = [0,.5,1][tools.randominteger(0,3)];
-		let lw = tools.randominteger(10, width/4);
+		let x = [0,0,0.5,1,0][tools.randominteger(0,5)];
+		let lw = tools.randominteger(10, width);
 		doc.moveTo(x*width, 0)
 			.lineTo(x*width, height)
 			.dash(tools.randominteger(10, height/10))
@@ -272,6 +274,8 @@ doc.fontSize(18);
 			.strokeColor(color).lineWidth(lw)
 			.stroke();
 		//end 2b
+
+
 
 		// cx = 0, cy = height/2, r = tools.randominteger(width/10,width/2);
 		// color = colors[tools.randominteger(0,colors.length)];

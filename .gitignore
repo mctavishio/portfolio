@@ -3,6 +3,7 @@ node_modules/*
 **/*.tiff
 **/*.indd
 **/print/*.pdf
+**/print/*/*.pdf
 *.zip
 *.mov
 *.mp4
