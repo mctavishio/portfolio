@@ -70,13 +70,15 @@ const pigments = {
 	yellow: "#ffcc00",
 	gray: "#484848"
 };
-// let width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72;
-// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
-const width = (19)*72, height = (13)*72;
-// const width = (22)*72, height = (17)*72;
-// const width = (11)*72, height = (8.5)*72;
+const width = (8.5 + 0.125)*72, height = (8.5 + 0.25)*72; //8.5x8.5book_
+// const width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72; //8.5x8.5bookcover_
+// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72; //postcard_
+// const width = (19)*72, height = (13)*72; //19x13_
+// const width = (22)*72, height = (17)*72; //22x17_
+// const width = (11)*72, height = (8.5)*72; //11x8.5_
+// const width = (8.5)*72, height = (8.5)*72; //8.5x8.5_
 const margins = { top: Math.floor(.8*72),bottom:Math.floor(.8*72),left:Math.floor(.9*72),right:Math.floor(.9*72) };
-const title = "print_lattice4_" + Date.now().toString();
+const title = "print_lattice4_8.5x8.5book_" + Date.now().toString();
 const info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
 
 let doc = new PDFDocument(
