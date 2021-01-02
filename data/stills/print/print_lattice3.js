@@ -70,13 +70,15 @@ const pigments = {
 	yellow: "#ffcc00",
 	gray: "#484848"
 };
-// let width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72;
-// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
-const width = (19)*72, height = (13)*72;
-// const width = (22)*72, height = (17)*72;
-// const width = (11)*72, height = (8.5)*72;
+// const width = (8.5 + 0.125)*72, height = (8.5 + 0.25)*72; //8.5x8.5book_
+// const width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72; //8.5x8.5bookcover_
+// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72; //postcard_
+// const width = (19)*72, height = (13)*72; //19x13_
+// const width = (22)*72, height = (17)*72; //22x17_
+// const width = (11)*72, height = (8.5)*72; //11x8.5_
+const width = (8.5)*72, height = (8.5)*72; //8.5x8.5_
 const margins = { top: Math.floor(.8*72),bottom:Math.floor(.8*72),left:Math.floor(.9*72),right:Math.floor(.9*72) };
-const title = "print_lattice3_" + Date.now().toString();
+const title = "print_lattice3_8.5x8.5_" + Date.now().toString();
 const info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
 
 let doc = new PDFDocument(
@@ -113,7 +115,7 @@ const npages = 300;
 		let colors = [[pigments.black,1], [pigments.white,5], [pigments.blue,0], [pigments.yellow,0], , [pigments.red,0]].reduce( (acc, color, j) => {
 			Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
 			return acc;
-		}, [pigments.black])
+		}, [])
 
 		let cx=width/2,cy=height/2, min=Math.min(width,height), r=Math.floor(min*0.4);
 		[...Array(16).keys()].forEach( (d,j) => {
@@ -133,7 +135,7 @@ const npages = 300;
 		let colors = [[pigments.black,1], [pigments.white,5], [pigments.blue,0], [pigments.yellow,0], , [pigments.red,0]].reduce( (acc, color, j) => {
 			Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
 			return acc;
-		}, [pigments.black])
+		}, [])
 		// console.log("colors = " + JSON.stringify(colors));
 
 		let cx=width/2,cy=height/2, min=Math.min(width,height), r=Math.floor(min*0.4);
@@ -174,7 +176,7 @@ const npages = 300;
 		let colors = [[pigments.black,2], [pigments.white,5], [pigments.blue,0], [pigments.yellow,0], [pigments.red,1]].reduce( (acc, color, j) => {
 		Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
 			return acc;
-		}, [pigments.black])
+		}, [])
 		// console.log("colors = " + JSON.stringify(colors));
 
 		let cx=width/2,cy=height/2, min=Math.min(width,height), r=Math.floor(min*0.4);
