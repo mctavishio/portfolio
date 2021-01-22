@@ -548,18 +548,7 @@ ul.stanza {
 	margin-bottom: 1em;
 	font-weight: bold;
 }
-/*ul[data-role="archive"] {
-	padding-left: 1em;
-	border-left: 4px solid var(--warmblack);
-}
-ul[data-role="rider"] {
-	padding-left: 1em;
-	border-left: 4px solid var(--red);
-}
-ul[data-role="narrator"] {
-	padding-left: 1em;
-	border-left: 4px solid var(--warmwhite);
-}*/
+
 
 *[data-role="rider"]  li {
 	font-family: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
@@ -724,6 +713,10 @@ ul.afterbluegreen > li::after {
 	color: var(--bluegreen);
 }
 
+ol {
+	list-style-position: inside;
+	list-style-type: decimal;
+}
 
 
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */

@@ -69,14 +69,25 @@ const pigments = {
 	red: "#9a0000",
 	yellow: "#ffcc00",
 };
-// let width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72;
-// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
-// const width = (29)*72, height = (13)*72;
-const width = (22)*72, height = (17)*72;
-// const width = (11)*72, height = (8.5)*72;
+const prefix = "print_lattice2_";
+const dimensions = [
+	{width: (8.5 + 0.125)*72, height: (8.5 + 0.25)*72, suffix: "8.5x8.5book_"},
+	{width: (8.5 + 0.125)*72*2.1, height: (8.5 + 0.25)*72, suffix: "8.5x8.5bookcover_"},
+	{width: (7 + 0.125*2)*72, height: (5 + 0.125*2)*72, suffix: "7x5postcard_"},
+	{width: (19)*72, height: (13)*72, suffix: "19x13_"},
+	{width: (8.5)*72, height: (8.5)*72,suffix: "8.5x8.5_"},
+	{width: (22)*72, height: (17)*72, suffix: "22x17_"},
+	{width: (11)*72, height: (8.5)*72, suffix: "11x8.5_"},
+];
+
 const margins = { top: Math.floor(.8*72),bottom:Math.floor(.8*72),left:Math.floor(.9*72),right:Math.floor(.9*72) };
-const title = "print_lattice1_" + Date.now().toString();
-const info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
+
+dimensions.forEach( dimension => {
+
+let title = prefix +  dimension.suffix + Date.now().toString();
+let info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
+
+let width = dimension.width, height = dimension.height;
 
 let doc = new PDFDocument(
 { 
@@ -100,12 +111,12 @@ doc.fontSize(18);
 const npages = 300;
 let colorj=0,w=0,h=0,color="#000";
 const grid=[0,0.2,0.4,0.6,0.8,1.0], ngrid=grid.length, dx = 0.2*width, dy = 0.2*height, dmin=Math.min(dx,dy);
-const draws = [...Array(ngrid*ngrid).keys()];
+const draws = [...Array(ngrid*2).keys()];
 const parameters = draws.map( j => {
 	return {
 		cx: width*grid[tools.randominteger(0,ngrid)],
 		cy: height*grid[tools.randominteger(0,ngrid)],
-		r: dmin*grid[tools.randominteger(0,ngrid)]+0.1*dmin,
+		r: dmin*grid[tools.randominteger(1,ngrid-1)]+0.1*dmin,
 	}
 });
 [...Array(npages).keys()].forEach( page => {
@@ -116,7 +127,7 @@ const parameters = draws.map( j => {
 	// layer 1
 	// ( () => {
 	// 	let cx=width/2,cy=height/2, min=Math.min(width,height), r=min/2;
-	// 	draws.filter(d => tools.randominteger(0,10)<2).forEach( d => {
+	// 	draws.filter(d => tools.randominteger(0,10)<4).forEach( d => {
 	// 		let p = parameters[d % parameters.length];
 	// 		colorj = tools.randominteger(0,colors.length); color = colors[colorj];
 	// 		doc.circle(cx, cy, r )
@@ -127,20 +138,20 @@ const parameters = draws.map( j => {
 			
 	// 		doc.circle(cx, cy, r*0.8 )
 	// 			.dash(tools.randominteger(r/4,r/2), {space: tools.randominteger(r/8,r/4)})
-	// 			.strokeColor(color).lineWidth(p.r*0.5)
+	// 			.strokeColor(color).lineWidth(p.r*0.8)
 	// 			.stroke()
 	// 		colorj = (colorj+1)%colors.length; color = colors[colorj];
 	// 		doc.circle(cx, cy, r*0.6 )
 	// 			.dash(tools.randominteger(r/8,r/4), {space: tools.randominteger(r/8,r/6)})
-	// 			.strokeColor(color).lineWidth(p.r*0.2)
+	// 			.strokeColor(color).lineWidth(p.r*0.4)
 	// 			.stroke() 
 	// 	})
 		
 	// })();
 
-	// layer 2
+	// layer
 	( () => {
-		draws.filter(d => tools.randominteger(0,10)<2).forEach( d => {
+		draws.filter(d => tools.randominteger(0,10)<3).forEach( d => {
 			let p = parameters[d % parameters.length];
 			let lw = tools.randominteger(dx/2,width/2);
 			colorj = tools.randominteger(0,colors.length); color = colors[colorj];
@@ -170,46 +181,58 @@ const parameters = draws.map( j => {
 				.dash(tools.randominteger(10, width*0.4), {space: tools.randominteger(10, width*0.4)})
 				.strokeColor(color).lineWidth(lw*0.8)             
 				.stroke();
+		})
+		
+	})();
 
-			lw = tools.randominteger(p.r/2,p.r);
+	// layer
+	( () => {
+		draws.filter(d => tools.randominteger(0,10)<3).forEach( d => {
+			let p = parameters[d % parameters.length];
+			let lw = tools.randominteger(dx/2,width/2);
+			colorj = tools.randominteger(0,colors.length); color = colors[colorj];
+
+			lw = tools.randominteger(dx/4,dx/2);
 			colorj = tools.randominteger(0,colors.length); color = colors[colorj];
 			doc.circle(p.cx, p.cy, p.r )
 				.dash(tools.randominteger(p.r/4,p.r*p.r),{space: tools.randominteger(10, p.r*0.4)})
 				.strokeColor(color).lineWidth(lw)
 				.stroke()
-			lw = tools.randominteger(p.r/4,p.r/2);
+			lw = lw*0.6;
 			colorj = (colorj+1)%colors.length; color = colors[colorj];
 			doc.circle(p.cx, p.cy, p.r )
 				.dash(tools.randominteger(p.r/6,p.r),{space: tools.randominteger(10, p.r*0.4)})
 				.strokeColor(color).lineWidth(lw)
 				.stroke() 
 		})
-		
 	})();
 
+	( () => {
+		draws.filter(d => tools.randominteger(0,10)<8).forEach( d => {
+			let p = parameters[d % parameters.length];
+			let lw = tools.randominteger(dx/2,width/2);
+			colorj = tools.randominteger(0,colors.length); color = colors[colorj];
+			let cx = [5,5,5][tools.randominteger(0,3)]/10*width, cy = [5,5,9][tools.randominteger(0,3)]/10*height;
+			lw = tools.randominteger(dx/4,dx/2);
+			colorj = tools.randominteger(0,colors.length); color = colors[colorj];
+			doc.circle(cx, cy, p.r )
+				.dash(tools.randominteger(p.r/4,p.r*p.r),{space: tools.randominteger(10, p.r*0.4)})
+				.strokeColor(color).lineWidth(lw)
+				.stroke()
+			lw = lw*0.6;
+			colorj = (colorj+1)%colors.length; color = colors[colorj];
+			doc.circle(cx, cy, p.r )
+				.dash(tools.randominteger(p.r/6,p.r),{space: tools.randominteger(10, p.r*0.4)})
+				.strokeColor(color).lineWidth(lw)
+				.stroke() 
+		})
+	})();
 
-	// layer 3
-	// ( () => {
-	// 	draws.filter(d => tools.randominteger(0,10)<3).forEach( d => {
-	// 		let p = parameters[d % parameters.length];
-	// 		let lw = tools.randominteger(p.r/2,p.r);
-	// 		colorj = tools.randominteger(0,colors.length); color = colors[colorj];
-	// 		doc.circle(p.cx, p.cy, p.r )
-	// 			.dash(tools.randominteger(p.r/4,p.r*p.r),{space: tools.randominteger(10, p.r*0.4)})
-	// 			.strokeColor(color).lineWidth(lw)
-	// 			.stroke()
-	// 		lw = tools.randominteger(p.r/4,p.r/2);
-	// 		colorj = (colorj+1)%colors.length; color = colors[colorj];
-	// 		doc.circle(p.cx, p.cy, p.r )
-	// 			.dash(tools.randominteger(p.r/6,p.r),{space: tools.randominteger(10, p.r*0.4)})
-	// 			.strokeColor(color).lineWidth(lw)
-	// 			.stroke() 
-	// 	})
-		
-	// })();
 	
 	page < npages-1 ? doc.addPage() : "done";
 });
 	
 // # Finalize PDF file
 doc.end();
+
+});

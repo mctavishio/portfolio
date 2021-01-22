@@ -26,7 +26,7 @@
 	<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<!-- JSON-LD : Google -->
+	<!-- JSON-LD : Google ::: https://developers.google.com/search/docs/guides/intro-structured-data -->
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
@@ -43,71 +43,96 @@
 	</script>
 	<link rel="stylesheet" href="../css/lattice.css"/>
 	<style>
-		.grid > line:nth-child(1), .grid > line:nth-child(5){
-			stroke-width: 20%;
-			stroke: #9a0000;
-			stroke: var(--warmwhite);
+		html {
+			--evencolor: #484848;
+			--oddcolor: #000000;
 		}
-		.grid > line {
-			stroke-width: 4%;
-			stroke: #9a0000;
-			stroke: var(--red);
-		}
-		svg > g.row:nth-of-type(4n+0) > circle:nth-of-type(1) {
-			cx:20%; cy:20%; r:10%;
-			fill: #9a0000;
-			fill: var(--red);
-		}
-		svg > g.row:nth-of-type(4n+1) > circle:nth-of-type(1) {
-			cx:40%; cy:20%; r:10%;
-			fill: #ffffff;
-			fill: var(--colorx, --warmblack);
-		}
-		svg > g.row:nth-of-type(4n+2) > circle:nth-of-type(1) {
-			cx:60%; cy:20%; r:10%;
-			fill: #ffffff;
-			fill: var(--yellow);
-		}
-		svg > g.row:nth-of-type(4n+3) > circle:nth-of-type(1) {
-			cx:80%; cy:20%; r:10%;
-			fill: #ffffff;
-			fill: var(--blue);
-		}
+		g.layer:nth-of-type(1) { --r: 4%; fill: var(--white);}
+		g.layer:nth-of-type(2) { --r: 0.5%; fill: var(--black);}
+		g.layer g.row > circle { r: var(--r);}
+		g.layer g.row > line { --r: 20; stroke-width: var(--r); stroke: var(--red);}
+		g.layer g.row > circle:nth-of-type(6n+0) { --cy: 0%; cy: var(--cy); }
+		g.layer g.row > circle:nth-of-type(6n+1) { --cy: 20%; cy: var(--cy); }
+		g.layer g.row > circle:nth-of-type(6n+2) { --cy: 40%; cy: var(--cy); }
+		g.layer g.row > circle:nth-of-type(6n+3) { --cy: 60%; cy: var(--cy); }
+		g.layer g.row > circle:nth-of-type(6n+4) { --cy: 80%; cy: var(--cy); }
+		g.layer g.row > circle:nth-of-type(6n+5) { --cy: 100%; cy: var(--cy); }
+		g.layer g.row:nth-of-type(6n+0) > circle { --cx: 0%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+1) > circle { --cx: 20%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+2) > circle { --cx: 40%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+3) > circle { --cx: 60%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+4) > circle { --cx: 80%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+5) > circle { --cx: 100%; cx: var(--cx); }
+		g.layer g.row:nth-of-type(6n+0) > line:nth-of-type(1) { --cx: 0%; x1: var(--cx); x2: var(--cx); y1: 0%; y2: 100%;}
+		g.layer g.row:nth-of-type(6n+1) > line:nth-of-type(1) { --cx: 20%; x1: var(--cx); x2: var(--cx); y1: 0%; y2: 100%;}
+		g.layer g.row:nth-of-type(6n+0) > line:nth-of-type(2) { --cy: 0%; y1: var(--cy); y2: var(--cy); x1: 0%; x2: 100%;}
+		g.layer g.row:nth-of-type(6n+1) > line:nth-of-type(2) { --cy: 400; y1: var(--cy); y2: var(--cy); x1: 0; x2: 800;}
+
 	</style>
 </head>
 <body id="top" >
 
 <div id="svgframe" class="frame zlow">
 	<svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame" >
-		<g class="grid">
-			<line x1="0%" x2="100%" y1="50%" y2="50%"/><line x1="0%" x2="100%" y1="50%" y2="50%"/><line x1="0%" x2="100%" y1="50%" y2="50%"/><line x1="0%" x2="100%" y1="50%" y2="50%"/>
-			<line x1="50%" x2="50%" y1="0%" y2="100%"/><line x1="50%" x2="50%" y1="0%" y2="100%"/><line x1="50%" x2="50%" y1="0%" y2="100%"/><line x1="50%" x2="50%" y1="0%" y2="100%"/>
-
-			<circle cx="20%" cy="20%" r="2%"/><circle cx="40%" cy="20%" r="2%"/><circle cx="60%" cy="20%" r="2%"/><circle cx="80%" cy="20%" r="2%"/>
-			<circle cx="20%" cy="40%" r="2%"/><circle cx="40%" cy="40%" r="2%"/><circle cx="60%" cy="40%" r="2%"/><circle cx="80%" cy="40%" r="2%"/>
-			<circle cx="20%" cy="60%" r="2%"/><circle cx="40%" cy="60%" r="2%"/><circle cx="60%" cy="60%" r="2%"/><circle cx="80%" cy="60%" r="2%"/>
-			<circle cx="20%" cy="80%" r="2%"/><circle cx="40%" cy="80%" r="2%"/><circle cx="60%" cy="80%" r="2%"/><circle cx="80%" cy="80%" r="2%"/>
+		<g class="layer">
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line x1="0%", x2="100%", y1="20%", y2="20%" stroke-width="8", stroke="#880000"/>
+				<line y1="0%", y2="100%", x1="20%", x2="20%" stroke-width="8", stroke="#000088"/>
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
 		</g>
-		<g id="row0" class="row">
-			<circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/>
-			<line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/>
-		</g>
-		<g id="row1" class="row">
-			<circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/>
-			<line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/>
-		</g>
-		<g id="row2" class="row">
-			<circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/>
-			<line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/>
-		</g>
-		<g id="row3" class="row">
-			<circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/><circle cx="20%" cy="20%" r="2%"/>
-			<line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/><line x1="0" x2="0" y1="0" y2="0"/>
+		<g class="layer">
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line /><line />
+			</g>
+			<g class="row">
+				<circle /><circle /><circle /><circle /><circle /><circle />
+				<line />
+			</g>
 		</g>
 	</svg>
 </div>
 <div id="wordframe" class="frame z0"></div>
-<div id="subtextframe" class="frame z0"></div>
+<div id="subtextframe" class="frame z0">
+	
+</div>
 <div id="contentframe" class="absolute zhighest" style="opacity:0">
 <div id="mainflex">
 <main id="main" class="compress" data-state="compressed">	

@@ -1,3 +1,70 @@
+let z = {};
+z.tools = {
+	randominteger: (min, max) => {
+		return Math.floor( min + Math.random()*(max-min));
+	},
+	logmsg: function(msg) {
+		try { 
+			console.log("### ::: " + msg); 
+		}
+		catch(err) { z.tools.logerror(err) }
+	},
+	logerror: function(error) {
+		try { console.log("rusty error ... " + error); }
+		catch(err) {}
+	},
+	randomhighharmonic: () => {
+		let multipliers = [10.0, 12.5, 13.33, 15, 20];
+		return multipliers[ z.tools.randominteger( 0, multipliers.length) ];
+	},
+	randomharmonic: () => {
+		let multipliers = [5, 7.5, 10.0, 12.5, 13.33, 15, 20];
+		return multipliers[ z.tools.randominteger( 0, multipliers.length) ];
+	},
+	randomlowharmonic: () => {
+		let multipliers = [5, 7.5, 10.0, 12.5, 13.33, 15, 20];
+		return multipliers[ z.tools.randominteger( 0, multipliers.length) ]/2;
+	},
+	randomkey: (object) => {
+		let keys = Object.keys(object);
+		let key = keys[z.tools.randominteger(0,keys.length)];
+		// z.tools.logmsg("key = " + key);
+		return key;
+	},
+	datestr: (date, options) => {
+		if(options===undefined) options = {year: "numeric", month: "2-digit", day: "numeric", hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit"};
+		return date.toLocaleTimeString("en-US", options);
+		//new Date().toLocaleTimeString("en-US", {year: "numeric", month: "2-digit", day: "numeric", hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit"});
+	},
+	togrid: (min=1, max=1, x=1, ndivisions=1) => {
+		let dx = Math.floor( (max-min) / ndivisions );
+		return Math.floor( ( x-min+dx/2)/dx )*dx + min;
+	},
+};
+z.data = {
+	colors = {
+		sets: {
+			warmbw: ["#fcfbe3", "#191918"],
+			warmbwred: ["#9a0000", "#fcfbe3", "#191918"],
+			warmbw: ["#fcfbe3", "#191918"],
+			warmbwyellow: ["#ffcc00", "#fcfbe3", "#191918"],
+			warmbw: ["#fcfbe3", "#191918"],
+			warmbwbluegray: ["#006699", "#fcfbe3", "#191918", "#4b4b44"],
+			warmbwbluesgray: ["#006699", "#fcfbe3", "#191918", "#004488"],
+			warmbwblue: ["#006699", "#fcfbe3", "#191918"],
+			warmbwbluegreen: ["#006699", "#006666", "#fcfbe3", "#191918"],
+		},
+		pigments = {
+			black: "#191918",
+			white: "#fcfbe3",
+			blue: "#006699",
+			red: "#9a0000",
+			yellow: "#ffcc00",
+			gray: "#484848",
+		}
+	}
+}
+
 const playlist = [
 	//primary colors
 	// ["#fcfbe3", "#191918"], //"warmbw",

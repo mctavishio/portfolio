@@ -62,14 +62,25 @@ const colorsets = [
 	
 	// ["#006699", "#006666", "#fcfbe3", "#191918"], //"warmbwbluegreen",
 ];
-// let width = (8.5 + 0.125)*72*2.1, height = (8.5 + 0.25)*72;
-// const width = (7 + 0.125*2)*72, height = (5 + 0.125*2)*72;
-// const width = (22)*72, height = (17)*72;
-const width = (19)*72, height = (13)*72;
+const prefix = "print_lattice1_";
+const dimensions = [
+	{width: (8.5 + 0.125)*72, height: (8.5 + 0.25)*72, suffix: "8.5x8.5book_"},
+	{width: (8.5 + 0.125)*72*2.1, height: (8.5 + 0.25)*72, suffix: "8.5x8.5bookcover_"},
+	{width: (7 + 0.125*2)*72, height: (5 + 0.125*2)*72, suffix: "7x5postcard_"},
+	{width: (19)*72, height: (13)*72, suffix: "19x13_"},
+	{width: (8.5)*72, height: (8.5)*72,suffix: "8.5x8.5_"},
+	{width: (22)*72, height: (17)*72, suffix: "22x17_"},
+	{width: (11)*72, height: (8.5)*72, suffix: "11x8.5_"},
+];
 
 const margins = { top: Math.floor(.8*72),bottom:Math.floor(.8*72),left:Math.floor(.9*72),right:Math.floor(.9*72) };
-const title = "print_lattice1_" + Date.now().toString();
-const info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
+
+dimensions.forEach( dimension => {
+
+let title = prefix +  dimension.suffix + Date.now().toString();
+let info = { doctitle: title, Title: "lattice", Author: "mctavish", Subject: "lattice", Keywords: "net.art, webs, networks" };
+
+let width = dimension.width, height = dimension.height;
 
 let doc = new PDFDocument(
 { 
@@ -226,3 +237,5 @@ const rows=[0,.2,.4,.6,.8,1], cols=[0,.2,.4,.6,.8,1];
 	
 // # Finalize PDF file
 doc.end();
+
+});
