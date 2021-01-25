@@ -92,6 +92,33 @@ let getz = () => {
 				warmbwblue: ["#006699", "#fcfbe3", "#191918"],
 				warmbwbluegreen: ["#006699", "#006666", "#fcfbe3", "#191918"],
 			},
+			oldplaylists: {
+				industryseed: [ ['#fcfbe3','#000000','#ffcc00','#9a0000'] ],
+				industry: [ ['#fcfbe3','#000000','#ffcc00','#9a0000'],['#fcfbe3','#000000','#9a0000'],['#fcfbe3','#000000','#ffcc00'],['#fcfbe3','#000000'],['#fcfbe3','#000000','#ffcc00'],['#fcfbe3','#000000','#9a0000'],['#fcfbe3','#000000'] ],
+				industrygrayseed: [ ['#fcfbe3','#000000','#ffcc00','#9a0000', '#444444'] ],
+				industrygray: [ ['#fcfbe3','#000000','#ffcc00','#9a0000'],['#fcfbe3','#000000'],['#fcfbe3','#000000'], ['#fcfbe3','#000000','#9a0000'], ['000000', '#fcfbe3','#444444'], ['#fcfbe3','#000000'], ['#fcfbe3','#000000','#ffcc00'], ['#fcfbe3','#000000','#9a0000'],['#fcfbe3','#000000'] ],
+				rbwg: [ ['#fcfbe3','#000000','#9a0000'],['#fcfbe3','#000000'], ['#fcfbe3','#000000','#9a0000'], ['#fcfbe3','#000000'], ['#fcfbe3','#000000','#9a0000','#444444'], ['#fcfbe3','#000000','#444444'], ['#fcfbe3','#000000','#9a0000'], ['#fcfbe3','#000000']],
+				rbw: [ ['#fcfbe3','#000000','#9a0000'],['#fcfbe3','#000000'], ['#fcfbe3','#000000','#9a0000'], ['#fcfbe3','#000000'], ['#fcfbe3','#000000','#444444'] ],
+				ybw: [ ['#fcfbe3','#000000','#ffcc00'],['#fcfbe3','#000000'], ['#fcfbe3','#000000','#ffcc00'], ['#fcfbe3','#000000'], ['#fcfbe3','#000000','#444444'] ],
+				bwseed: [ ['#fcfbe3', '#000000'] ],
+				bw: [ ['#fcfbe3', '#000000'], ['#fcfbe3', '#000000', '#fcfbe3', '#000000'], ['#fcfbe3', '#000000', '#000000'], ['#fcfbe3', '#000000', '#fcfbe3'] ],
+				bwg: [ ['#fcfbe3', '#000000'], ['#fcfbe3', '#000000', '#fcfbe3', '#000000'], ['#fcfbe3','#000000','#444444'] ],
+				blueyellow: [["#fedd00", '#006699', "#fcfbe3", "#000000"]],
+				lightsseed: [ ['#aaaaaa','#c7c6bf','#e3e2d7','#ffffff'] ], //http://gka.github.io/palettes/#colors=#fcfbe3,#ffffff|steps=4|bez=1|coL=1
+				lights: [ ['#aaaaaa','#c7c6bf','#e3e2d7','#ffffff'], ['#aaaaaa','#c7c6bf','#e3e2d7','#ffffff'], ['#aaaaaa','#c7c6bf','#ffffff'], ['#aaaaaa','#c7c6bf','#e3e2d7'] ],
+				bluesseed: [ ['#006699','#0a7293','#0a7c8e','#008888'] ],
+				blues: [ ['#006699','#0a7293','#0a7c8e','#008888'], ['#006699','#0a7293','#0a7c8e','#008888'], ['#006699','#0a7293','#008888'], ['#006699','#0a7293','#0a7c8e'] ],
+				yellowsseed: [ ['#fcfbe3','#ffeba9','#ffdc6e','#ffcc00'] ],
+				yellows: [ ['#fcfbe3','#ffeba9','#ffdc6e','#ffcc00'], ['#fcfbe3','#ffeba9','#ffdc6e','#ffcc00'], ['#fcfbe3','#ffeba9','#ffcc00'], ['#fcfbe3','#ffeba9','#ffdc6e'] ],
+				darksseed: [ ['#686860','#464540','#252523','#000000'] ],
+				darks:  [ ['#686860','#464540','#252523','#000000'], ['#686860','#464540','#252523','#000000'], ['#686860','#000000','#252523','#000000'], ['#686860','#464540', '#686860','#000000'] ],
+				circusblues: [ ["#2B4C6F", "#4A6A8A", "#183d68", "#07325f", "#004866"] ],
+				circusgreens: [ ["#267158", "#448870", "#126d4f", "#006644"] ],
+				circusoranges: [ ["#E64A19", "#FF5722", "#ff6600", "#ffcc00", "#ff8000", "#e64d00"] ],
+				circusblacks: [ ["#212121", "#727272"] ],
+				circuswhites: [ ["fffffa", "#B6B6B6"] ],
+				circus: [ ["#9a0000", "#de4400", "#ffcc00",  "#4682B4", "#008848",  "#004888", "#006699", '#fcfbe3','#000000',], ["#9a0000",  "#ffcc00",  "#006699"] ],
+			},
 			pigments: {
 				black: "#191918",
 				white: "#fcfbe3",
@@ -112,6 +139,9 @@ let getz = () => {
 				nyx: {title: "nyx", url: "oceanwindgriefpodcast.mp3", duration: 1280},//21:26
 				nighttrainbluewindow: {title: "night train / blue window", url: "nighttrainbluewindow/nighttrainbluewindowpodcast.mp3", duration: 2280}, //38:06
 				originofbirds: {title: "origin of birds", url: "originofbirdssound20140330.mp3", duration: 1360},//22:50
+				originofbirdslowthread: {title: "origin of birds ::: low thread", url: "20140304originofbirds_lowthread.mp3", duration: 15*60+5},//22:50
+				originofbirdsskythread: {title: "origin of birds ::: sky thread", url: "20140304originofbirds_skythread.mp3", duration: 9*60+25},//22:50
+				millcityrequiem: {title: "mill city requiem", url: "20150503millcityrequiem.mp3", duration: 33*60+3},//
 				ahabsdream: {title: "ahab's dream", url: "ahabsdreampodcast.mp3", duration: 1220},//20:24
 				birdland: {title: "birdland", url: "birdlandpodcast.mp3", duration: 3780},//1:03:05
 				holyfool: {title: "holy fool", url: "holyfoolpodcast.mp3", duration: 1720},//28:43
@@ -123,11 +153,124 @@ let getz = () => {
 				nyxtrack3: {title: "nyx ::: track #3", url: "nyx3.mp3", duration:200}, //3:20
 				cistern5: {title: "cistern #5", url: "cistern20140630_5_cistern.mp3", duration:1790}, //29:51
 				echolightning: {title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
-				// sophroniasoundscape
+				// sophroniasoundscape 
+				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
+				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
 				graffititunnel: {title: "graffiti tunnel", url: "graffititunnelpodcast.mp3", duration: 1720},//45:12
 				graffiti2hands: {title: "graffiti 2 hands", url: "graffiti2handspodcast.mp3", duration: 3780},//1:03:13
+				northernspark20170603_final: {title: "northern spark 2017", url: "northernspark20170603_final.mp3", duration: 1100}, //18:29
+				homing20201220_graffiti1: {title: "homing 2020.12.20 graffiti 1", url: "homing20201220_graffiti1.mp3", duration: 12*60+15}, //12:15
+				homing20201220_0: {title: "homing 2020.12.20 0", url: "homing20201220_0.mp3", duration: 11*60+58}, //11:58
+				northsea11: {title: "north sea 11", url: "northsea11.mp3", duration: 2*60+43}, //2 handed tender harmonic
+				northsea13: {title: "north sea 13", url: "northsea13.mp3", duration: 2*60+6}, //2 handed tender
+				northsea14: {title: "north sea 14", url: "northsea14.mp3", duration: 2*60+3}, //dolphin boat
+				northsea15: {title: "north sea 15", url: "northsea15.mp3", duration: 2*60+16}, //boat
+				northsea16: {title: "north sea 16", url: "northsea16.mp3", duration: 1*60+2}, //low sawing bow
+				northsea19: {title: "north sea 19", url: "northsea19.mp3", duration: 0*60+40}, //below the bridge
+				northsea20: {title: "north sea 20", url: "northsea20.mp3", duration: 0*60+58}, //low
+				northsea22: {title: "north sea 22", url: "northsea22.mp3", duration: 1*60+57}, //1:57
+				northsea23: {title: "north sea 23", url: "northsea23.mp3", duration: 1*60+54}, //1:54 ::: from wild geese echo lightning
+				northsea24: {title: "north sea 24", url: "northsea24.mp3", duration: 2*60+6}, //2:06 ::: from wild geese echo lightning
+				northsea25: {title: "north sea 25", url: "northsea25.mp3", duration: 3*60+45}, // ::: from echo lightning
+				northsea26: {title: "north sea 26", url: "northsea26.mp3", duration: 3*60+48}, // ::: from echo lightning
+				northsea27: {title: "north sea 27", url: "northsea27.mp3", duration: 2*60+25}, // ::: from echo lightning : low 
+				northsea28: {title: "north sea 28", url: "northsea28.mp3", duration: 3*60+8}, // ::: from echo lightning : low
+				northsea29: {title: "north sea 29", url: "northsea29.mp3", duration: 3*60+10}, // ::: from echo lightning : low tender
+				road1: {title: "road1", url: "road1.mp3", duration: 0*60+24}, // ::: 
+				road20140831_1_pingpongdepot: {title: "road20140831_1_pingpongdepot", url: "road20140831_1_pingpongdepot.mp3", duration: 3*60+14}, // ::: 
+				road20141103_2: {title: "road20141103_2", url: "road20141103_2.mp3", duration: 9*60+1}, // ::: 
+				roadTones_1min: {title: "roadTones_1min", url: "roadTones_1min.mp3", duration: 1*60+26}, // ::: 
+				lowRoadLong: {title: "lowRoadLong", url: "lowRoadLong.mp3", duration: 3*60+42}, // ::: train bell elevator from traffick
+				lowandtrain: {title: "train cistern", url: "20141208_1_lowandtrain.mp3", duration: 3*60+42}, // ::: train cistern voices
+				klikt_rockscissorsblade: {title: "klikt_rockscissorsblade", url: "klikt_rockscissorsblade.mp3", duration: 3*60+13}, // ::: with iron bird sharpening sound sort of chaotic
+				kanteledreams: {title: "kantele dreams", url: "kanteledreams.mp3", duration: 2*60+31}, // ::: with cello ... slidey
+				holeinthesky: {title: "hole in the sky ::: crying machine", url: "holeinthesky.mp3", duration: 7*60+58}, // ::: tuning fork hymn ::: from vertov growly
+				holeintheskyall20140504sound: {title: "hole in the sky ::: score surround", url: "holeintheskyall20140504sound.mp3", duration: 1*60*60+60*60+38}, // ::: minimalist bg
+				holeinthesky20140919: {title: "hole in the sky ::: draft", url: "holeinthesky20140919.mp3", duration: 53*60+13}, // ::: minimalist more active bg
+				soundscape20140501_1: {title: "hole in the sky ::: draft", url: "soundscape20140501_1.mp3", duration: 53*60+10}, // ::: minimalist more active bg
+				trains20141218_v2: {title: "trains20141218_v2", url: "trains20141218_v2.mp3", duration: 18*60+17}, // ::: trains cello tuning ping ong
+				trains20141219: {title: "trains20141219", url: "trains20141219.mp3", duration: 22*60+27}, // ::: trains cello 
+				tuningforkhYmn2: {title: "tuningforkhYmn2", url: "tuningforkhYmn2.mp3", duration: 7*60+25}, // ::: 
+				tuningforkhYmn3: {title: "tuningforkhYmn3", url: "20100603tuningforkhYmn_v3.mp3", duration: 10*60+10}, // ::: with coffeepot
+				tuning: {title: "tuning", url: "tuning.mp3", duration: 3*60+43}, // ::: subtle tuning
+				coffeepot: {title: "coffepot", url: "20140203_1_coffeepot.mp3", duration: 4*60+50}, // ::: subtle tuning
+				pitchclasses_1_a_cistern: {title: "pitchclasses_1_a_cistern", url: "20150313_pitchclasses_1_a_cistern.mp3", duration: 2*60+44}, // ::: 
+				pitchclasses_1_c_cistern: {title: "pitchclasses_1_c_cistern", url: "20150313_pitchclasses_1_c_cistern.mp3", duration: 2*60+55}, // ::: 
+				pitchclasses_1_d_cistern: {title: "pitchclasses_1_d_cistern", url: "20150313_pitchclasses_1_d_cistern.mp3", duration: 6*60+3}, // ::: 
+				pitchclasses_1_g_cistern: {title: "pitchclasses_1_g_cistern", url: "20150313_pitchclasses_1_g_cistern.mp3", duration: 4*60+32}, // ::: 
+				I: {title: "I", url: "I.mp3", duration: 4*60+15}, // ::: * accordian file?
+				II: {title: "II", url: "II.mp3", duration: 5*60+41}, // ::: strange ... not great accordian file?
+				III: {title: "III", url: "III.mp3", duration: 2*60+38}, // ::: strange accordian file?
+				V: {title: "V", url: "V.mp3", duration: 4*60+14}, // ::: *strange accordian file?
+				VII: {title: "VII", url: "VII.mp3", duration: 2*60+53}, // *::: strange accordian file?
+				IIIaIIfIcsharp: {title: "IIIaIIfIcsharp", url: "IIIaIIfIcsharp.mp3", duration: 0*60+23}, // ::: melodic
+				IIIaIIfIcsharp3: {title: "IIIaIIfIcsharp3", url: "IIIaIIfIcsharp3.mp3", duration: 0*60+20}, // ::: melodic
+				IIIaflatIIdIIIeflat1: {title: "IIIaflatIIdIIIeflat1", url: "IIIaflatIIdIIIeflat1.mp3", duration: 0*60+18}, // ::: melodic
+				IIIaflatIIdIIIeflat2: {title: "IIIaflatIIdIIIeflat2", url: "IIIaflatIIdIIIeflat2.mp3", duration: 0*60+21}, // ::: melodic
+				IIIcd: {title: "IIIcd", url: "IIIcd.mp3", duration: 0*60+11}, // ::: melodic (cut off end)
+				IIIdfd2: {title: "IIIdfd2", url: "IIIdfd2.mp3", duration: 0*60+14}, // ::: melodic (cut off end)
+				IIIdfd3: {title: "IIIdfd3", url: "IIIdfd3.mp3", duration: 0*60+22}, // ::: melodic (cut off end)
+				IIIgharmonicandopen: {title: "IIIgharmonicandopen", url: "IIIgharmonicandopen.mp3", duration: 0*60+42}, // ::: 
+				IIbflata: {title: "IIbflata", url: "IIbflata.mp3", duration: 0*60+42}, // ::: cat ::: cut off end
+				IIca: {title: "IIca", url: "IIca.mp3", duration: 0*60+11}, // ::: the call ::: cut off end
+				IIca2: {title: "IIca2", url: "IIca2.mp3", duration: 0*60+11}, // ::: the call ::: cut off end
+				IIca3_sharpattack: {title: "IIca3_sharpattack", url: "IIca3_sharpattack.mp3", duration: 0*60+10}, // ::: the call ::: cut off end
+				IIcd: {title: "IIcd", url: "IIcd.mp3", duration: 0*60+12}, // ::: the call ::: 
+				IIdbflatharmonic: {title: "IIdbflatharmonic", url: "IIdbflatharmonic.mp3", duration: 1*60+8}, // ::: ice harmonic
+				IIdfsharpharmonic: {title: "IIdfsharpharmonic", url: "IIdfsharpharmonic.mp3", duration: 0*60+38}, // ::: ice harmonic
+				IIdglissando2: {title: "IIdglissando2", url: "IIdglissando2.mp3", duration: 0*60+42}, // ::: ice harmonic
+				IVcopenandharmonics: {title: "IVcopenandharmonics", url: "IVcopenandharmonics.mp3", duration: 1*60+11}, // ::: 
+				IIIgharmonicandopen: {title: "IIIgharmonicandopen", url: "IIIgharmonicandopen.mp3", duration: 0*60+42}, // ::: 
+				IIdmidharmonic: {title: "IIdmidharmonic", url: "IIdmidharmonic.mp3", duration: 0*60+45}, // ::: 
+				IIdopen: {title: "IIdopen", url: "IIdopen.mp3", duration: 0*60+53}, // ::: 
+				IIdopen2: {title: "IIdopen2", url: "IIdopen2.mp3", duration: 1*60+21}, // ::: 
+				IIdopen3: {title: "IIdopen3", url: "IIdopen3.mp3", duration: 1*60+21}, // ::: 
+				IVcd: {title: "IVcd", url: "IVcd.mp3", duration: 0*60+13}, // ::: 
+				IVdfd: {title: "IVdfd", url: "IVdfd.mp3", duration: 0*60+24}, // ::: 
+				IVdfd2: {title: "IVdfd2", url: "IVdfd2.mp3", duration: 0*60+24}, // ::: 
+				IVdharmonic: {title: "IVdharmonic", url: "IVdharmonic.mp3", duration: 0*60+53}, // ::: 
+				IVdrrumble: {title: "IVdrrumble", url: "IVdrrumble.mp3", duration: 1*60+7}, // ::: 
+				Iaglissando: {title: "Iaglissando", url: "Iaglissando.mp3", duration: 1*60+28}, // ::: 
+				Iaglissando2: {title: "Iaglissando2", url: "Iaglissando2.mp3", duration: 1*60+3}, // ::: strange
+				Iaopen: {title: "Iaopen", url: "Iaopen.mp3", duration: 1*60+24}, // ::: strange
+				Ibflata: {title: "Ibflata", url: "Ibflata.mp3", duration: 0*60+18}, // ::: 
+				IeIIca: {title: "IeIIca", url: "IeIIca.mp3", duration: 0*60+23}, // ::: the call
+				IeIIca_short: {title: "IeIIca_short", url: "IeIIca_short.mp3", duration: 0*60+12}, // ::: the call
+				IeIIca_short: {title: "IeIIca_short", url: "IeIIca_short.mp3", duration: 0*60+12}, // ::: the call
+				Ifd: {title: "Ifd", url: "Ifd.mp3", duration: 0*60+10}, // ::: the call
+				Ifd2: {title: "Ifd2", url: "Ifd2.mp3", duration: 0*60+23}, // ::: the call
+				Ifd3_short: {title: "Ifd3_short", url: "Ifd3_short.mp3", duration: 0*60+10}, // ::: the call
+				Ifd3_short: {title: "Ifd3_short", url: "Ifd3_short.mp3", duration: 0*60+10}, // ::: the call
+				bartoktonerow: {title: "bartoktonerow", url: "bartoktonerow.mp3", duration: 2*60+26}, // ::: 2 hands cello
+				berrymansdream: {title: "berrymansdream", url: "berrymansdream.mp3", duration: 2*60+25}, // ::: cello
+				distantstormhorses: {title: "distantstormhorses", url: "distantstormhorses.mp3", duration: 4*60+25}, // ::: cello like a radio dream
+				elegy: {title: "elegy", url: "elegy.mp3", duration: 4*60+41}, // ::: cello 
+				elevator_6815_100percent: {title: "elevator_6815_100percent", url: "elevator_6815_100percent.mp3", duration: 1*60+8}, // :::  
+				elevator_6815_48percent: {title: "elevator_6815_48percent", url: "elevator_6815_48percent.mp3", duration: 1*60+9}, // :::  
+				elevator_6815_100percent: {title: "elevator_6815_68percent", url: "elevator_6815_68percent.mp3", duration: 1*60+8}, // :::  
+				// frontstreet: {title: "frontstreet", url: "frontstreet.mp3", duration: 3*60+11}, // :::  
+				gates20171012_mixdown: {title: "gates20171012_mixdown", url: "gates20171012_mixdown.mp3", duration: 6*60+37}, // :::  kelley film
+				gates20171016_mixdown: {title: "gates20171016_mixdown", url: "gates20171016_mixdown.mp3", duration: 6*60+37}, // :::  
+				ghostwind1: {title: "ghostwind1", url: "ghostwind1.mp3", duration: 0*60+34}, // :::  below bridge
+				ghostwind2: {title: "ghostwind2", url: "ghostwind2.mp3", duration: 0*60+33}, // :::  below bridge
+				glassbowl: {title: "glassbowl", url: "glassbowl.mp3", duration: 7*60+14}, // ::: 
+				glassyfires: {title: "glassyfires", url: "glassyfires.mp3", duration: 4*60+41}, // :::  
+				graphitesky: {title: "graphitesky", url: "graphitesky.mp3", duration: 3*60+35}, // :::  
+				helpless: {title: "helpless", url: "helpless.mp3", duration: 1*60+56}, // :::  
+				helpless1: {title: "helpless1", url: "helpless1.mp3", duration: 2*60+59}, // :::  
+				horsespeakssky: {title: "horsespeakssky", url: "horsespeakssky.mp3", duration: 7*60+8}, // :::  
+				joyflightlonging: {title: "joyflightlonging", url: "joyflightlonging.mp3", duration: 8*60+46}, // :::  
+				manwithamoviecamerapodcast: {title: "manwithamoviecamerapodcast", url: "manwithamoviecamerapodcast.mp3", duration: 1*60*60+7*60+28}, // :::  
+				moonoverstyx: {title: "moonoverstyx", url: "moonoverstyx.mp3", duration: 3*60+29}, // :::  
+				submarineecho: {title: "submarineecho", url: "submarineecho.mp3", duration: 0*60+37}, // :::  
+				trappedbird: {title: "trappedbird", url: "trappedbird.mp3", duration: 6*60+46}, // :::  
+				vox20200118_8_3b_mixdown: {title: "vox20200118_8_3b_mixdown", url: "vox20200118_8_3b_mixdown.mp3", duration: 2*60+5}, // :::  
+				washingtonavenuebridge: {title: "washingtonavenuebridge", url: "washingtonavenuebridge.mp3", duration: 0*60+54}, // :::  
+				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
+				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
 			},
 			instruments: {
+				//bagpipe
 				bagpipe1a: {clip: "bagpipe1a", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomlowharmonic()/10 } },
 				bagpipe1ahigh: {clip: "bagpipe1a", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				bagpipe1e: {clip: "bagpipe1e", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic()/10 } },
@@ -136,26 +279,125 @@ let getz = () => {
 				bagpipe1h: {clip: "bagpipe1h", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomlowharmonic()/10 } },
 				bagpipe1: {clip: "bagpipe1", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomlowharmonic()/4 } },
 				bagpipe1high: {clip: "bagpipe1", minvolume: 0.3, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic()/4 } },
+				bagpipegeese: {clip: "bagpipegeese", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				//birds
+				bird0: {clip: "bird0", minvolume: 0.6, maxvolume: 0.9},
+				bird1: {clip: "bird1", minvolume: 0.6, maxvolume: 0.9},
+				bird1harmonic: {clip: "bird1", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				bird2: {clip: "bird2", minvolume: 0.6, maxvolume: 0.9},
+				bird3: {clip: "bird3", minvolume: 0.6, maxvolume: 0.9},
+				birds5harmonic: {clip: "birds5", minvolume: 0.2, maxvolume: 0.5, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },
+				birdtheme: {clip: "birdtheme", minvolume: 0.5, maxvolume: 0.9, bufferparams: {} },
+				birdcanyon: {clip: "birdcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				crow1: {clip: "crow1", minvolume: 0.8, maxvolume: 0.9, playbackRate: () => { return z.tools.randominteger(6, 18)/10 } },
+
+				//percussive
 				thunk: {clip: "thunk", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				thunkhighharmonic: {clip: "thunk", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },
-				birds5harmonic: {clip: "birds5", minvolume: 0.2, maxvolume: 0.5, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },
 				knocking1: {clip: "knocking1", minvolume: 0.4, maxvolume: 0.9, playbackRate: () => { return z.tools.randominteger(4,48)/10 } },
-				cmpb20200708_5harmonic: {clip: "cmpb20200708_5", minvolume: 0.4, maxvolume: 0.9, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },//* voice
-				// cello_pitch1: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				// cello_pitch1harmonic: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				bird1harmonic: {clip: "bird1", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				birdcanyon: {clip: "birdcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				bagpipegeese: {clip: "bagpipegeese", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				celloknockcanyon: {clip: "celloknockcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				voxmct0: {clip: "voxmct0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				stapler: {clip: "stapler", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				train1: {clip: "train1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(6,18)/10 } },
-				weatherradio1: {clip: "weatherradio1", minvolume: 0.6, maxvolume: 1.0,  playbackRate: () => { return z.tools.randominteger(6,12)/10 } },
-				longbell: {clip: "longbell", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(9,18)/10 } },
+				typewriter1: {clip: "typewriter1", minvolume: 0.6, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(4,14)/10 } },
+				t0: {clip: "t0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+
+				//cello
+				// cello_pitch1: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				cello_pitch1harmonic: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				celloknockcanyon: {clip: "celloknockcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				// cellothunktelephone: {clip: "cellothunktelephone", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				// cellothunkradio: {clip: "cellothunkradio", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
-				t0: {clip: "t0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				cmpb20200708_3harmonic: {clip: "cmpb20200708_3", minvolume: 0.4, maxvolume: 0.9 },//* voice			
+				cmpb20200708_4harmonic: {clip: "cmpb20200708_4", minvolume: 0.4, maxvolume: 0.9 },//* voice			
+
+				//clarinet tones
+				clarinet1: {clip: "clarinet1", minvolume: 0.5, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic(8, 20)/10 } },
+				clarinet2: {clip: "20171218_clarinet2", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic(8, 20)/10 } },
+				clarinetI: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.I(100) / 100 } },
+				clarinetIII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.III(100) / 100 } },
+				clarinetII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.II(100) / 100 } },
+				clarinetIV: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.IV(100) / 100 } },
+				clarinetV: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.V(100) / 100 } },
+				clarineti: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.i(100) / 100 } },
+				clarinetvii: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.vii(100) / 100 } },
+				clarinetVIII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.VIII(100) / 100 } },
+				bell2: {clip: "bell2", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(5,20)/10 } },
+				bell6: {clip: "bell6", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(5,20)/10 } },
+				bell11: {clip: "bell11", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(4,13)/10 } },
+				longbell: {clip: "longbell", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(9,18)/10 } },
+				icebowedvibes1: {clip: "icebowedvibes1", minvolume: 0.2, maxvolume: 0.4, playbackRate: () => { return z.tools.randomharmonic(5,13)/10 } },
+				icebowedcymbal2: {clip: "icebowedcymbal2", minvolume: 0.3, maxvolume: 0.4, playbackRate: () => { return z.tools.randomharmonic(5,11)/10 } },
+				//trains
 				tornadosirenharmonic: {clip: "tornadosiren", minvolume: 0.1, maxvolume: 0.6, playbackRate: () => { return z.tools.randomlowharmonic()/10 } },									
+				submarineecho1: {clip: "submarineecho", minvolume: 0.2, maxvolume: 0.8 },
+				submarineecho2: {clip: "submarineecho", minvolume: 0.2, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic(4,10)/10  } },
+				train1: {clip: "train1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(6,18)/10 } },
+				weatherradio1: {clip: "weatherradio1", minvolume: 0.6, maxvolume: 1.0,  playbackRate: () => { return z.tools.randominteger(6,12)/10 } },
+				fan1: {clip: "fan1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(6,20)/10 } },
+				surf: {clip: "surf", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(4,20)/10 } },
+				silence1: {clip: "train1", minvolume: 0.1, maxvolume: 0.2},
+				silence2: {clip: "fan1", minvolume: 0.1, maxvolume: 0.2},
+				silence3: {clip: "surf", minvolume: 0.1, maxvolume: 0.2},
+				//vox
+				magsII_a: {clip: "magsSessionClips_1", minvolume: 0.1, maxvolume: 0.6},
+				magsII_b: {clip: "magsSessionClips_1b", minvolume: 0.1, maxvolume: 0.6},
+				magsIII_a: {clip: "magsSessionClips_2a", minvolume: 0.1, maxvolume: 0.6},
+				magsIII_b: {clip: "magsSessionClips_2b", minvolume: 0.1, maxvolume: 0.6},
+				magsIII_c: {clip: "magsSessionClips_2c", minvolume: 0.1, maxvolume: 0.6},
+				magsIV_a: {clip: "magsSessionClips_3a", minvolume: 0.1, maxvolume: 0.6},
+				magsIV_b: {clip: "magsSessionClips_3b", minvolume: 0.1, maxvolume: 0.6},
+				magsV_a: {clip: "magsSessionClips_4", minvolume: 0.1, maxvolume: 0.6},
+				magsV_b: {clip: "magsSessionClips_4b", minvolume: 0.1, maxvolume: 0.6},
+				magsvii_a: {clip: "magsSessionClips_5a", minvolume: 0.1, maxvolume: 0.6},
+				magsvii_b: {clip: "magsSessionClips_5b", minvolume: 0.1, maxvolume: 0.6},
+				voxmct0: {clip: "voxmct0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				cmpb20200708_5harmonic: {clip: "cmpb20200708_5", minvolume: 0.4, maxvolume: 0.9, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },//* voice			
+			},
+			intervals: {
+				lowi: function(basetone){ return Math.floor(basetone/4) },
+				i: function(basetone){ return Math.floor(basetone/2) },
+				I: function(basetone){ return Math.floor(basetone/1) },
+				II: function(basetone){ return Math.floor(basetone*9/8) },
+				III: function(basetone){ return Math.floor(basetone*5/4) },
+				iii: function(basetone){ return Math.floor(basetone*6/5) },
+				IV: function(basetone){ return Math.floor(basetone*4/3) },
+				V: function(basetone){ return Math.floor(basetone*3/2) },
+				VI: function(basetone){ return Math.floor(basetone*5/3) },
+				VII: function(basetone){ return Math.floor(basetone*15/8) },
+				vii: function(basetone){ return Math.floor(basetone*9/5) },
+				VIII: function(basetone){ return Math.floor(basetone*2) },
+			},
+			oldplaylists: {
+				clarinet: [ ["clarinetI"], ["clarinetII", "clarinetIV", "clarinetV", "clarinetI"] ],
+				clarinetnotes: [ ["clarinetI", "clarineti"], ["clarinetII"], ["clarinetIII"], ["clarinetIV"], ["clarinetV"], ["clarinetvii"], ["clarinetII", "clarinetIV", "clarinetV", "clarinetI"], ["clarineti", "clarinetIII", "clarinetV", "clarinetI"] ],
+				clarinetchord: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetII", "clarinetIII", "clarinetIII", "clarinetIV","clarinetIV","clarinetIV","clarinetV","clarinetV","clarinetV","clarinetV","clarinetV", "clarinetV","clarinetV","clarinetvii"] ],
+				clarinetchordwithradio: [ ["weatherradio1","silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetII", "clarinetIII", "clarinetIII", "clarinetIV","clarinetIV","clarinetIV","clarinetV","clarinetV","clarinetV","clarinetV","clarinetV", "clarinetV","clarinetV","clarinetvii"] ],
+				clarinetchordIandV: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetV","clarinetV","clarinetV","clarinetV","clarinetV", "clarinetV","clarinetV"] ],
+				clarinetchordI: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetV"] ],
+				clarinetchordbell: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetIII", "clarinetIV","clarinetIV","clarinetIV","clarinetV","clarinetV","clarinetV","clarinetV","clarinetV", "clarinetV","clarinetV"] ],
+				clarinetchordwithcrow: [ ["crow1","silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetII", "clarinetIII", "clarinetIII", "clarinetIV","clarinetIV","clarinetIV","clarinetV","clarinetV","clarinetV","clarinetV","clarinetV", "clarinetV","clarinetV","clarinetvii"] ],
+				bells: [ ["bell2", "bell6", "bell11"], ["bell2", "bell6", "bell11"] ],
+				birds: [ ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["bird0", "bird1", "bird2", "bird3"], ["birdtheme"] ],
+				crow: [ ["crow1"] ],
+				weatherradio: [ ["weatherradio1", "clarinet1", "clarinet1", "clarinet1"] ],
+				typewriter: [ ["typewriter1"] ],
+				orbit: [ ["weatherradio1", "clarinet1", "clarinet1", "clarinet1"], ["clarinet1", "clarinet1"], ["clarinet1", "bell6"], ["bell6"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"] ],
+				chance: [  ["bell2", "bell6", "bell11"], ["clarinet1"], ["birdtheme"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["crow1"], ["typewriter1"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"], ["thunk"], ["clarinet1"], ["bell2", "bell6", "bell11"], ["weatherradio1", "clarinet1", "clarinet1"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"] ],
+				all: [  ["bell2", "bell6", "bell11"], ["clarinet1"], ["birdtheme","silence1","silence2","silence3"],  ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["crow1"], ["clarinet1"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"],["bell11"], ["clarinet1"], ["weatherradio1", "train1", "fan1", "surf"], ["typewriter1"], ["birdtheme"],  ["surf", "icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"], ["thunk"], ["typewriter1"], ["bell2", "bell6", "bell11"],  ["clarinet1"], ["surf", "fan1"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["thunk", "weatherradio1"], [ "weatherradio1", "train1", "fan1", "surf" ], ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti","clarinetIV", "clarinetV","magsIV_a","magsV_a"], ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti","clarinetIV", "clarinetV","magsIV_a","magsV_a", "weatherradio1", "train1", "fan1", "surf"], ["train1","silence1","silence2","silence3"] ],
+				draw: [ ["bell2", "bell6", "bell11"], ["clarinet1"], ["birdtheme","silence1","silence2","silence3"],  ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["crow1"], ["clarinet1"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"],["bell11"], ["clarinet1"], ["weatherradio1", "train1", "fan1", "surf"], ["typewriter1"], ["birdtheme"],  ["surf", "icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"], ["thunk"], ["typewriter1"], ["bell2", "bell6", "bell11"],  ["clarinet1"], ["surf", "fan1"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["thunk", "weatherradio1"], [ "weatherradio1", "train1", "fan1", "surf" ], ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti","clarinetIV", "clarinetV"], ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti", "clarinetIV", "clarinetV", "weatherradio1", "train1", "fan1", "surf"], ["train1", "weatherradio1", "train1", "fan1", "surf", "silence1","silence2","silence3"] ],
+				chance0: [  ["bell2", "bell6", "bell11"], ["clarinet1"], ["birdtheme"],  ["clarinet2", "surf", "fan1"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["crow1"], ["clarinet1"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"],["bell11"], ["clarinet1"], ["weatherradio1", "train1", "fan1", "surf"], ["typewriter1"], ["birdtheme"],  ["surf", "icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"], ["thunk"], ["typewriter1"], ["bell2", "bell6", "bell11"],  ["clarinet1"], ["submarineecho1", "surf", "submarineecho2", "fan1"], ["bird0", "bird1", "bird2", "bird3", "birdtheme"], ["thunk", "weatherradio1"], [ "weatherradio1", "train1", "fan1", "surf" ] ],
+				hymn: [  ["clarinetI", "clarineti"], ["clarinet1"], ["train1", "surf", "fan1"], ["crow1"], ["clarineti", "clarinetI", "clarinetIV", "clarinetV"], ["clarinetII", "clarinetI", "clarinetIV", "clarinetvii"], ["clarineti", "clarinetI", "clarinetIII", "clarinetV"], ["icebowedvibes1", "icebowedvibes1", "icebowedcymbal2"], ["weatherradio1", "train1", "fan1", "surf"], ["typewriter1"], ["surf"], ["clarinet1"], ["thunk", "weatherradio1"], [ "weatherradio1", "train1", "fan1", "surf" ] ],
+				silence: [  ["silence1", "silence2", "silence3"] ],
+				silencewithradio: [  ["weatherradio1", "train1", "silence1", "silence2", "silence3", "silence1", "silence2", "silence3","silence1", "silence2", "silence3", "silence1", "silence2", "silence3"] ],
+				mags: [ ["crow1","silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti","clarinetIV", "clarinetV","magsII_a","magsII_b","magsIII_a","magsIII_b","magsIII_c","magsIV_a","magsIV_b","magsV_a","magsV_b","magsvii_a","magsvii_b"] ],
+				magschord: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetIV", "clarinetV","magsII_a","magsII_b","magsIII_a","magsIII_b","magsIII_c","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b", "magsV_a","magsV_b", "magsV_a","magsV_b","magsvii_a","magsvii_b"] ],
+				magschordwithradio: [ ["weatherradio1", "silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetIV", "clarinetV","magsII_a","magsII_b","magsIII_a","magsIII_b","magsIII_c","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b", "magsV_a","magsV_b", "magsV_a","magsV_b","magsvii_a","magsvii_b"] ],
+				magschordbell: [ ["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetIV", "clarinetV","magsIII_a","magsIII_b","magsIII_c","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b", "magsV_a","magsV_b", "magsV_a","magsV_b"] ],
+				magschordwithcrow: [ ["crow1", "silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetIV", "clarinetV","magsII_a","magsII_b","magsIII_a","magsIII_b","magsIII_c","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b","magsIV_a","magsIV_b","magsV_a","magsV_b", "magsV_a","magsV_b", "magsV_a","magsV_b","magsvii_a","magsvii_b"] ],
+				// grains: [ ["weatherradio1"],["thunk"],["typewriter1"], ["icebowedvibes1", "bell2", "bell6", "bell11"] ],
+				grains: [ ["icebowedvibes1", "bell2", "bell6", "bell11"], ["crow1"],["bird0", "bird1", "bird2", "bird3", "birdtheme"] ],
+				// talk: [  ["thunk"], ["submarineecho1", "clarinet2", "surf", "fan1"], ["submarineecho2", "thunk","typewriter1"], ["birdtheme","bird0", "bird1", "bird2", "bird3", "birdtheme"], ["bell2", "bell6", "bell11"], ["thunk"], ["typewriter1"], ["submarineecho1", "surf"], ["submarineecho2", "fan1"], ["crow1"], ["surf", "train1", "fan1", "thunk"], ["typewriter1"], ["thunk"], ["crow1"], [ "clarinet2", "weatherradio1", "train1", "fan1", "surf" ], ["typewriter1"], ["thunk"], ["crow1"] ],
+				talk: [  ["thunk"], ["thunk","typewriter1"], ["birdtheme","bird0", "bird1", "bird2", "bird3", "birdtheme"], ["bell2", "bell6", "bell11"], ["thunk"], ["typewriter1"], ["surf"], ["surf", "train1", "fan1", "thunk"], ["typewriter1"], ["thunk"], ["crow1"], [ "clarinet2", "weatherradio1", "train1", "fan1", "surf" ], ["typewriter1"], ["thunk"], ["crow1"] ],
+				// test: [  ["submarineecho1", "clarinet2", "surf", "fan1"], ["submarineecho2", "fan1"], ["submarineecho1", "surf", "submarineecho2", "train1", "fan1", "thunk"] ],
+				test: [["silence1","silence2","silence3","clarinetI", "clarineti", "clarinetI", "clarineti","clarinetI", "clarineti","clarinetIV", "clarinetV","magsII_a","magsIII_a","magsIV_a","magsV_a", "weatherradio1", "train1", "fan1", "surf"], ["magsII_a","magsIII_a","magsIV_a","magsV_a", "thunk", "crow1"]],
 			},
 		},
 		texts: {
@@ -201,10 +443,10 @@ let getz = () => {
 					z.radio.loading.push(clip.url);
 					let request = new XMLHttpRequest();
 					//for localhost testing
-					// request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
+					request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url);
 					// for deploy
-					request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
+					// request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + "/"  + clip.url);
 					request.responseType = "arraybuffer";
 					request.onload = () =>  {
@@ -281,7 +523,7 @@ let getz = () => {
 			try {
 				let instrument = z.data.sound.instruments[instrumentname];
 				let clip = z.radio.clips[instrument.clip];
-				z.tools.logmsg("***buffer requested = " + instrument.clip + " z.radio.nbuffersplaying = " + z.radio.nbuffersplaying);
+				// z.tools.logmsg("***buffer requested = " + instrument.clip + " z.radio.nbuffersplaying = " + z.radio.nbuffersplaying);
 				if(clip.loaded && (z.radio.nbuffersplaying<z.radio.maxbuffersplaying-1 || z.radio.nbuffersplaying>z.radio.maxbuffersplaying+2)) {
 					let rate = instrument.playbackRate ? instrument.playbackRate() : 1.0;
 					try {
@@ -316,9 +558,32 @@ let getz = () => {
 			}
 			catch(err) { z.tools.logerror("line playbuffer" + err) }
 		},
-		playtracks: ( { volume=0.8, delay=0, fadetime=1, duration=2, tracks=[] } ) => {
-
-		}
+		// playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.8, audioel = z.tools.createElement({parentel:z.elements["body"], tag: "audio"})} = {} ) => {
+		playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.2, audioel} = {} ) => {
+			j = order==="random" ? z.tools.randominteger(0,tracks.length) : j;
+			z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
+			audioel.addEventListener('ended', (event) => {
+				z.tools.logmsg("done playing " + tracks[j]);
+				j = (j+1)%tracks.length;
+				z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
+			});
+		},
+		playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel } = {} ) => {
+			audioel.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
+			audioel.volume=volume;
+			if(z.radio.soundplaying) {
+				let playPromise = audioel.play();
+				playPromise.then( () => {
+					// Automatic playback started!
+					// Show playing UI.
+				})
+				.catch(error => {
+					// Auto-play was prevented
+					// Show paused UI.
+				});
+			}
+			z.tools.logmsg("now playing " + audioel.src);
+		},
 	};
 	//core elements
 	z.elements = ( () => {
