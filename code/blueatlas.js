@@ -152,6 +152,7 @@ let getz = () => {
 				between2desertstheswan: {title: "between2deserts / two - the swan", url: "theswanpodcast.mp3", duration:2970}, //49:33
 				nyxtrack3: {title: "nyx ::: track #3", url: "nyx3.mp3", duration:200}, //3:20
 				cistern5: {title: "cistern #5", url: "cistern20140630_5_cistern.mp3", duration:1790}, //29:51
+				clarinetall: {title: "clarinetall", url: "clarinetall.mp3", duration:3*60+33}, 
 				echolightning: {title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
 				// sophroniasoundscape 
 				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
@@ -247,10 +248,12 @@ let getz = () => {
 				elegy: {title: "elegy", url: "elegy.mp3", duration: 4*60+41}, // ::: cello 
 				elevator_6815_100percent: {title: "elevator_6815_100percent", url: "elevator_6815_100percent.mp3", duration: 1*60+8}, // :::  
 				elevator_6815_48percent: {title: "elevator_6815_48percent", url: "elevator_6815_48percent.mp3", duration: 1*60+9}, // :::  
-				elevator_6815_100percent: {title: "elevator_6815_68percent", url: "elevator_6815_68percent.mp3", duration: 1*60+8}, // :::  
+				elevator_6815_68percent: {title: "elevator_6815_68percent", url: "elevator_6815_68percent.mp3", duration: 1*60+8}, // :::  
 				// frontstreet: {title: "frontstreet", url: "frontstreet.mp3", duration: 3*60+11}, // :::  
 				gates20171012_mixdown: {title: "gates20171012_mixdown", url: "gates20171012_mixdown.mp3", duration: 6*60+37}, // :::  kelley film
 				gates20171016_mixdown: {title: "gates20171016_mixdown", url: "gates20171016_mixdown.mp3", duration: 6*60+37}, // :::  
+				geese20201220_1d: {title: "geese20201220_1d", url: "geese20201220_1d.mp3", duration: 2*60+47}, // :::  strange bagpipe
+				
 				ghostwind1: {title: "ghostwind1", url: "ghostwind1.mp3", duration: 0*60+34}, // :::  below bridge
 				ghostwind2: {title: "ghostwind2", url: "ghostwind2.mp3", duration: 0*60+33}, // :::  below bridge
 				glassbowl: {title: "glassbowl", url: "glassbowl.mp3", duration: 7*60+14}, // ::: 
@@ -265,6 +268,8 @@ let getz = () => {
 				submarineecho: {title: "submarineecho", url: "submarineecho.mp3", duration: 0*60+37}, // :::  
 				trappedbird: {title: "trappedbird", url: "trappedbird.mp3", duration: 6*60+46}, // :::  
 				vox20200118_8_3b_mixdown: {title: "vox20200118_8_3b_mixdown", url: "vox20200118_8_3b_mixdown.mp3", duration: 2*60+5}, // :::  
+				therider0: {title: "therider0", url: "therider0.mp3", duration: 3*60+37}, // ::: whisper echo 
+				therider0b: {title: "therider0b", url: "therider0b.mp3", duration: 3*60+30}, // ::: less echo voice
 				washingtonavenuebridge: {title: "washingtonavenuebridge", url: "washingtonavenuebridge.mp3", duration: 0*60+54}, // :::  
 				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
 				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
@@ -300,7 +305,7 @@ let getz = () => {
 				t0: {clip: "t0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 
 				//cello
-				// cello_pitch1: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				cello_pitch1: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				cello_pitch1harmonic: {clip: "cello_pitch1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				celloknockcanyon: {clip: "celloknockcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				// cellothunktelephone: {clip: "cellothunktelephone", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
@@ -309,8 +314,8 @@ let getz = () => {
 				cmpb20200708_4harmonic: {clip: "cmpb20200708_4", minvolume: 0.4, maxvolume: 0.9 },//* voice			
 
 				//clarinet tones
-				clarinet1: {clip: "clarinet1", minvolume: 0.5, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic(8, 20)/10 } },
-				clarinet2: {clip: "20171218_clarinet2", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic(8, 20)/10 } },
+				clarinet1: {clip: "clarinet1", minvolume: 0.5, maxvolume: 0.9, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				clarinet2: {clip: "clarinet2", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				clarinetI: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.I(100) / 100 } },
 				clarinetIII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.III(100) / 100 } },
 				clarinetII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.II(100) / 100 } },
@@ -319,6 +324,7 @@ let getz = () => {
 				clarineti: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.i(100) / 100 } },
 				clarinetvii: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.vii(100) / 100 } },
 				clarinetVIII: {clip: "clarinet1", minvolume: 0.4, maxvolume: 0.8, playbackRate: () => { return z.data.sound.intervals.VIII(100) / 100 } },
+				//bells
 				bell2: {clip: "bell2", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(5,20)/10 } },
 				bell6: {clip: "bell6", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(5,20)/10 } },
 				bell11: {clip: "bell11", minvolume: 0.5, maxvolume: 0.8, playbackRate: () => { return z.tools.randominteger(4,13)/10 } },
@@ -337,18 +343,20 @@ let getz = () => {
 				silence2: {clip: "fan1", minvolume: 0.1, maxvolume: 0.2},
 				silence3: {clip: "surf", minvolume: 0.1, maxvolume: 0.2},
 				//vox
+				mags1: {clip: "magsSessionClips_1", minvolume: 0.3, maxvolume: 0.8 },
+				mags1harmonic: {clip: "magsSessionClips_1", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomlowharmonic()/10 } },
+				mags2harmonic: {clip: "magsSessionClips_2a", minvolume: 0.3, maxvolume: 0.8, playbackRate: () => { return z.tools.randomlowharmonic()/10 } },
+
 				magsII_a: {clip: "magsSessionClips_1", minvolume: 0.1, maxvolume: 0.6},
-				magsII_b: {clip: "magsSessionClips_1b", minvolume: 0.1, maxvolume: 0.6},
 				magsIII_a: {clip: "magsSessionClips_2a", minvolume: 0.1, maxvolume: 0.6},
-				magsIII_b: {clip: "magsSessionClips_2b", minvolume: 0.1, maxvolume: 0.6},
-				magsIII_c: {clip: "magsSessionClips_2c", minvolume: 0.1, maxvolume: 0.6},
-				magsIV_a: {clip: "magsSessionClips_3a", minvolume: 0.1, maxvolume: 0.6},
 				magsIV_b: {clip: "magsSessionClips_3b", minvolume: 0.1, maxvolume: 0.6},
-				magsV_a: {clip: "magsSessionClips_4", minvolume: 0.1, maxvolume: 0.6},
 				magsV_b: {clip: "magsSessionClips_4b", minvolume: 0.1, maxvolume: 0.6},
-				magsvii_a: {clip: "magsSessionClips_5a", minvolume: 0.1, maxvolume: 0.6},
+				// magsvii_a: {clip: "magsSessionClips_5a", minvolume: 0.1, maxvolume: 0.6},
 				magsvii_b: {clip: "magsSessionClips_5b", minvolume: 0.1, maxvolume: 0.6},
 				voxmct0: {clip: "voxmct0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
+				voxmct0b: {clip: "voxmct0", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randominteger(6,12)/10 } },
+				vox20200124_itwas: {clip: "vox20200124_itwas", minvolume: 0.4, maxvolume: 1.0 },
+				lookingforyou0: {clip: "lookingforyou0", minvolume: 0.4, maxvolume: 1.0 },
 				cmpb20200708_5harmonic: {clip: "cmpb20200708_5", minvolume: 0.4, maxvolume: 0.9, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },//* voice			
 			},
 			intervals: {
@@ -443,10 +451,10 @@ let getz = () => {
 					z.radio.loading.push(clip.url);
 					let request = new XMLHttpRequest();
 					//for localhost testing
-					request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
+					// request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url);
 					// for deploy
-					// request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
+					request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + "/"  + clip.url);
 					request.responseType = "arraybuffer";
 					request.onload = () =>  {
@@ -540,14 +548,14 @@ let getz = () => {
 						};
 						++z.radio.nbuffersplaying;
 						let now = z.radio.player.context.currentTime;
-						let dur = clip.duration < duration ? clip.duration/rate : rate*duration/rate;
+						let dur = Math.min(duration/rate, clip.duration);
 						let dt = Math.min(fadetime, dur*.25);
 						let offset = z.tools.randominteger(0, (dur-4*dt)*10)/10;
 						// source.start(now, offset, dt*4); //parameters (when,offset,duration)
 						vca.gain.setValueAtTime(0.001, now);
 						vca.gain.exponentialRampToValueAtTime(volume, now + dt);
 						vca.gain.setValueAtTime(volume, dur - 2*dt);
-						vca.gain.exponentialRampToValueAtTime(0.001, now + dur-dt*0.5 );
+						vca.gain.exponentialRampToValueAtTime(0.001, now + dur-dt/2 );
 						source.start(now, offset, dur); //parameters (when,offset,duration)
 						// z.tools.logmsg("playing = " + clip.url);
 					} catch(e) { z.tools.logerror("error applying params to audio buffer e::: " + e) }
@@ -568,14 +576,13 @@ let getz = () => {
 				z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
 			});
 		},
-		playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel } = {} ) => {
+		playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel, start=0 } = {} ) => {
 			audioel.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
 			audioel.volume=volume;
+			audioel.currentTime=start;
 			if(z.radio.soundplaying) {
 				let playPromise = audioel.play();
 				playPromise.then( () => {
-					// Automatic playback started!
-					// Show playing UI.
 				})
 				.catch(error => {
 					// Auto-play was prevented
