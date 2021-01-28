@@ -153,6 +153,7 @@ let getz = () => {
 				nyxtrack3: {title: "nyx ::: track #3", url: "nyx3.mp3", duration:200}, //3:20
 				cistern5: {title: "cistern #5", url: "cistern20140630_5_cistern.mp3", duration:1790}, //29:51
 				clarinetall: {title: "clarinetall", url: "clarinetall.mp3", duration:3*60+33}, 
+				clarinetnotes: {title: "clarinetnotes", url: "clarinetnotes.mp3", duration:2*60+32}, 
 				echolightning: {title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
 				// sophroniasoundscape 
 				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
@@ -249,10 +250,31 @@ let getz = () => {
 				elevator_6815_100percent: {title: "elevator_6815_100percent", url: "elevator_6815_100percent.mp3", duration: 1*60+8}, // :::  
 				elevator_6815_48percent: {title: "elevator_6815_48percent", url: "elevator_6815_48percent.mp3", duration: 1*60+9}, // :::  
 				elevator_6815_68percent: {title: "elevator_6815_68percent", url: "elevator_6815_68percent.mp3", duration: 1*60+8}, // :::  
+				rubbedpianoharp0: {title: "rubbedpianoharp0", url: "rubbedpianoharp0.mp3", duration: 0*60+52}, // :::  
+				rubbedbassdrum0: {title: "rubbedbassdrum0", url: "rubbedbassdrum0.mp3", duration: 2*60+47}, // :::  
+				bowedvibe0: {title: "bowedvibe0", url: "bowedvibe0.mp3", duration: 4*60+21}, // :::  
+				bowedcymbol0: {title: "bowedcymbol0", url: "bowedcymbol0.mp3", duration: 3*60+4}, // :::  
+				steeldrum0: {title: "steeldrum0", url: "steeldrum0.mp3", duration: 1*60+4}, // :::  
+				steeldrum0b: {title: "steeldrum0b", url: "steeldrum0b.mp3", duration: 1*60+9}, // :::  
+				clarinetjazz0b: {title: "clarinetjazz0b", url: "clarinetjazz0b.mp3", duration: 1*60+1}, // :::  
+				piano2: {title: "piano2", url: "piano2.mp3", duration: 2*60+52}, // :::  slight echo .. mct both piano & harp
+				piano2b: {title: "piano2b", url: "piano2b.mp3", duration: 2*60+52}, // :::  no echo .. mct both piano & harp
+				piano3a: {title: "piano3a", url: "piano3a.mp3", duration: 1*60+18}, // :::  mct piano
+				piano3b: {title: "piano3b", url: "piano3b.mp3", duration: 1*60+13}, // :::  mct harp
+				typewriterlong: {title: "typewriterlong", url: "typewriterlong.mp3", duration: 0*60+42}, // :::
+				uniondepotcistern: {title: "uniondepotcistern", url: "uniondepotcistern.mp3", duration: 3*60+7}, // :::
+				trainlong1: {title: "trainlong1", url: "trainlong1.mp3", duration: 3*60+1}, // :::
+				trainlong2: {title: "trainlong2", url: "trainlong2.mp3", duration: 2*60+57}, // :::
+				traffickcorebirds1: {title: "traffickcorebirds1", url: "traffickcorebirds1.mp3", duration: 11*60+15}, // :::
+				traffickcorebirds1: {title: "traffickcorebirds1", url: "traffickcorebirds1.mp3", duration: 11*60+15}, // :::
+				birdcry4: {title: "birdcry4", url: "birdcry4.mp3", duration: 0*60+12}, // :::
+				
 				// frontstreet: {title: "frontstreet", url: "frontstreet.mp3", duration: 3*60+11}, // :::  
 				gates20171012_mixdown: {title: "gates20171012_mixdown", url: "gates20171012_mixdown.mp3", duration: 6*60+37}, // :::  kelley film
 				gates20171016_mixdown: {title: "gates20171016_mixdown", url: "gates20171016_mixdown.mp3", duration: 6*60+37}, // :::  
 				geese20201220_1d: {title: "geese20201220_1d", url: "geese20201220_1d.mp3", duration: 2*60+47}, // :::  strange bagpipe
+				coffepot1eminor: {title: "coffepot1eminor", url: "coffepot1eminor.mp3", duration: 1*60+12}, // :::  
+				coffepot1: {title: "coffepot1", url: "coffepot1.mp3", duration: 1*60+12}, // :::  
 				
 				ghostwind1: {title: "ghostwind1", url: "ghostwind1.mp3", duration: 0*60+34}, // :::  below bridge
 				ghostwind2: {title: "ghostwind2", url: "ghostwind2.mp3", duration: 0*60+33}, // :::  below bridge
@@ -268,8 +290,15 @@ let getz = () => {
 				submarineecho: {title: "submarineecho", url: "submarineecho.mp3", duration: 0*60+37}, // :::  
 				trappedbird: {title: "trappedbird", url: "trappedbird.mp3", duration: 6*60+46}, // :::  
 				vox20200118_8_3b_mixdown: {title: "vox20200118_8_3b_mixdown", url: "vox20200118_8_3b_mixdown.mp3", duration: 2*60+5}, // :::  
+				vox20200124_itwas: {title: "vox20200124_itwas", url: "vox20200124_itwas.mp3", duration: 0*60+8}, // :::  
+				vox20200124_itwas: {title: "vox20200124_itwas", url: "vox20200124_itwas.mp3", duration: 0*60+8}, // :::  
+				lookingforyou0: {title: "lookingforyou0", url: "lookingforyou0.mp3", duration: 0*60+11}, // :::  
+				mctbreathing0: {title: "mctbreathing0", url: "mctbreathing0.mp3", duration: 0*60+23}, // :::  
+				
 				therider0: {title: "therider0", url: "therider0.mp3", duration: 3*60+37}, // ::: whisper echo 
 				therider0b: {title: "therider0b", url: "therider0b.mp3", duration: 3*60+30}, // ::: less echo voice
+				numberstation0: {title: "numberstation0", url: "numberstation0.mp3", duration: 0*60+55}, // :::  (excerpt from rider0)
+				numberstation0b: {title: "numberstation0b", url: "numberstation0b.mp3", duration: 0*60+52}, // ::: less echo voice
 				washingtonavenuebridge: {title: "washingtonavenuebridge", url: "washingtonavenuebridge.mp3", duration: 0*60+54}, // :::  
 				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
 				worksample09minutes_bent2: {title: "worksample09minutes_bent2", url: "worksample09minutes_bent2.mp3", duration: 2*60+41}, // :::  
@@ -291,6 +320,7 @@ let getz = () => {
 				bird1harmonic: {clip: "bird1", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },
 				bird2: {clip: "bird2", minvolume: 0.6, maxvolume: 0.9},
 				bird3: {clip: "bird3", minvolume: 0.6, maxvolume: 0.9},
+				birdcry: {clip: "birdcry", minvolume: 0.4, maxvolume: 0.9},
 				birds5harmonic: {clip: "birds5", minvolume: 0.2, maxvolume: 0.5, playbackRate: () => { return z.tools.randomhighharmonic()/10 } },
 				birdtheme: {clip: "birdtheme", minvolume: 0.5, maxvolume: 0.9, bufferparams: {} },
 				birdcanyon: {clip: "birdcanyon", minvolume: 0.8, maxvolume: 1.0, playbackRate: () => { return z.tools.randomharmonic()/10 } },

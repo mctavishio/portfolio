@@ -167,10 +167,19 @@ z.radio.start(z);
 	// const tracks = ["IIIaIIfIcsharp", "IIIaIIfIcsharp3", "IIIdfd2", "IIIdfd3"];
 	// const tracks = ["IIIdfd2", "IIIdfd3", "IIIgharmonicandopen", "IIbflata", "IIca", "IIca2", "IIca3_sharpattack", "IIcd", "IIdbflatharmonic", "IIdfsharpharmonic", "IIdglissando2", "IVcopenandharmonics", "IIIgharmonicandopen", "IIdmidharmonic", "IIdopen", "IIdopen2", "IIdopen3", "IVcd", "IVdfd", "IVdfd2", "IVdharmonic", "IVdrrumble", "Iaglissando", "Iaglissando2", "Iaopen", "Ibflata", "IeIIca", "IeIIca_short", "IeIIca_short", "Ifd", "Ifd2"];
 	// const tracks = ["geese20201220_1d", "gates20171016_mixdown", "elevator_6815_100percent"];
-	// const tracks = ["clarinetall", "pitchclasses_1_g_cistern", "pitchclasses_1_d_cistern", "pitchclasses_1_c_cistern", "pitchclasses_1_g_cistern", "pitchclasses_1_a_cistern", "pitchclasses_1_d_cistern"];
+	// const tracks = [ "pitchclasses_1_g_cistern", "pitchclasses_1_d_cistern", "pitchclasses_1_c_cistern", "pitchclasses_1_g_cistern", "pitchclasses_1_a_cistern", "pitchclasses_1_d_cistern"];
 	// const tracks = ["therider0b", "therider0", "clarinetall", "vox20200118_8_3b_mixdown", "trappedbird"];
-	const tracks = ["therider0b", "therider0"];
-	const elements = [0,1,2,3].reduce( (acc, j) => {
+	const tracks = ["therider0", "numberstation0b", "therider0b"];
+	// const tracks = ["vox20200118_8_3b_mixdown", "numberstation0"];
+	// const tracks = ["coffepot1eminor", "coffepot1"];
+	// const tracks = ["clarinetjazz0b"];
+	// const tracks = ["piano2b", "piano2", "piano3b"];
+	// const tracks = ["typewriterlong"];
+	// const tracks = ["uniondepotcistern", "trainlong1", "trainlong2"];
+
+	// const tracks = ["bowedvibe0", "bowedcymbol0", "clarinetnotes", "clarinetall",];
+
+	const elements = [0,1,2].reduce( (acc, j) => {
 		let el = z.tools.createElement({
 			parentel: z.elements["body"].el, tag: "audio",
 			attributes: [
@@ -184,17 +193,19 @@ z.radio.start(z);
 
 	const playtrack = (el, track) => {
 		let duration = z.tools.randominteger(4, z.data.sound.tracks[track].duration);
+		// let duration = z.tools.randominteger(4, 20);
 		let start = z.tools.randominteger(0,z.data.sound.tracks[track].duration-duration);
 		let dt = Math.floor(Math.min(2, duration/4));
 		
 		el.currentTime=start;
 		el.setAttribute("start", start);
 		el.setAttribute("end", start+duration);
-		el.setAttribute("dt", dt); el.setAttribute("volume", 0.6);
+		el.setAttribute("dt", dt); el.setAttribute("volume", 0.3);
 
 		el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
 		el.volume=0;
-		el.currentTime=start; el.playbackRate = z.tools.randominteger(50,200)/100;
+		el.currentTime=start; 
+		// el.playbackRate = z.tools.randominteger(100,160)/100;
 		z.tools.logmsg("in playtrack track = " + track + " duration = " + duration + " dt = " + dt + " start = " + start);
 		if(z.radio.soundplaying) {
 			let playPromise = el.play();
@@ -281,14 +292,19 @@ z.radio.start(z);
 		// ((dt=251000, n=5, graindt=600, duration=2, chance=0.8, volume=0.3) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration, fadetime: duration*.1, volume:volume, instruments: ["bagpipe1high", "bagpipegeese"] } })(),
 		// ((dt=118000, n=2, graindt=600, duration=4, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
 		// ((dt=119000, n=1, graindt=900, duration=5, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
-		((dt=51000, n=8, graindt=480, duration=10, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["mags1harmonic", "magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b", "magsV_b", "magsV_b","magsvii_b"] } })(),
-		((dt=51000, n=6, graindt=680, duration=8, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b","magsV_b", "magsV_b","magsvii_b"] } })(),
-		((dt=51000, n=3, graindt=1080, duration=10, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b","magsV_b", "magsV_b","magsvii_b"] } })(),
+		// ((dt=51000, n=8, graindt=480, duration=10, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["mags1harmonic", "magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b", "magsV_b", "magsV_b","magsvii_b"] } })(),
+		// ((dt=51000, n=6, graindt=680, duration=8, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b","magsV_b", "magsV_b","magsvii_b"] } })(),
+		// ((dt=51000, n=3, graindt=1080, duration=10, chance=0.9, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["magsII_a","magsIII_a","magsIV_b","magsV_b","magsIV_b","magsV_b","magsIV_b","magsV_b","magsV_b", "magsV_b","magsvii_b"] } })(),
 		((dt=111000, n=3, graindt=1100, duration=10, chance=0.8, volume=0.3) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.2, volume:volume, instruments: ["voxmct0b"] } })(),
 		((dt=111000, n=4, graindt=900, duration=10, chance=0.8, volume=0.3) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.2, volume:volume, instruments: ["voxmct0b"] } })(),
 		((dt=71000, n=2, graindt=600, duration=4, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
 		((dt=71000, n=1, graindt=900, duration=5, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
 		((dt=91000, n=4, graindt=900, duration=5, chance=0.8, volume=0.4) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["vox20200124_itwas"] } })(),
+		((dt=51000, n=2, graindt=800, duration=8, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
+		((dt=52000, n=1, graindt=900, duration=5, chance=0.8, volume=0.6) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["lookingforyou0"] } })(),
+		((dt=101000, n=4, graindt=900, duration=5, chance=0.8, volume=0.4) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["vox20200124_itwas"] } })(),
+		((dt=81000, n=4, graindt=900, duration=5, chance=0.8, volume=0.4) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["vox20200124_itwas"] } })(),
+		((dt=81000, n=3, graindt=400, duration=12, chance=0.8, volume=0.4) => { return {dt:dt, chance:chance, graindt: graindt, n: n, duration: duration, fadetime: duration*.1, volume:volume, instruments: ["birdcry"] } })(),
 	];
 	z.radio.load(z.tools.flatten(score.map(part => part.instruments)));
 	score.forEach( (part,j) => {
