@@ -291,7 +291,6 @@ let getz = () => {
 				trappedbird: {title: "trappedbird", url: "trappedbird.mp3", duration: 6*60+46}, // :::  
 				vox20200118_8_3b_mixdown: {title: "vox20200118_8_3b_mixdown", url: "vox20200118_8_3b_mixdown.mp3", duration: 2*60+5}, // :::  
 				vox20200124_itwas: {title: "vox20200124_itwas", url: "vox20200124_itwas.mp3", duration: 0*60+8}, // :::  
-				vox20200124_itwas: {title: "vox20200124_itwas", url: "vox20200124_itwas.mp3", duration: 0*60+8}, // :::  
 				lookingforyou0: {title: "lookingforyou0", url: "lookingforyou0.mp3", duration: 0*60+11}, // :::  
 				mctbreathing0: {title: "mctbreathing0", url: "mctbreathing0.mp3", duration: 0*60+23}, // :::  
 				
