@@ -176,17 +176,10 @@ z.radio.start(z);
 	// const tracks = ["piano2b", "piano2", "piano3b"];
 	// const tracks = ["typewriterlong"];
 	// const tracks = ["uniondepotcistern", "trainlong1", "trainlong2", "rubbedbassdrum0"];
-	// const tracks = [ "rubbedbassdrum0", "rubbedpianoharp0"];
+	const tracks = [ "rubbedbassdrum0", "rubbedpianoharp0"];
 	// const tracks = [ "traffickcorebirds1", "rubbedpianoharp0"];
 	// const tracks = ["bowedvibe0", "bowedcymbol0", "clarinetnotes", "clarinetall",];
-	
-	// const tracks = ["sophroniasoundscape"];
-	// const tracks = ["clapping0"];
-	// const tracks = ["tuningforkhYmn2"];
-	// const tracks = ["originofbirdsskythread", "tuningcistern"];
-	// const tracks = ["monksfromouterspacecistern", "tuningcistern"];
-	// const tracks = ["thinkingaboutthosethings"];
-	const tracks = ["therider0", "numberstation0b", "therider0b", "rider1"];
+	// const tracks = ["therider0", "numberstation0b", "therider0b"];
 	const elements = [0,1,2].reduce( (acc, j) => {
 		let el = z.tools.createElement({
 			parentel: z.elements["body"].el, tag: "audio",
@@ -208,12 +201,12 @@ z.radio.start(z);
 		el.currentTime=start;
 		el.setAttribute("start", start);
 		el.setAttribute("end", start+duration);
-		el.setAttribute("dt", dt); el.setAttribute("volume", 0.4);
+		el.setAttribute("dt", dt); el.setAttribute("volume", 0.3);
 
 		el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
 		el.volume=0;
 		el.currentTime=start; 
-		// el.playbackRate = z.tools.randominteger(100,200)/100;
+		// el.playbackRate = z.tools.randominteger(100,160)/100;
 		z.tools.logmsg("in playtrack track = " + track + " duration = " + duration + " dt = " + dt + " start = " + start);
 		if(z.radio.soundplaying) {
 			let playPromise = el.play();

@@ -135,6 +135,8 @@ let getz = () => {
 				lovemeditations: {title: "love meditations", url: "lovemeditationspodcast.mp3", duration: 3980 }, //1:06:24
 				rivericarus: {title: "river icarus", url: "rivericaruspodcast.mp3", duration: 2110}, //35:13
 				monksfromouterspace: {title: "monks from outer space", url: "monks.mp3", duration: 380}, //6:22
+				monksfromouterspacecistern: {title: "monks from outer space ::: cistern", url: "monksfromouterspacecistern.mp3", duration: 6*60+25},
+				
 				oceanwindgrief: {title: "ocean | wind | grief", url: "oceanwindgriefpodcast.mp3", duration: 1870},//31:18
 				nyx: {title: "nyx", url: "oceanwindgriefpodcast.mp3", duration: 1280},//21:26
 				nighttrainbluewindow: {title: "night train / blue window", url: "nighttrainbluewindow/nighttrainbluewindowpodcast.mp3", duration: 2280}, //38:06
@@ -156,7 +158,6 @@ let getz = () => {
 				clarinetnotes: {title: "clarinetnotes", url: "clarinetnotes.mp3", duration:2*60+32}, 
 				echolightning: {title: "echo & lightning", url: "echolightningpodcast.mp3", duration:2050}, //34:12
 				// sophroniasoundscape 
-				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
 				sophroniasoundscape: {title: "sophronia soundscape", url: "sophroniasoundscape.mp3", duration: 29*60+6},//
 				graffititunnel: {title: "graffiti tunnel", url: "graffititunnelpodcast.mp3", duration: 1720},//45:12
 				graffiti2hands: {title: "graffiti 2 hands", url: "graffiti2handspodcast.mp3", duration: 3780},//1:03:13
@@ -196,6 +197,7 @@ let getz = () => {
 				tuningforkhYmn3: {title: "tuningforkhYmn3", url: "20100603tuningforkhYmn_v3.mp3", duration: 10*60+10}, // ::: with coffeepot
 				tuning: {title: "tuning", url: "tuning.mp3", duration: 3*60+43}, // ::: subtle tuning
 				coffeepot: {title: "coffepot", url: "20140203_1_coffeepot.mp3", duration: 4*60+50}, // ::: subtle tuning
+				
 				pitchclasses_1_a_cistern: {title: "pitchclasses_1_a_cistern", url: "20150313_pitchclasses_1_a_cistern.mp3", duration: 2*60+44}, // ::: 
 				pitchclasses_1_c_cistern: {title: "pitchclasses_1_c_cistern", url: "20150313_pitchclasses_1_c_cistern.mp3", duration: 2*60+55}, // ::: 
 				pitchclasses_1_d_cistern: {title: "pitchclasses_1_d_cistern", url: "20150313_pitchclasses_1_d_cistern.mp3", duration: 6*60+3}, // ::: 
@@ -266,8 +268,9 @@ let getz = () => {
 				trainlong1: {title: "trainlong1", url: "trainlong1.mp3", duration: 3*60+1}, // :::
 				trainlong2: {title: "trainlong2", url: "trainlong2.mp3", duration: 2*60+57}, // :::
 				traffickcorebirds1: {title: "traffickcorebirds1", url: "traffickcorebirds1.mp3", duration: 11*60+15}, // :::
-				traffickcorebirds1: {title: "traffickcorebirds1", url: "traffickcorebirds1.mp3", duration: 11*60+15}, // :::
 				birdcry4: {title: "birdcry4", url: "birdcry4.mp3", duration: 0*60+12}, // :::
+				tuningcistern: {title: "tuningcistern", url: "tuningcistern.mp3", duration: 2*60+37}, // :::
+				clapping0: {title: "clapping0", url: "clapping0.mp3", duration: 0*60+28}, // :::
 				
 				// frontstreet: {title: "frontstreet", url: "frontstreet.mp3", duration: 3*60+11}, // :::  
 				gates20171012_mixdown: {title: "gates20171012_mixdown", url: "gates20171012_mixdown.mp3", duration: 6*60+37}, // :::  kelley film
@@ -293,7 +296,9 @@ let getz = () => {
 				vox20200124_itwas: {title: "vox20200124_itwas", url: "vox20200124_itwas.mp3", duration: 0*60+8}, // :::  
 				lookingforyou0: {title: "lookingforyou0", url: "lookingforyou0.mp3", duration: 0*60+11}, // :::  
 				mctbreathing0: {title: "mctbreathing0", url: "mctbreathing0.mp3", duration: 0*60+23}, // :::  
+				thinkingaboutthosethings: {title: "thinkingaboutthosethings", url: "thinkingaboutthosethings.mp3", duration: 2*60+22}, // :::  
 				
+				rider1: {title: "rider1", url: "rider1.mp3", duration: 2*60+15}, // ::: whisper echo 
 				therider0: {title: "therider0", url: "therider0.mp3", duration: 3*60+37}, // ::: whisper echo 
 				therider0b: {title: "therider0b", url: "therider0b.mp3", duration: 3*60+30}, // ::: less echo voice
 				numberstation0: {title: "numberstation0", url: "numberstation0.mp3", duration: 0*60+55}, // :::  (excerpt from rider0)

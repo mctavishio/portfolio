@@ -184,10 +184,9 @@ z.radio.start(z);
 	// const tracks = ["clapping0"];
 	// const tracks = ["tuningforkhYmn2"];
 	// const tracks = ["originofbirdsskythread", "tuningcistern"];
-	// const tracks = ["monksfromouterspacecistern", "tuningcistern"];
-	// const tracks = ["thinkingaboutthosethings"];
-	const tracks = ["therider0", "numberstation0b", "therider0b", "rider1"];
-	const elements = [0,1,2].reduce( (acc, j) => {
+	const tracks = ["monksfromouterspacecistern", "monksfromouterspacecistern", "clarinetnotes"];
+	// const tracks = ["therider0", "numberstation0b", "therider0b", "rider1"];
+	const elements = [0,1].reduce( (acc, j) => {
 		let el = z.tools.createElement({
 			parentel: z.elements["body"].el, tag: "audio",
 			attributes: [
@@ -208,7 +207,7 @@ z.radio.start(z);
 		el.currentTime=start;
 		el.setAttribute("start", start);
 		el.setAttribute("end", start+duration);
-		el.setAttribute("dt", dt); el.setAttribute("volume", 0.4);
+		el.setAttribute("dt", dt); el.setAttribute("volume", 0.5);
 
 		el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
 		el.volume=0;
