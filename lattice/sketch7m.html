@@ -205,9 +205,11 @@ z.radio.start(z);
 		let dt = Math.floor(Math.min(2, duration/4));
 		
 		el.currentTime=start;
-		el.setAttribute("start", start);
-		el.setAttribute("end", start+duration);
-		el.setAttribute("dt", dt); el.setAttribute("volume", 0.5);
+		el.p = {start: start, end: start+duration, dt: dt, volume: 0.5};
+		
+		// el.setAttribute("start", start);
+		// el.setAttribute("end", start+duration);
+		// el.setAttribute("dt", dt); el.setAttribute("volume", 0.5);
 
 		el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
 		el.volume=0;
@@ -227,8 +229,10 @@ z.radio.start(z);
 	};
 	const monitor = e => {
 		let el = e.target;
-		let t = el.currentTime, end = Number(el.getAttribute("end")), start = Number(el.getAttribute("start")), dt = Number(el.getAttribute("dt"));
-		let v = el.volume, goalv = Number(el.getAttribute("volume"));
+		// let t = el.currentTime, end = Number(el.getAttribute("end")), start = Number(el.getAttribute("start")), dt = Number(el.getAttribute("dt"));
+		let t = el.currentTime, end = el.p.end, start = el.p.start, dt = el.p.dt;
+		// let v = el.volume, goalv = Number(el.getAttribute("volume"));
+		let v = el.volume, goalv = el.p.volume;
 		// z.tools.logmsg("in monitor : id = " + el.getAttribute("id") + " t = " + t + " volume = " + v +  " start = " + start + " end = " + end  + " dt = " + dt);
 		if( t >= end) {
 			el.pause();

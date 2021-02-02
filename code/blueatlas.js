@@ -197,6 +197,9 @@ let getz = () => {
 				tuningforkhYmn3: {title: "tuningforkhYmn3", url: "20100603tuningforkhYmn_v3.mp3", duration: 10*60+10}, // ::: with coffeepot
 				tuning: {title: "tuning", url: "tuning.mp3", duration: 3*60+43}, // ::: subtle tuning
 				coffeepot: {title: "coffepot", url: "20140203_1_coffeepot.mp3", duration: 4*60+50}, // ::: subtle tuning
+				bellslong: {title: "bellslong", url: "bellslong.mp3", duration: 2*60+29}, // ::: 
+				bellslong1b: {title: "bellslong1b", url: "bellslong1b.mp3", duration: 2*60+29}, // ::: 
+				bellslong1c: {title: "bellslong1c", url: "bellslong1c.mp3", duration: 2*60+32}, // ::: 
 				
 				pitchclasses_1_a_cistern: {title: "pitchclasses_1_a_cistern", url: "20150313_pitchclasses_1_a_cistern.mp3", duration: 2*60+44}, // ::: 
 				pitchclasses_1_c_cistern: {title: "pitchclasses_1_c_cistern", url: "20150313_pitchclasses_1_c_cistern.mp3", duration: 2*60+55}, // ::: 
@@ -600,31 +603,88 @@ let getz = () => {
 			}
 			catch(err) { z.tools.logerror("line playbuffer" + err) }
 		},
-		// playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.8, audioel = z.tools.createElement({parentel:z.elements["body"], tag: "audio"})} = {} ) => {
-		playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.2, audioel} = {} ) => {
-			j = order==="random" ? z.tools.randominteger(0,tracks.length) : j;
-			z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
-			audioel.addEventListener('ended', (event) => {
-				z.tools.logmsg("done playing " + tracks[j]);
-				j = (j+1)%tracks.length;
-				z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
-			});
+		jukebox: ( { tracks=["IIIaIIfIcsharp3"], partial=false, order="random", j=0, duration=[8,36000], volume=[0.2,0.4], el} = {} ) => {
+			z.tools.logmsg("** -> in jukebox el = " + el.getAttribute("id"));
+			z.tools.logmsg("** -> in jukebox p = " + JSON.stringify({partial,duration,volume}));
+			if(partial) {
+				el.addEventListener("timeupdate", (e) => {
+					let t = el.currentTime;
+					if( t >= el.p.end) {
+						el.pause();
+						z.radio.playtracks( {tracks,partial,order,j,duration,volume,el} );
+					}
+					else if( t < el.p.start + el.p.dt ) {
+						el.volume = el.p.volume/el.p.dt * (t - el.p.start);
+					}
+					else if(t > el.p.end - el.p.dt) {
+						el.volume = el.p.volume/el.p.dt * (el.p.end - t);
+					}
+				});
+			}
+			else {
+				el.addEventListener('ended', (e) => {
+					z.tools.logmsg("done playing " + tracks[j]);
+					j = (j+1)%tracks.length;
+					z.radio.playtracks( {tracks,partial,order,j,duration,volume,el} );
+				});
+			}
+			z.radio.playtracks( {tracks,partial,order,j,duration,volume,el} );
 		},
-		playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel, start=0 } = {} ) => {
-			audioel.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
-			audioel.volume=volume;
-			audioel.currentTime=start;
+		playtracks: ( { tracks=["IIIaIIfIcsharp3"], partial=false, order="random", j=0, duration=[8,36000], volume=[0.2,0.4], el} = {} ) => {
+			j = order ==="random" ? z.tools.randominteger(0,tracks.length) : j;
+			z.tools.logmsg("** -> in playtracks track = " + tracks[j]);
+			z.tools.logmsg("** -> in playtracks p = " + JSON.stringify({track:tracks[j],partial,duration,volume}));
+			z.radio.playtrack({track:tracks[j],partial,duration,volume,el});
+		},
+		playtrack: ({track,partial,duration,volume,el}) => {
+			let dur = partial ? Math.min(z.tools.randominteger(duration[0],duration[1]), z.data.sound.tracks[track].duration) : z.data.sound.tracks[track].duration;
+			// let duration = z.tools.randominteger(4, 20);
+			let start = partial ? z.tools.randominteger(0,z.data.sound.tracks[track].duration-dur) : 0;
+			let dt = Math.floor(Math.min(4, dur/4));
+			
+			el.currentTime=start;el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url;
+			let v = z.tools.randominteger(volume[0]*10,volume[1]*10)/10
+			el.volume = partial ? 0 : v;
+			el.p = {start: start, end: start+dur, dt: dt, volume: v};
+			z.tools.logmsg("** -> in playtrack p = " + JSON.stringify(el.p));
+			el.currentTime=start; 
+			// el.playbackRate = z.tools.randominteger(100,200)/100;
+			// z.tools.logmsg("in playtrack track = " + track + " duration = " + duration + " dt = " + dt + " start = " + start);
 			if(z.radio.soundplaying) {
-				let playPromise = audioel.play();
+				let playPromise = el.play();
 				playPromise.then( () => {
+					z.tools.logmsg("now playing " + el.src);
 				})
 				.catch(error => {
 					// Auto-play was prevented
 					// Show paused UI.
 				});
 			}
-			z.tools.logmsg("now playing " + audioel.src);
 		},
+		// playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.2, audioel} = {} ) => {
+		// 	j = order ==="random" ? z.tools.randominteger(0,tracks.length) : j;
+		// 	z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
+		// 	audioel.addEventListener('ended', (event) => {
+		// 		z.tools.logmsg("done playing " + tracks[j]);
+		// 		j = (j+1)%tracks.length;
+		// 		z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
+		// 	});
+		// },
+		// playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel, start=0 } = {} ) => {
+		// 	audioel.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
+		// 	audioel.volume=volume;
+		// 	audioel.currentTime=start;
+		// 	if(z.radio.soundplaying) {
+		// 		let playPromise = audioel.play();
+		// 		playPromise.then( () => {
+		// 		})
+		// 		.catch(error => {
+		// 			// Auto-play was prevented
+		// 			// Show paused UI.
+		// 		});
+		// 	}
+		// 	z.tools.logmsg("now playing " + audioel.src);
+		// },
 	};
 	//core elements
 	z.elements = ( () => {
@@ -639,6 +699,24 @@ let getz = () => {
 				acc[id] = { el: document.querySelector("#"+id) };
 				return acc;
 			}, {}),
+			poems: Array.from(document.querySelectorAll(".poem")).reduce( (acc,el,j)=> {
+				z.tools.logmsg("create poem element ::: " + j);
+				// el.setAttribute("id", "poem"+j);
+				acc[j]={ el:el, id:"poem"+j, stanzas: Array.from(el.querySelectorAll(".stanza")).reduce( (acc,el,j)=> {
+					// z.tools.logmsg("el.className ::: " + el.className);
+					el.setAttribute("id", "stanza"+j);
+					// el.className= "stanza " + afterclassnames1[j%afterclassnames1.length] + " " + afterclassnames2[0];
+
+					acc[j]={ el:el, lines:Array.from(el.querySelectorAll("li")).reduce( (acc,el,j)=> {
+						// z.tools.logmsg("create line element ::: " + j);
+						// el.setAttribute("id", "line"+j);
+						acc[j]={ el:el };
+						return acc;
+						}, []) }; 
+					return acc;
+				}, []) };
+				return acc;
+			}, []),
 		}
 	})()
 	z.streams = {

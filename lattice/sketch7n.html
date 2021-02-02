@@ -184,11 +184,9 @@ z.radio.start(z);
 	// const tracks = ["clapping0"];
 	// const tracks = ["tuningforkhYmn2"];
 	// const tracks = ["originofbirdsskythread", "tuningcistern"];
-	// const tracks = ["monksfromouterspacecistern", "tuningcistern"];
-	// const tracks = ["thinkingaboutthosethings"];
-	const tracks = ["bellslong", "bellslong1b", "bellslong1c", "trappedbird", "bowedvibe0"];
+	const tracks = ["monksfromouterspacecistern", "monksfromouterspacecistern", "clarinetnotes"];
 	// const tracks = ["therider0", "numberstation0b", "therider0b", "rider1"];
-	const elements = [0,1,2,3].reduce( (acc, j) => {
+	const elements = [0,1].reduce( (acc, j) => {
 		let el = z.tools.createElement({
 			parentel: z.elements["body"].el, tag: "audio",
 			attributes: [
@@ -199,65 +197,9 @@ z.radio.start(z);
 	return acc;
 	}, []);
 
-
-	const playtrack = (el, track) => {
-		let duration = z.tools.randominteger(4, z.data.sound.tracks[track].duration);
-		// let duration = z.tools.randominteger(4, 20);
-		let start = z.tools.randominteger(0,z.data.sound.tracks[track].duration-duration);
-		let dt = Math.floor(Math.min(2, duration/4));
-		
-		el.currentTime=start;
-		el.setAttribute("start", start);
-		el.setAttribute("end", start+duration);
-		el.setAttribute("dt", dt); el.setAttribute("volume", 0.4);
-
-		el.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
-		el.volume=0;
-		el.currentTime=start; 
-		// el.playbackRate = z.tools.randominteger(100,200)/100;
-		z.tools.logmsg("in playtrack track = " + track + " duration = " + duration + " dt = " + dt + " start = " + start);
-		if(z.radio.soundplaying) {
-			let playPromise = el.play();
-			playPromise.then( () => {
-				z.tools.logmsg("now playing " + el.src);
-			})
-			.catch(error => {
-				// Auto-play was prevented
-				// Show paused UI.
-			});
-		}
-	};
-	const monitor = e => {
-		let el = e.target;
-		let t = el.currentTime, end = Number(el.getAttribute("end")), start = Number(el.getAttribute("start")), dt = Number(el.getAttribute("dt"));
-		let v = el.volume, goalv = Number(el.getAttribute("volume"));
-		// z.tools.logmsg("in monitor : id = " + el.getAttribute("id") + " t = " + t + " volume = " + v +  " start = " + start + " end = " + end  + " dt = " + dt);
-		if( t >= end) {
-			el.pause();
-			playtracks(el);
-		}
-		else if( t < start + dt ) {
-			let x = start+dt;
-			// z.tools.logmsg("** in monitor = t = " + t + " start + dt = " + x);
-			el.volume = goalv/dt * (t - start);
-		}
-		else if(t > end - dt) {
-			// z.tools.logmsg("## in monitor = t = " + t + "goalv/dt * (end - t) = " + (goalv/dt * (end - t)) + " end = " + end);
-			el.volume = goalv/dt * (end - t);
-		}
-	};
-	const playtracks = el => {
-		let track = tracks[z.tools.randominteger(0, tracks.length)];
-		z.tools.logmsg("** -> in playtracks track = " + track);
-		playtrack(el, track);
-	};
 	elements.forEach( element => {
-		// z.radio.playtracks({tracks: tracks, order:"random", audioel:element.el, volume:0.2 });
 		let track = tracks[z.tools.randominteger(0, tracks.length)];
-		playtrack(element.el, track);
-		element.el.addEventListener("timeupdate", (e) => {
-			monitor(e);
-		});
+		z.radio.jukebox( { tracks:tracks, partial:true, order:"random", j:0, duration:[12,24], volume:[0.2,0.6], el: element.el});
 	});
 	Kefir.fromEvents(soundlink, "click").onValue( e => {
 		z.tools.logmsg("play sound !");

@@ -2,7 +2,6 @@
   --red: #9a0000;
   --yellow: #ffcc00;
   --blue: #006699;
-  --bluegreen: #006969;
   --black: #000000;
   --warmblack: #191918;
   --gray: #484848;
@@ -18,17 +17,153 @@
   --zlow: -2222;
   --zlower: -4444;
   --zlowest: -8888;
-  --monospace_code: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-  --monospace: 'Lucida Console', 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-  --monospace_zeroslash: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
-  --monospace_zerodot: 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-  --typewriter: 'American Typewriter', Didot, 'Times New Roman', serif;
-  --sans: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
-  --serif: Georgia, Didot, 'Times New Roman', Times, serif;
-  --cursive: 'Bradley Hand', 'Comic Sans MS', cursive, sans-serif;
-  --dragons: Luminari, 'Bradley Hand', cursive, sans-serif;
-  --oldbook: 'Palatino Linotype', 'Book Antiqua', Palatino, 'American Typewriter', 'Times New Roman', serif;
 }
+/* 
+	from http://www.fontsquirrel.com/ 
+	all ::: 
+	boycottregular
+	carbontyperegular
+	districtregular
+	eraserregular
+	gessoregular
+	icomoon
+	paint
+	railwayregular
+	stencil
+	typewriterreport1942
+	universityregular
+	woodcutnormal
+	woodcutbold
+	@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+       url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+}
+*/
+@font-face {
+    font-family: 'boycottregular';
+    src: url('fonts/BOYCOTT_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.boycott {
+	 font-family: "boycottregular", Courier;
+}
+@font-face {
+    font-family: 'carbontyperegular';
+    src: url('fonts/carbontype-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.carbon {
+	 font-family: "carbontyperegular", Courier;
+}
+@font-face {
+    font-family: 'districtregular';
+    src: url('fonts/District-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.district {
+	 font-family: "districtregular", Courier;
+}
+@font-face {
+    font-family: 'eraserregular';
+    src: url('fonts/EraserRegular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.erase {
+	 font-family: "eraserregular", Courier;
+}
+@font-face {
+    font-family: 'gessoregular';
+    src: url('fonts/GESSO___-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.gesso {
+	 font-family: "gessoregular", Courier;
+}
+@font-face {
+	font-family: 'icomoon';
+	src: url('fonts/icomoon/icomoon.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.icomoon {
+	 font-family: "icomoon", Courier;
+}
+/* paint splatter / no letters */
+@font-face {
+	font-family: 'paint';
+	src: url('fonts/WC_Rhesus_A_Bta-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.paint {
+	 font-family: "paint", Courier;
+}
+/*clean sans ...*/
+@font-face {
+    font-family: 'railwayregular';
+    src: url('fonts/Railway-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.railway {
+	 font-family: "railwayregular", Courier;
+}
+/* typewriter / grunge */
+@font-face {
+	font-family: 'typewriterreport1942';
+	src: url('fonts/1942-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.report1942 {
+	 font-family: "typewriterreport1942", Courier;
+}
+/* grunge / stencil / graffiti */
+@font-face {
+	font-family: 'stencil';
+	src: url('fonts/Capture_it-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.stencil {
+	 font-family: "stencil", Courier;
+}
+@font-face {
+    font-family: 'universityregular';
+    src: url('fonts/TRENU___-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.university {
+	 font-family: "universityregular", Courier;
+}
+/* woodcut look good sketched width letters */
+@font-face {
+	font-family: 'woodcutnormal';
+	src: url('fonts/Archistico_Simple-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.woodcut {
+	 font-family: "woodcutnormal", Courier;
+}
+@font-face {
+	font-family: 'woodcutbold';
+	src: url('fonts/Archistico_Bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.woodcutbold {
+	 font-family: "woodcutbold", Courier;
+}
+
+
 
 
 /* BLANK SLATE ::: Clear defaults */
@@ -82,17 +217,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 	display: block;
 }
 /* end blankslate*/
-/* browser fonts ::: https://blog.hubspot.com/website/web-safe-html-css-fonts */
 html {
-	font-family: 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace_zerodot);
-	font-family: 'American Typewriter', Didot, 'Times New Roman', serif;
-	font-family: var(--typewriter);
-	font-family: 'Lucida Console', 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace);
-	font-family: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
-	font-family: var(--sans);
-	font-size: 18px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	font-size: 16px;
 	line-height: 24px;
 	letter-spacing: 0.1em;
 	margin: 0;padding: 0;border: 0;
@@ -102,10 +230,10 @@ html {
 }
 @media only screen and (max-width: 900px) {
 	html {
-		font-size: 16px;
+		font-size: 14px;
 	}
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 	html {
 		font-size: 14px;
 		line-height: 19px;
@@ -145,12 +273,6 @@ html {
 .largest {
 	font-size: 8em;
 }
-.bold {
-	font-weight: bold;
-}
-.underline {
-	text-decoration: underline;
-}
 
 .zhighest {
 	z-index: 8888;
@@ -179,62 +301,6 @@ html {
 .zlowest {
 	z-index: -8888;
 	z-index: var(--zlowest);
-}
-
-.redbg {
-	background-color: #9a0000;
-	background-color: var(--red);
-	fill: var(--red);
-}
-.yellowbg {
-	background-color: #ffcc00;
-	background-color: var(--yellow);
-	fill: var(--yellow);
-}
-.bluebg {
-	background-color: #006699;
-	background-color: var(--blue);
-	fill: var(--blue);
-}
-.blackbg {
-	background-color: #000000;
-	background-color: var(--black);
-	fill: var(--black);
-}
-.warmblackbg {
-	background-color: #191918;
-	background-color: var(--warmblack);
-	fill: var(--warmblack);
-}
-.graybg {
-	background-color: #484848;
-	background-color: var(--gray);
-	fill: var(--gray);
-}
-.lightgraybg {
-	background-color: #888888;
-	background-color: var(--lightgray);
-	fill: var(--lightgray);
-}
-.warmgraybg {
-	background-color: #4b4b44;
-	background-color: var(--warmgray);
-	fill: var(--warmgray);
-}
-.warmlightgraybg {
-	background-color: #656560;
-	background-color: var(--warmlightgray);
-	fill: var(--warmlightgray);
-}
-.whitebg {
-	background-color: #ffffff;
-	background-color: var(--white);
-	fill: var(--white);
-}
-.warmwhitebg {
-	background-color: #fcfbe3;
-	background-color: var(--warmwhite);
-	fill: var(--warmwhite);
 }
 
 .red {
@@ -291,46 +357,6 @@ html {
 	color: #fcfbe3;
 	color: var(--warmwhite);
 	fill: var(--warmwhite);
-}
-.monospace_code {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
-}
-.monospace {
-	font-family: 'Lucida Console', 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace);
-}
-.monospace_zeroslash {
-	font-family: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
-	font-family: var(--monospace_zeroslash);
-}
-.monospace_zerodot {
-	font-family: 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace_zerodot);
-}
-.typewriter {
-	font-family: 'American Typewriter', Didot, 'Times New Roman', serif;
-	font-family: var(--typewriter);
-}
-.serif {
-	font-family: Georgia, Didot, 'Times New Roman', Times, serif;
-	font-family: var(--serif);
-}
-.sans {
-	font-family: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
-	font-family: var(--sans);
-}
-.cursive {
-	font-family: 'Bradley Hand', 'Comic Sans MS', cursive, sans-serif;
-	font-family: var(--cursive);
-}
-.dragons {
-	font-family: Luminari, 'Bradley Hand', cursive, sans-serif;
-	font-family: var(--dragons);
-}
-.oldbook {
-	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, 'American Typewriter', 'Times New Roman', serif;
-	font-family: var(--oldbook);
 }
 
 body { 
@@ -406,19 +432,10 @@ div.absolute {
 	max-width: 90%;
 	min-height: 90%;
 	max-height: 90%;
-	transition: opacity 1s ease-in-out;
-}
-#mainflex {
-	display: flex;
-  	justify-content: center;
-  	width: 90%;
-  	margin-left: 10%;
 }
 main {
 	position: relative;
 	padding: 1em;
-	/*padding-top: 2em;*/
-	transition: opacity 1s ease-in-out;
 	/*overflow-y: scroll;
 	overflow-x: hidden;*/
 	border: 0px;
@@ -426,21 +443,15 @@ main {
 	/*display: flex;
   	justify-content: center;
   	flex-wrap: wrap;*/
-  	/*background-color: var(--warmblack);*/
-  	/*margin-left: 8%;*/
-  	width: 90%; max-width: 800px;
-  	background-color:rgba(25, 25, 24, 0.4); /*warmblack*/
+  	background-color: var(--warmblack);
+  	transition: opacity 4s ease-in-out;
+  	margin-left: 8%;
+  	width: 80%; max-width: 80%;
+  	/*background-color:rgba(0, 0, 0, 0.4);*/
   	/*border: .5em var(--warmlightgray) dashed;
   	border-left: .5em var(--warmgray) dashed;
   	border-right: .5em var(--warmwhite) dashed;*/
 }
-main.narrow {
-	width: 90%; max-width: 600px;
-}
-main.wide {
-	width: 90%; max-width: 900px;
-}
-
 article {
 	padding: 1em;
 	/*margin: 20px 20px;*/
@@ -457,12 +468,11 @@ article {
 header {
 	/*max-width: 100%; width: 100%;*/
 }
-body main > header {
-	/*padding: 1em 1em;*/
+body > div > main > header {
+	padding: 1em 1em;
 	/*max-width: 100%; width: 100%;*/
-/*	background-color: #fcfbe3;
-	background-color: var(--warmwhite);*/
-	margin-bottom: 1.2em;
+	background-color: #fcfbe3;
+	background-color: var(--warmwhite);
 	/*overflow: hidden;*/
 }
 h1 {
@@ -471,30 +481,31 @@ h1 {
 	margin-bottom: .2em;
 	/*padding-left: 1em;
 	padding-right: 1em;*/
-	/*font-weight: bold;*/
-	font-size: 1.4em;
+	font-size: 2em;
 	line-height: 1.4em;
 	letter-spacing: .1em;
 	color: #fcfbe3;
 	color: var(--warmwhite);
-	font-family: 'American Typewriter', Didot, 'Times New Roman', serif;
-	font-family: var(--typewriter);
+	font-family: "Courier New", Courier, monospace; /* typewriter ! */
 }
-body main > header > h1 {
-	font-size: 2.4em;
+body > div > main > header > h1 {
+	font-size: 2em;
+	line-height: 1em;
+	margin-top: 0em;
+	color: #000000;
+	color: var(--warmblack);
+	font-weight: bolder;
+	font-family: "Courier New", Courier, monospace; /* typewriter ! */
 }
 h2 {
 	margin: 0px;
 	margin-bottom: .4em;
-	color: var(--warmwhite);
-	font-family: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
-	font-family: var(--monospace_zeroslash);
-	font-style: italic;
+	color: var(--warmgray);
 	font-size: 1.1em;
 	line-height: 1.1em;
 }
-body main > header > h2 {
-	font-size: 1.1em;
+body > div > main > header > h2 {
+	font-size: 1em;
 	line-height: 1.5em;
 	font-style: italic;
 }
@@ -504,7 +515,7 @@ h3 {
 	font-size: 1em;
 	line-height: 1.1em;
 }
-body main > header > h3 {
+body > div > main > header > h3 {
 	font-size: 2em;
 	line-height: 1.2em;
 }
@@ -515,15 +526,13 @@ h5 {
 	font-size: 1.2em;
 	line-height: 1em;
 	font-weight: bold;
-	font-family: Monaco, 'Andale Mono', AndaleMono, Courier, monospace;
-	font-family: var(--monospace_zeroslash);
 	color:#ffcc00;
 	color: var(--warmwhite);
 }
 .flexcontainer {
 	display: flex; /*or inline-flex*/
 	flex-direction: row; /* || column || row-reverse || column-reverse; */
-	flex-wrap: nowrap; /* wrap || wrap-reverse; */
+	flex-wrap: nowrap; || /* wrap || wrap-reverse; */
 	justify-content: flex-start; /* || flex-end || center || space-between || space-around */
 	align-items: flex-start; /* || flex-end || center || stretch || baseline */
 }
@@ -544,181 +553,6 @@ ul.circle li, ol.circle li, dl.circle dt {
 	list-style: circle;
 	list-style-position: outside;
 }
-ul.stanza {
-	margin-bottom: 1em;
-	font-weight: bold;
-}
-
-
-*[data-role="rider"]  li {
-	font-family: Verdana, Helvetica, Arial, Tahoma, 'Trebuchet MS', sans-serif;
-	font-family: var(--sans);
-	font-family: 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace_zerodot);
-}
-ul[data-role="archive"] > li {
-	font-family: 'American Typewriter', Didot, 'Times New Roman', serif;
-	font-family: var(--typewriter);
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
-}
-ul[data-role="narrator"] > li {
-	font-family: 'Lucida Console', 'Andale Mono', AndaleMono, Monaco, Courier, monospace;
-	font-family: var(--monospace);
-}
-ul.after0 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |0| ";
-}
-ul.after1 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |+| ";
-}
-ul.after2 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |-| ";
-}
-ul.after3 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |.| ";
-}
-ul.after4 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |:| ";
-}
-ul.after5 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |*| ";
-}
-ul.after6 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " ||| ";
-}
-ul.after7 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |\| ";
-}
-ul.after8 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |/| ";
-}
-ul.after9 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |_| ";
-}
-ul.after10 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |x| ";
-}
-ul.after11 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " |=| ";
-}
-ul.after12 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " & & ";
-}
-ul.after13 > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: " ::: ";
-}
-
-/*main.expand ul.stanza > li::after {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_zerodot);
-	content: "";
-}*/
-
-main.expand ul > li {
-	display: block;
-	line-height: 2em;
-}
-main.compress ul > li {
-	display: inline;
-	line-height: 2em;
-}
-
-main ul.expand > li {
-	display: block;
-	line-height: 2em;
-}
-main ul.compress > li {
-	display: inline;
-	line-height: 2em;
-}
-main.portfolio {
-	background-color:rgba(25, 25, 24, 0.8);
-}
-
-/*#home {
-	margin-top:4em;
-}*/
-
-ul.stanza.afterblackwhite > li:nth-child(even):after {
-	color: #ffeba9;
-	color: var(--warmwhite);
-}
-ul.stanza.afterblackwhite > li:nth-child(odd):after {
-	color: #000000;
-	color: var(--warmblack);
-}
-ul.stanza.afterwhiteblack > li:nth-child(odd):after {
-	color: #ffeba9;
-	color: var(--warmwhite);
-}
-ul.stanza.afterwhiteblack > li:nth-child(even):after {
-	color: #000000;
-	color: var(--warmblack);
-}
-ul.afterwhite > li::after {
-	color: #ffeba9;
-	color: var(--warmwhite);
-}
-ul.afterblack > li::after {
-	color: #000000;
-	color: var(--warmblack);
-}
-ul.aftergray > li::after {
-	color: #484848;
-	color: var(--warmgray);
-}
-ul.afterred > li::after {
-	color: #9a0000;
-	color: var(--red);
-}
-ul.afteryellow > li::after {
-	color: #ffcc00;
-	color: var(--yellow);
-}
-ul.afterblue > li::after {
-	color: #006699;
-	color: var(--blue);
-}
-ul.afterbluegreen > li::after {
-	color: #006969;
-	color: var(--bluegreen);
-}
-
-ol {
-	list-style-position: inside;
-	list-style-type: decimal;
-}
-
-
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 nav ul {
 	position: relative;
@@ -771,8 +605,7 @@ small {
 	font-size: 0.8em;
 }
 div.terminalentry {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
+	font-family: Courier, monospace;
 	white-space: pre;
 	font-size: 1em;
 	font-weight: bold;
@@ -786,8 +619,7 @@ div.terminalentry {
 	user-select: none;
 }
 div.rhterminalentry {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
+	font-family: Courier, monospace;
 	white-space: pre;
 	font-size: 4em;
 	color: #880000;
@@ -801,13 +633,48 @@ div.rhterminalentry {
 div.textalignright {
 	text-align:right;
 }
+code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 0.8em;
+}
 .center {
 	text-align: center;
 }
-
+div.billboard {
+	/*font-family: Courier, 'New Courier', monospace;*/
+	font-size: 2em;
+	letter-spacing: 0.15em;
+	/*background-color: var(--warmgray);*/
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+div.hawona {
+	/*font-family: stencil, monospace;*/
+	/*font-family: archisticonormal, monospace;*/
+	/*font-family: archisticobold, monospace;*/
+	/*font-family: typewriterreport1942, monospace;*/
+	/*font-family: paintsplatter, monospace;*/
+	position: absolute;
+	left: 0; width:100%;
+	min-width:98%;
+	font-size: 2em;
+	text-align:center;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	/*background-color: var(--warmgray);*/
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	padding-left:2vw;
+	padding-right:2vw;
+}
 p.code, div.code {
-	font-family: Courier, 'Andale Mono', AndaleMono, Monaco, monospace;
-	font-family: var(--monospace_code);
+	font-family: Courier, 'New Courier', monospace;
 	font-size: 0.8em;
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
@@ -824,40 +691,17 @@ p.code, div.code {
 a {
 	z-index: 8888;
 	z-index: var(--zhighest);
-	font-weight:bold;
+	font-weight:bolder;
 	text-decoration: none;
-	color: #fcfbe3;
-	color: var(--warmwhite);
+	color: #006699;
+	color: var(--yellow);
 }
-main a:before {
-	color: #fcfbe3;
-	color: var(--warmwhite);
-	font-weight:bolder;
-	content: ":> ";
-}
-/*main a:after {
-	color: #000000;
-	color: var(--warmblack);
-	font-weight:bolder;
-	content: " .: ";
-}*/
-/*main a.corelink:before {
-	font-weight:bolder;
-	content: ">> ";
-}
-main a.corelink:after {
-	font-weight:bolder;
-	content: " <<";
-}*/
 a:hover {
 	z-index: 8888;
 	z-index: var(--zhighest);
 	text-decoration: underline;
-	color: #000000;
-	color: var(--warmblack);
-	color: #fcfbe3;
-	color: var(--warmwhite);
-	background-color: var(--warmblack);
+	color: #9a0000;
+	color: var(--red);
 }
 svg.icon {
 	width: 50px;
@@ -1009,7 +853,7 @@ div.inputgroup {
 label::before {
 	content: "::: ";
 	color: #ffcc00;
-	color: var(--red);
+	color: var(--yellow);
 }
 input[type="radio"], input[type="checkbox"], input[type="number"] {
 	margin: 1em 1em;
