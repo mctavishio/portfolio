@@ -51,7 +51,7 @@
 </div>
 <div id="wordframe" class="frame z0"></div>
 <div id="subtextframe" class="frame z0"></div>
-<div id="contentframe" class="absolute zhighest" style="opacity:0">
+<div id="contentframe" class="absolute zhighest">
 <div id="mainflex">
 <main id="main" class="expand" data-state="expanded">	
 <header>
@@ -524,7 +524,7 @@ z.radio.start(z);
 
 window.addEventListener('load', e => {
 	window.scroll(0,0);
-	window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 400);
+	// window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 400);
 	document.documentElement.style.setProperty("--colorx", "#454545")
 });
 window.addEventListener('beforeunload', e => {

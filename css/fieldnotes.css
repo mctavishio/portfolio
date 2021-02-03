@@ -401,11 +401,15 @@ div.absolute {
 	-ms-transform-origin: 50% 100%;
 }
 #contentframe {
+	position: absolute;
+	top: 0; left: 0;
+	vertical-align: top;
 	width: 90%; height: 90%;
 	min-width: 90%;
 	max-width: 90%;
 	min-height: 90%;
 	max-height: 90%;
+	z-index: var(--zhighest);
 	transition: opacity 1s ease-in-out;
 }
 #mainflex {

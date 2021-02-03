@@ -31,12 +31,12 @@
 			"@context": "http://schema.org",
 			"@type": "WebPage",
 			"name": "the planets",
-			"breadcrumb": "mctavish.studio > blue atlas > the planets",
-          		"url": "http://www.mctavish.studio/blueatlas/planets.html",
-			"description": "night sky",
-			"datePublished": "Wed Nov 18 2020 12:10:53 GMT-0500 (Central Daylight Time)",
-          		"image": "http://www.mctavish.io/data/mctavishIcon-01-04-01-01-01.png",
-			"author": "http://mctavish.io",
+			"breadcrumb": "mctavish.io > blue atlas > the planets",
+          		"url": "https://www.mctavish.io/blueatlas/planets.html",
+			"description": "blueatlas ::: the planets",
+			"datePublished": "2021-02-03",
+          		"image": "https://www.mctavish.io/mctavishIcon-01-04-01-01-01.png",
+			"author": "https://mctavish.io/bio.html",
 			"license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
 		}
 	</script>
@@ -80,7 +80,7 @@
 <div id="subtextframe" class="frame zlowest"></div>
 <div id="svgframe" class="frame zlow"><svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame"></svg></div>
 <div id="wordframe" class="frame z0"></div>
-<div id="contentframe" class="absolute zhighest" style="opacity:0">
+<div id="contentframe" class="absolute zhighest">
 <div id="mainflex">
 <main id="main" class="expand" data-state="expanded">	
 <header>
@@ -734,7 +734,7 @@ const p = [
 window.addEventListener('load', e => {
   z.draw(z);
   window.scroll(0,0);
-  window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 800);
+  // window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 800);
 });
 window.addEventListener('beforeunload', e => {
 	window.scroll(0,0);

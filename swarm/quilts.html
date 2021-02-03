@@ -31,12 +31,12 @@
 			"@context": "http://schema.org",
 			"@type": "WebPage",
 			"name": "swarm quilts",
-			"breadcrumb": "mctavish.studio > swarm > quilts",
-          		"url": "http://www.mctavish.studio/swarm/quilts.html",
+			"breadcrumb": "mctavish.io > swarm > quilts",
+          		"url": "https://www.mctavish.io/swarm/quilts.html",
 			"description": "swarm shapes ::: generative images",
-			"datePublished": "Wed Nov 18 2020 12:10:53 GMT-0500 (Central Daylight Time)",
-          		"image": "http://www.mctavish.io/data/mctavishIcon-01-04-01-01-01.png",
-			"author": "http://mctavish.io",
+			"datePublished": "2021-02-03",
+          		"image": "https://www.mctavish.io/mctavishIcon-01-04-01-01-01.png",
+			"author": "https://mctavish.io/bio.html",
 			"license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
 		}
 	</script>
@@ -66,7 +66,7 @@
 <div id="subtextframe" class="frame zlowest"></div>
 <div id="svgframe" class="frame zlow"><svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame"></svg></div>
 <div id="wordframe" class="frame z0"></div>
-<div id="contentframe" class="absolute zhighest" style="opacity:0">
+<div id="contentframe" class="absolute zhighest">
 <div id="mainflex">
 <main id="main" class="expand wide portfolio" data-state="expanded">	
 <header>
@@ -76,7 +76,7 @@
 	<li class="title typewriter" title="telegraph" id="telegraph"></li>
 	<li class="title  typewriter" title="clock" id="clock">here | now</li>
 </ul> -->
-<ul class="info expand">
+<ul>
 	<li><a href="#" id="soundlink" class="corelink">turn on sound</a></li>
 	<li><a href="index.html" id="homelink" class="corelink">return to swarm</a></li>
 </ul>
@@ -89,15 +89,13 @@
 	<li><a href="#press" class="corelink">press</a></li>
 	<li><a href="#thanks" class="corelink">thanks</a></li>
 </ul> -->
-<hr/>
+
 <article id="stillmediasketches" >
 	<header>
 		<h1>quilts ::: still media sketches</h1>
 		<h2>click on image to get larger version</h2>
 	</header>
-	<div class="textContent" >
-		<div class="gallery"  id="here"></div>
-	</div>
+	<div class="gallery"  id="here"></div>
 </article>
 
 <audio loop=true id="audio1">
@@ -471,7 +469,7 @@ window.addEventListener('load', e => {
 	z.images.forEach( (img,j) => {
 		z.tools.createEl(here, "img", {src: img.uri_small}, {click: e => {window.open(img.uri_large);} });
 	});
-	window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 400);
+	// window.setTimeout(() => { document.querySelector("#contentframe").style.opacity = 1.0 }, 400);
   // window.setTimeout(() => { document.querySelector("#controls").style.backgroundColor = "rgba(0,0,0,0.0)" }, 6800);
 });
 // window.addEventListener('beforeunload', e => {
