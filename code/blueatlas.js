@@ -488,10 +488,10 @@ let getz = () => {
 					z.radio.loading.push(clip.url);
 					let request = new XMLHttpRequest();
 					//for localhost testing
-					// request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
+					request.open("GET", window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/" + clip.url);
 					// for deploy
-					request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
+					// request.open("GET", window.location.protocol + "//" + window.location.hostname + "/" + clip.url, true);
 					// z.tools.logmsg("url = " + window.location.protocol + "//" + window.location.hostname + "/"  + clip.url);
 					request.responseType = "arraybuffer";
 					request.onload = () =>  {
@@ -685,6 +685,8 @@ let getz = () => {
 		// 	}
 		// 	z.tools.logmsg("now playing " + audioel.src);
 		// },
+		play: () => {},
+		pause: () => {}
 	};
 	//core elements
 	z.elements = ( () => {
@@ -718,7 +720,7 @@ let getz = () => {
 				return acc;
 			}, []),
 		}
-	})()
+	})();
 	z.streams = {
 		clock: ( () => {
 		let dt = 1;
@@ -754,5 +756,58 @@ let getz = () => {
 				}, state0) 
 		})( ),
 	};
+	//set controls
+	( () => {
+		const soundlink = document.querySelector("#soundlink");
+		Kefir.fromEvents(soundlink, "click").onValue( e => {
+			z.tools.logmsg("play sound !");
+			if(!z.radio.soundplaying) { 
+				try {
+					z.radio.player.context.resume().then(() => {
+						z.tools.logmsg("playback resumed");
+						z.radio.soundplaying = true;
+						z.radio.play();
+						soundlink.innerText = "turn off sound";
+					});
+				} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
+			}
+			else { 
+				try {
+					z.radio.player.context.suspend().then(() => {
+						z.radio.soundplaying = false;
+						z.radio.pause();
+						soundlink.innerText = "turn on sound";
+					});
+				} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
+			}
+		});
+		let hidetextlink = document.querySelector("#hidetextlink");
+		if(hidetextlink==null) {
+			let hidetext = z.tools.createElement({
+				parentel: z.elements["body"].el, tag: "div",
+				attributes: [ ["id", "hidetext"] ]
+			});
+			hidetextlink = z.tools.createElement({
+				parentel: hidetext, tag: "a",
+				attributes: [ ["id", "hidetextlink"], ["href", "#"], ["title", "hide text"] ]
+			});
+			hidetextlink.innerText = "-";
+		}
+		let texthidden = false;
+		Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+			if(texthidden) {
+				z.elements["main"].el.style["opacity"] = 1.0;
+				hidetextlink.innerText = "-";
+				hidetextlink.title = "hide text";
+				texthidden = false;
+			}
+			else {
+				z.elements["main"].el.style["opacity"] = 0.0;
+				hidetextlink.innerText = "+";
+				hidetextlink.title = "show text";
+				texthidden = true;
+			}
+		});
+	})();
 	return z;
 };

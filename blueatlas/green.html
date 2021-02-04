@@ -138,6 +138,7 @@
 </main>
 </div>
 </div>
+<div id="hidetext"><a id="hidetextlink" href="#" title="hide text">-</a></div>
 </body>
 <script src="../code/velocity.min.js"></script>
 <script src="../code/kefir201911.min.js"></script>
@@ -250,11 +251,6 @@ z.draw = z => {
 		acc[j] = [duration, 900-duration];
 	return acc;
 	}, []);
-	// const timings = [ [380,600], [400,580], [480,500], [500,480], [580,400], [600,380], [640,340], [680,300], [700,280], [740,240], [780,200], [800,180], [840,140], [880,100]];
-	// const timings = [ [180,800], [200,780], [280,700], [300,680], [380,600], [400,580], [480,500], [500,480], [580,400], [600,380], [640,340], [680,300], [700,280], [740,240], [780,200], [800,180], [840,140], [880,100]];
-	// z.streams["clock"].onValue( e => {
-	// 	z.elements["clock"].el.innerHTML = z.tools.datestr(new Date(e.t*1000));
-	// });
 
 	const playlist = [
 		//primary colors
@@ -922,7 +918,25 @@ z.radio = ( () => {
 
 	return radio;
 })();
-//test
+//controls
+( () => { 
+	const hidetextlink = document.querySelector("#hidetextlink");
+	let texthidden = false;
+	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+		if(texthidden) {
+			z.elements["main"].el.style["opacity"] = 1.0;
+			hidetextlink.innerText = "-";
+			hidetextlink.title = "hide text";
+			texthidden = false;
+		}
+		else {
+			z.elements["main"].el.style["opacity"] = 0.0;
+			hidetextlink.innerText = "+";
+			hidetextlink.title = "show text";
+			texthidden = true;
+		}
+	});
+})();
 z.radio.start(z);
 z.radio.loadclips(z);
 window.addEventListener('load', e => {

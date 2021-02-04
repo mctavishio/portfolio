@@ -367,6 +367,15 @@ div.frame, svg.frame, h1.frame, main.frame, canvas.frame {
 	-moz-transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
 }
+#hidetext {
+	position: fixed;
+	top: 0; left: 0;
+	font-size: 3em;
+	padding-left:10px;
+	opacity:0.6;
+	color: var(--warmwhite);
+	z-index: var(--zhighest);
+}
 body.frame {
 	position: fixed;
 	top: 0; left: 0;

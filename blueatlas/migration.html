@@ -256,6 +256,7 @@
 </main>
 </div>
 </div>
+<div id="hidetext"><a id="hidetextlink" href="#" title="hide text">-</a></div>
 </body>
 <script src="../code/velocity.min.js"></script>
 <script src="../code/kefir201911.min.js"></script>
@@ -373,6 +374,7 @@ return acc;
 //controls
 ( () => { 
 	const soundlink = document.querySelector("#soundlink");
+	const hidetextlink = document.querySelector("#hidetextlink");
 	const telegraph = document.querySelector("#telegraph");
 	const audio1 = document.querySelector("#audio1");
 	const baseurl = "https://storage.googleapis.com/www.blueboatfilms.com/sound/";
@@ -384,6 +386,7 @@ return acc;
 	];
 	let currenttrack = 0;
 	let soundplaying = false;
+	let texthidden = false;
 	Kefir.fromEvents(soundlink, "click").onValue( e => {
 		z.tools.logmsg("play sound !");
 		if(!soundplaying) { 
@@ -410,6 +413,20 @@ return acc;
 				soundlink.innerText = "turn on sound";
 				soundlink.classList.remove("active");
 			} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
+		}
+	});
+	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+		if(texthidden) {
+			z.elements["main"].el.style["opacity"] = 1.0;
+			hidetextlink.innerText = "-";
+			hidetextlink.title = "hide text";
+			texthidden = false;
+		}
+		else {
+			z.elements["main"].el.style["opacity"] = 0.0;
+			hidetextlink.innerText = "+";
+			hidetextlink.title = "show text";
+			texthidden = true;
 		}
 	});
 })();

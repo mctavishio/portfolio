@@ -306,6 +306,7 @@
 </main>
 </div>
 </div>
+<div id="hidetext"><a id="hidetextlink" href="#" title="hide text">-</a></div>
 </body>
 <script src="../code/velocity.min.js"></script>
 <script src="../code/kefir201911.min.js"></script>
@@ -372,7 +373,7 @@ z.elements = ( () => {
 			return acc;
 		}, {}),
 	}
-})()
+})();
 	
 z.streams = {
 	clock: ( () => {
@@ -418,11 +419,6 @@ z.draw = z => {
 		acc[j] = [duration, 900-duration];
 	return acc;
 	}, []);
-	// const timings = [ [380,600], [400,580], [480,500], [500,480], [580,400], [600,380], [640,340], [680,300], [700,280], [740,240], [780,200], [800,180], [840,140], [880,100]];
-	// const timings = [ [180,800], [200,780], [280,700], [300,680], [380,600], [400,580], [480,500], [500,480], [580,400], [600,380], [640,340], [680,300], [700,280], [740,240], [780,200], [800,180], [840,140], [880,100]];
-	// z.streams["clock"].onValue( e => {
-	// 	z.elements["clock"].el.innerHTML = z.tools.datestr(new Date(e.t*1000));
-	// });
 
 	const playlist = [
 		//primary colors
@@ -842,83 +838,6 @@ const p = [
 		}
 	}
 ];
-// 	//line 1
-// 	( dt => {
-// 	const nelements=[[...Array(4).keys()],[...Array(8).keys()]][v];
-// 	const elements = nelements.reduce( (acc, id) => {
-// 		z.tools.logmsg("create line element ::: " + id);
-// 		let el = document.createElementNS("http://www.w3.org/2000/svg", "line");
-// 		el.setAttributeNS(null, "id", "line1_"+ id);
-// 		el.setAttributeNS(null, "class", "shape line");
-// 		z.elements["svg"].el.appendChild(el);
-// 		acc[id] = { el: el };
-// 	return acc;
-// 	}, []);
-// 	const n = elements.length;
-// 	const drawings = [
-// 		e => {
-// 			try {
-// 				let count = e.clock.t/dt;
-// 				let params = p[z.tools.randominteger(0,p.length)](e);
-// 				let timing = timings[z.tools.randominteger(0,timings.length)];
-// 				let duration = dt*timing[0]*n, delay = z.tools.randominteger(0, dt*timing[1]*n);
-// 				let element = elements[count%elements.length];
-// 				let color = e.color.choices[z.tools.randominteger(0, e.color.choices.length)];
-// 				element.el.setAttribute("stroke", color);
-// 				element.el.setAttribute("x1", params.xstart[0]); element.el.setAttribute("x2", params.xstart[1]);
-// 				element.el.setAttribute("y1", params.ystart[0]); element.el.setAttribute("y2", params.ystart[1]);
-// 				element.el.setAttribute("strokeOpacity", z.tools.randominteger(0.1,8)/10);
-// 				Velocity({	
-// 					elements: element.el,
-// 					properties: { strokeOpacity: 1.0, stroke: color, strokeWidth: z.tools.randominteger(e.dimensions.min/2,e.dimensions.max), strokeDasharray: z.tools.randominteger(8, e.dimensions.min), x1: params.xend[0], x2: params.xend[1], y1: params.yend[0], y2: params.yend[1] },
-// 					options: { duration: duration,  delay: delay },
-// 				});
-// 			} catch(err) { z.tools.logerror("line animation 1 ::: " + err ) }
-// 		},
-// 	];
-// 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-// 		drawings[Math.floor(e.clock.t/(dt*elements.length*2))%drawings.length](e);
-// 	})
-// })(2);
-
-// //line 2
-// 	( dt => {
-// 	const nelements=[[...Array(4).keys()],[...Array(8).keys()]][v];
-// 	const elements = nelements.reduce( (acc, id) => {
-// 		z.tools.logmsg("create line element ::: " + id);
-// 		let el = document.createElementNS("http://www.w3.org/2000/svg", "line");
-// 		el.setAttributeNS(null, "id", "line2_"+ id);
-// 		el.setAttributeNS(null, "class", "shape line");
-// 		z.elements["svg"].el.appendChild(el);
-// 		acc[id] = { el: el };
-// 	return acc;
-// 	}, []);
-// 	const n = elements.length;
-// 	const drawings = [
-// 		e => {
-// 			try {
-// 				let count = e.clock.t/dt;
-// 				let params = p[z.tools.randominteger(0,p.length)](e);
-// 				let timing = timings[z.tools.randominteger(0,timings.length)];
-// 				let duration = dt*timing[0]*n, delay = z.tools.randominteger(0, dt*timing[1]*n);
-// 				let element = elements[count%elements.length];
-// 				let color = e.color.choices[z.tools.randominteger(0, e.color.choices.length)];
-// 				element.el.setAttribute("stroke", color);
-// 				element.el.setAttribute("x1", params.xstart[1]); element.el.setAttribute("x2", params.xstart[0]);
-// 				element.el.setAttribute("y1", params.ystart[1]); element.el.setAttribute("y2", params.ystart[0]);
-// 				element.el.setAttribute("strokeOpacity", z.tools.randominteger(0.1,8)/10);
-// 				Velocity({	
-// 					elements: element.el,
-// 					properties: { strokeOpacity: 1.0, stroke: color, strokeWidth: z.tools.randominteger(e.dimensions.min/2,e.dimensions.max), strokeDasharray: z.tools.randominteger(8, e.dimensions.min), x1: params.xend[1], x2: params.xend[0], y1: params.yend[1], y2: params.yend[0] },
-// 					options: { duration: duration,  delay: delay },
-// 				});
-// 			} catch(err) { z.tools.logerror("line animation 1 ::: " + err ) }
-// 		},
-// 	];
-// 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-// 		drawings[Math.floor(e.clock.t/(dt*elements.length*2))%drawings.length](e);
-// 	})
-// })(3);
 
 
 };
@@ -1127,7 +1046,6 @@ z.radio = ( () => {
 	
 	let soundlink = document.querySelector("#soundlink");
 	let telegraph = document.querySelector("#telegraph");
-
 	Kefir.fromEvents(soundlink, "click").onValue( e => {
 		z.tools.logmsg("play sound !");
 		if(!radio.soundplaying) { 
@@ -1152,9 +1070,28 @@ z.radio = ( () => {
 			} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
 		}
 	});
-
 	return radio;
 })();
+//controls
+( () => { 
+	const hidetextlink = document.querySelector("#hidetextlink");
+	let texthidden = false;
+	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+		if(texthidden) {
+			z.elements["main"].el.style["opacity"] = 1.0;
+			hidetextlink.innerText = "-";
+			hidetextlink.title = "hide text";
+			texthidden = false;
+		}
+		else {
+			z.elements["main"].el.style["opacity"] = 0.0;
+			hidetextlink.innerText = "+";
+			hidetextlink.title = "show text";
+			texthidden = true;
+		}
+	});
+})();
+
 z.radio.start(z);
 z.radio.loadclips(z);
 // z.radio.playtone();

@@ -1056,6 +1056,8 @@
 </main>
 </div>
 </div>
+<div id="hidetext"><a id="hidetextlink" href="#" title="hide text">-</a></div>
+
 </body>
 <script src="../code/velocity.min.js"></script>
 <script src="../code/kefir201911.min.js"></script>
@@ -1450,7 +1452,25 @@ const p = [
 
 
 };
-
+//controls
+( () => { 
+	const hidetextlink = document.querySelector("#hidetextlink");
+	let texthidden = false;
+	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+		if(texthidden) {
+			z.elements["main"].el.style["opacity"] = 1.0;
+			hidetextlink.innerText = "-";
+			hidetextlink.title = "hide text";
+			texthidden = false;
+		}
+		else {
+			z.elements["main"].el.style["opacity"] = 0.0;
+			hidetextlink.innerText = "+";
+			hidetextlink.title = "show text";
+			texthidden = true;
+		}
+	});
+})();
 window.addEventListener('load', e => {
   z.draw(z);
   window.scroll(0,0);

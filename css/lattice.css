@@ -347,6 +347,14 @@ body {
 	text-align:left;
 	letter-spacing: 0.1em;
 }
+#hidetext {
+	position: fixed;
+	top: 0; left: 0;
+	font-size: 3em;
+	padding-left:10px;
+	color: var(--warmwhite);
+	z-index: var(--zhighest);
+}
 div.frame, svg.frame, h1.frame, main.frame, canvas.frame {
 	position: fixed;
 	top: 0; left: 0;
