@@ -342,7 +342,7 @@ z.draw = z => {
 	//controls
 	( () => { 
 		const soundlink = document.querySelector("#soundlink");
-		const telegraph = document.querySelector("#telegraph");
+		// const telegraph = document.querySelector("#telegraph");
 		const audio1 = document.querySelector("#audio1");
 		const baseurl = "https://storage.googleapis.com/www.blueboatfilms.com/sound/";
 		const tracks = [
@@ -366,7 +366,7 @@ z.draw = z => {
 					// audio1.currentTime = starttime;
 					audio1.play();
 					z.tools.logmsg("playback resumed");
-					telegraph.innerHTML =  "<i>(currently playing ::: " + track.title + ")</i>";
+					// telegraph.innerHTML =  "<i>(currently playing ::: " + track.title + ")</i>";
 					soundplaying = true;
 					soundlink.innerText = "turn off sound";
 					soundlink.classList.add("active");
@@ -375,7 +375,7 @@ z.draw = z => {
 			else { 
 				try {
 					document.querySelector("#audio1").pause();
-					telegraph.innerHTML =  " . . . >";
+					// telegraph.innerHTML =  " . . . >";
 					soundplaying = false;
 					soundlink.innerText = "turn on sound";
 					soundlink.classList.remove("active");
