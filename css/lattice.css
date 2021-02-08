@@ -11,6 +11,10 @@
   --warmlightgray: #656560;
   --white: #ffffff;
   --warmwhite: #fcfbe3;
+  --hovercolor: var(--white);
+  --bordercolorhover: var(--yellow);
+  --bordercolor: var(--black);
+  --borderwidth: 4px;
   --zhighest: 8888;
   --zhigher: 4444;
   --zhigh: 2222;
@@ -352,6 +356,8 @@ body {
 	top: 0; left: 0;
 	font-size: 3em;
 	padding-left:10px;
+	padding-left:1rem;
+	opacity:0.6;
 	color: var(--warmwhite);
 	z-index: var(--zhighest);
 }
@@ -442,11 +448,22 @@ main {
   	border-left: .5em var(--warmgray) dashed;
   	border-right: .5em var(--warmwhite) dashed;*/
 }
+main.highcontrast {
+	color: #ffffff;
+	background-color: var(--warmblack);
+}
 main.narrow {
 	width: 90%; max-width: 600px;
 }
 main.wide {
 	width: 90%; max-width: 900px;
+}
+form {
+  width: 600px;
+  margin: 0 auto;
+}
+div {
+  margin-bottom: 10px;
 }
 
 article {
@@ -860,12 +877,17 @@ main a.corelink:after {
 a:hover {
 	z-index: 8888;
 	z-index: var(--zhighest);
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	color: #000000;
 	color: var(--warmblack);
 	color: #fcfbe3;
 	color: var(--warmwhite);
-	background-color: var(--warmblack);
+	color: var(--warmgray);
+	fill: var(--warmgray);
+	color: var(--hovercolor);
+	fill: var(--hovercolor);
+	border-bottom: solid var(--borderwidth) var(--bordercolorhover);
+	/*background-color: var(--warmblack);*/
 }
 svg.icon {
 	width: 50px;
@@ -879,15 +901,15 @@ nav ul li a {
 	color: var(--warmwhite);
 	fill: var(--warmwhite);
 	border-right: none;
-	border-bottom: solid 8px #191918;
+	border-bottom: solid var(--borderwidth) var(--warmblack);
 }
 nav ul li a:hover {
 	z-index: 8888;
 	z-index: var(--zhighest);
 	text-decoration: none;
-	color: var(--red);
-	fill: var(--red);
-	border-bottom: solid 8px #fcfbe3;
+	color: var(--hovercolor);
+	fill: var(--hovercolor);
+	border-bottom: solid var(--borderwidth) var(--bordercolorhover);
 }
 nav ul li.active a {
 	z-index: 8888;
@@ -899,14 +921,6 @@ nav ul li.active a {
 	fill: var(--warmwhite);
 	border-right: none;
 	border-bottom: solid 8px #9a0000;
-}
-nav ul li.active a:hover {
-	z-index: 8888;
-	z-index: var(--zhighest);
-	text-decoration: none;
-	color: var(--warmblack);
-	fill: var(--warmblack);
-	border-bottom: solid 8px #191918;
 }
 @keyframes dash {
   to {
@@ -1014,22 +1028,60 @@ div.inputgroup {
 	padding: 1em;
 	border-left: 2px solid #ffcc00;
 }
+label::after {
+	content: " <:";
+	color: #484848;
+	color: var(--yellow);
+}
 label::before {
-	content: "::: ";
-	color: #ffcc00;
-	color: var(--red);
+	content: ":> ";
+	color: #484848;
+	color: var(--yellow);
 }
 input[type="radio"], input[type="checkbox"], input[type="number"] {
-	margin: 1em 1em;
+	margin: .8em .8em;
 	padding: 0.5em;
+	border: 2px solid #9a0000;
 	display: inline;
 	font-size: 1.1em;
-	/* outline: 2px solid #cccccc; */
 }
 label {
 	font-size: 1.1em;
 	display: inline;
+	cursor: pointer;
 }
+label:hover {
+	border-bottom: solid var(--borderwidth) var(--bordercolorhover);
+	color: var(--hovercolor);
+	fill: var(--hovercolor);
+}
+fieldset {
+	background: var(--warmblack);
+	color: var(--warmwhite);
+	border: 5px solid var(--warmblack);
+}
+legend {
+	padding: 10px;
+	background: var(--warmgray);
+	color: var(--warmwhite);
+}
+/*input[type="checkbox"]:checked {
+	background-color: #9a0000;
+}
+input[type="checkbox"] {
+	width:2em; height:2em;
+	background-color: var(--warmgray);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	outline: none;
+	transition-duration: 0.3s;
+	background-color: var(--warmwhite);
+	cursor: pointer;
+}*/
 @media print {
 	#menu, #nav, #sidebar, #sidebar-wrapper { display:none}
 	#main-wrapper {width: 100%; margin: 0; float: none; }

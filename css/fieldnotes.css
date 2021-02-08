@@ -372,6 +372,7 @@ div.frame, svg.frame, h1.frame, main.frame, canvas.frame {
 	top: 0; left: 0;
 	font-size: 3em;
 	padding-left:10px;
+	padding-left:1rem;
 	opacity:0.6;
 	color: var(--warmwhite);
 	z-index: var(--zhighest);

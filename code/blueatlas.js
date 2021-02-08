@@ -6,7 +6,9 @@ let getz = () => {
 	let z = { 
 		dimensions: {
 			width, height, version, v
-		}
+		},
+		highcontrast: false,
+		texthidden: false,
 	};
 	z.tools = {
 		randominteger: (min, max) => {
@@ -728,6 +730,7 @@ let getz = () => {
 		let t0 = Math.floor(date0.getTime()/1000);
 		let state0 = { dt: dt, count: 0, date: date0, t: t0, t0: t0 };
 		return Kefir.withInterval( dt*1000, emitter => { emitter.emit( { date: new Date() } ) })
+				.filter( e => !z.highcontrast)
 				.scan( (state, e) => { 
 					state.date = e.date;
 					state.t = Math.floor(e.date.getTime()/1000);
@@ -756,58 +759,159 @@ let getz = () => {
 				}, state0) 
 		})( ),
 	};
+	z.streams["clock"].onValue( e=> z.tools.logmsg("tick " + z.tools.datestr(e.date)) );
 	//set controls
+	// ( () => {
+	// 	const soundlink = document.querySelector("#soundlink");
+	// 	Kefir.fromEvents(soundlink, "click").onValue( e => {
+	// 		z.tools.logmsg("play sound !");
+	// 		if(!z.radio.soundplaying) { 
+	// 			try {
+	// 				z.radio.player.context.resume().then(() => {
+	// 					z.tools.logmsg("playback resumed");
+	// 					z.radio.soundplaying = true;
+	// 					z.radio.play();
+	// 					soundlink.innerText = "turn off sound";
+	// 				});
+	// 			} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
+	// 		}
+	// 		else { 
+	// 			try {
+	// 				z.radio.player.context.suspend().then(() => {
+	// 					z.radio.soundplaying = false;
+	// 					z.radio.pause();
+	// 					soundlink.innerText = "turn on sound";
+	// 				});
+	// 			} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
+	// 		}
+	// 	});
+	// 	let hidetextlink = document.querySelector("#hidetextlink");
+	// 	if(hidetextlink==null) {
+	// 		let hidetext = z.tools.createElement({
+	// 			parentel: z.elements["body"].el, tag: "div",
+	// 			attributes: [ ["id", "hidetext"] ]
+	// 		});
+	// 		hidetextlink = z.tools.createElement({
+	// 			parentel: hidetext, tag: "a",
+	// 			attributes: [ ["id", "hidetextlink"], ["href", "#"], ["title", "hide text"] ]
+	// 		});
+	// 		hidetextlink.innerText = "-";
+	// 	}
+	// 	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
+	// 		if(z.texthidden) {
+	// 			z.elements["main"].el.style["opacity"] = 1.0;
+	// 			hidetextlink.innerText = "-";
+	// 			hidetextlink.title = "hide text";
+	// 			z.texthidden = false;
+	// 		}
+	// 		else {
+	// 			z.elements["main"].el.style["opacity"] = 0.0;
+	// 			hidetextlink.innerText = "+";
+	// 			hidetextlink.title = "show text";
+	// 			z.texthidden = true;
+	// 		}
+	// 	});
+	// 	let highcontrastlink = document.querySelector("#highcontrastlink");
+	// 	Kefir.fromEvents(highcontrastlink, "click").onValue( e => {
+	// 		if(z.highcontrast) {
+	// 			highcontrastlink.innerText = "make high contrast";
+	// 			z.highcontrast = false;
+	// 		}
+	// 		else {
+	// 			highcontrastlink.innerText = "make not high contrast";
+	// 			z.highcontrast = true;
+	// 		}
+	// 	});
+		
+	// })();
+
+		//set controls
 	( () => {
-		const soundlink = document.querySelector("#soundlink");
-		Kefir.fromEvents(soundlink, "click").onValue( e => {
-			z.tools.logmsg("play sound !");
-			if(!z.radio.soundplaying) { 
-				try {
-					z.radio.player.context.resume().then(() => {
-						z.tools.logmsg("playback resumed");
-						z.radio.soundplaying = true;
-						z.radio.play();
-						soundlink.innerText = "turn off sound";
-					});
-				} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
-			}
-			else { 
-				try {
-					z.radio.player.context.suspend().then(() => {
-						z.radio.soundplaying = false;
-						z.radio.pause();
-						soundlink.innerText = "turn on sound";
-					});
-				} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
-			}
-		});
-		let hidetextlink = document.querySelector("#hidetextlink");
-		if(hidetextlink==null) {
-			let hidetext = z.tools.createElement({
-				parentel: z.elements["body"].el, tag: "div",
-				attributes: [ ["id", "hidetext"] ]
+		// const soundlink = document.querySelector("#sound");
+		// Kefir.fromEvents(soundlink, "click").onValue( e => {
+		// 	z.tools.logmsg("play sound !");
+		// 	if(!z.radio.soundplaying) { 
+		// 		try {
+		// 			z.radio.player.context.resume().then(() => {
+		// 				z.tools.logmsg("playback resumed");
+		// 				z.radio.soundplaying = true;
+		// 				z.radio.play();
+		// 				soundlink.innerText = "turn off sound";
+		// 			});
+		// 		} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
+		// 	}
+		// 	else { 
+		// 		try {
+		// 			z.radio.player.context.suspend().then(() => {
+		// 				z.radio.soundplaying = false;
+		// 				z.radio.pause();
+		// 				soundlink.innerText = "turn on sound";
+		// 			});
+		// 		} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
+		// 	}
+		// });
+		let sound = document.querySelector("#sound");
+		if(sound!==null) {
+			sound.addEventListener("change", () => {
+				if(sound.checked) {
+					try {
+						z.radio.player.context.resume().then(() => {
+							z.tools.logmsg("playback resumed");
+							z.radio.soundplaying = true;
+							z.radio.play();
+						});
+					} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
+				}
+				else {
+					try {
+						z.radio.player.context.suspend().then(() => {
+							z.radio.soundplaying = false;
+							z.radio.pause();
+						});
+					} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
+				}			
 			});
-			hidetextlink = z.tools.createElement({
-				parentel: hidetext, tag: "a",
-				attributes: [ ["id", "hidetextlink"], ["href", "#"], ["title", "hide text"] ]
-			});
-			hidetextlink.innerText = "-";
 		}
-		let texthidden = false;
-		Kefir.fromEvents(hidetextlink, "click").onValue( e => {
-			if(texthidden) {
-				z.elements["main"].el.style["opacity"] = 1.0;
-				hidetextlink.innerText = "-";
-				hidetextlink.title = "hide text";
-				texthidden = false;
+
+
+		let animationonly = document.querySelector("#animationonly");
+		if(animationonly==null) {
+			animationonly = z.tools.createElement({
+				parentel: z.elements["contentframe"].el, tag: "input",
+				attributes: [ ["id", "animationonly"], ["type", "checkbox"] ]
+			});
+			z.tools.createElement({
+				parentel: z.elements["contentframe"].el, tag: "label",
+				attributes: [ ["for", "animationonly"] ]
+			});
+		}
+		animationonly.addEventListener("change", () => {
+			animationonly.checked ? z.elements["main"].el.style["opacity"] = 0.0 : z.elements["main"].el.style["opacity"] = 0.8;
+		});
+
+		let highcontrast = document.querySelector("#highcontrast");
+		if(highcontrast==null) {
+			highcontrast = z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "input",
+				attributes: [ ["id", "highcontrast"], ["type", "checkbox"] ]
+			});
+			z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "label",
+				attributes: [ ["for", "highcontrast"] ]
+			});
+		}
+		highcontrast.addEventListener("change", () => {
+			if(highcontrast.checked) {
+				z.elements["main"].el.classList.add("highcontrast");
+				z.highcontrast = true;
 			}
 			else {
-				z.elements["main"].el.style["opacity"] = 0.0;
-				hidetextlink.innerText = "+";
-				hidetextlink.title = "show text";
-				texthidden = true;
+				z.elements["main"].el.classList.remove("highcontrast");
+				z.highcontrast = false;
 			}
+			// highcontrast.checked ? z.elements["main"].el.classList.add("highcontrast") : z.elements["main"].el.classList.remove("highcontrast");
 		});
+		
 	})();
 	return z;
 };
