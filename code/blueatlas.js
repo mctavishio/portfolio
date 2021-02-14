@@ -132,11 +132,12 @@ let getz = () => {
 		},
 		sound: {
 			basetrackurl: "https://storage.googleapis.com/www.blueboatfilms.com/sound/",
+			// basetrackurl: "http://www.blueboatfilms.com/sound/",
 			baseclipurl: "data/sound/",
 			tracks: {
 				lovemeditations: {title: "love meditations", url: "lovemeditationspodcast.mp3", duration: 3980 }, //1:06:24
 				rivericarus: {title: "river icarus", url: "rivericaruspodcast.mp3", duration: 2110}, //35:13
-				monksfromouterspace: {title: "monks from outer space", url: "monks.mp3", duration: 380}, //6:22
+				monksfromouterspace: {title: "monks from outer space", url: "monks.mp3", duration: 6*60+22}, //6:22
 				monksfromouterspacecistern: {title: "monks from outer space ::: cistern", url: "monksfromouterspacecistern.mp3", duration: 6*60+25},
 				
 				oceanwindgrief: {title: "ocean | wind | grief", url: "oceanwindgriefpodcast.mp3", duration: 1870},//31:18
@@ -605,22 +606,43 @@ let getz = () => {
 			}
 			catch(err) { z.tools.logerror("line playbuffer" + err) }
 		},
-		jukebox: ( { tracks=["IIIaIIfIcsharp3"], partial=false, order="random", j=0, duration=[8,36000], volume=[0.2,0.4], el} = {} ) => {
+		jukebox: ( { tracks=["IIIaIIfIcsharp3"], partial=false, order="random", j=0, duration=[8,36000], volume=[0.2,0.4], el} ) => {
 			z.tools.logmsg("** -> in jukebox el = " + el.getAttribute("id"));
 			z.tools.logmsg("** -> in jukebox p = " + JSON.stringify({partial,duration,volume}));
+			el.p = {start: 0, end: duration[1], dt: duration[0]/4, volume: 0};
+			// el.currentTime=0;
+			z.tools.logmsg("** -> in jukebox el.p = " + JSON.stringify(el.p));
+			z.tools.logmsg("** -> in jukebox el.currentTime = " + el.currentTime);
 			if(partial) {
 				el.addEventListener("timeupdate", (e) => {
-					let t = el.currentTime;
-					if( t >= el.p.end) {
-						el.pause();
-						z.radio.playtracks( {tracks,partial,order,j,duration,volume,el} );
+					try {
+						let t = el.currentTime;
+						// z.tools.logmsg("** -> in jukebox t = " + t);
+						if( t < el.p.start ) { el.currentTime=el.p.start }
+						else if( t >= el.p.end) {
+							el.pause();
+							z.radio.playtracks( {tracks,partial,order,j,duration,volume,el} );
+						}
+						else if( t < el.p.start + el.p.dt ) {
+							// z.tools.logmsg("** -> in eventlistener jukebox el.id = " + el.id);
+							// z.tools.logmsg("** -> in eventlistener jukebox e.volume = " + el.volume);
+							// z.tools.logmsg("** -> in eventlistener jukebox el.p = " + JSON.stringify(el.p));
+							// z.tools.logmsg("** -> in eventlistener jukebox t = " + t);
+							// z.tools.logmsg("** -> in eventlistener jukebox el.p.volume/el.p.dt = " + el.p.volume/el.p.dt);
+							let x = t*1.0 - el.p.start*1.0;
+							// z.tools.logmsg("** -> in eventlistener jukebox t - el.p.start = " + x);
+							let y = el.p.volume/el.p.dt * x;
+							// z.tools.logmsg("** -> in eventlistener jukebox y = " + y);
+							el.volume = el.p.volume/el.p.dt * (t - el.p.start);
+						}
+						else if(t > el.p.end - el.p.dt) {
+							// z.tools.logmsg("** -> in jukebox else t = " + t);
+							el.volume = el.p.volume/el.p.dt * (el.p.end - t);
+						}
 					}
-					else if( t < el.p.start + el.p.dt ) {
-						el.volume = el.p.volume/el.p.dt * (t - el.p.start);
-					}
-					else if(t > el.p.end - el.p.dt) {
-						el.volume = el.p.volume/el.p.dt * (el.p.end - t);
-					}
+					catch(error) {
+						z.tools.logerror("error in timeupdate eventtlistener " + error);
+					};
 				});
 			}
 			else {
@@ -648,16 +670,17 @@ let getz = () => {
 			let v = z.tools.randominteger(volume[0]*10,volume[1]*10)/10
 			el.volume = partial ? 0 : v;
 			el.p = {start: start, end: start+dur, dt: dt, volume: v};
-			z.tools.logmsg("** -> in playtrack p = " + JSON.stringify(el.p));
+			z.tools.logmsg("** -> in playtrack el.p = " + JSON.stringify(el.p));
 			el.currentTime=start; 
 			// el.playbackRate = z.tools.randominteger(100,200)/100;
-			// z.tools.logmsg("in playtrack track = " + track + " duration = " + duration + " dt = " + dt + " start = " + start);
+			z.tools.logmsg("in playtrack track = " + track + " el.currentTime = " + el.currentTime + " duration = " + duration + " dt = " + dt + " start = " + start);
 			if(z.radio.soundplaying) {
 				let playPromise = el.play();
 				playPromise.then( () => {
 					z.tools.logmsg("now playing " + el.src);
 				})
 				.catch(error => {
+					z.tools.logerror("error playing " + el.src);
 					// Auto-play was prevented
 					// Show paused UI.
 				});
@@ -730,7 +753,7 @@ let getz = () => {
 		let t0 = Math.floor(date0.getTime()/1000);
 		let state0 = { dt: dt, count: 0, date: date0, t: t0, t0: t0 };
 		return Kefir.withInterval( dt*1000, emitter => { emitter.emit( { date: new Date() } ) })
-				.filter( e => !z.highcontrast)
+				// .filter( e => !z.highcontrast)
 				.scan( (state, e) => { 
 					state.date = e.date;
 					state.t = Math.floor(e.date.getTime()/1000);
@@ -759,71 +782,7 @@ let getz = () => {
 				}, state0) 
 		})( ),
 	};
-	z.streams["clock"].onValue( e=> z.tools.logmsg("tick " + z.tools.datestr(e.date)) );
-	//set controls
-	// ( () => {
-	// 	const soundlink = document.querySelector("#soundlink");
-	// 	Kefir.fromEvents(soundlink, "click").onValue( e => {
-	// 		z.tools.logmsg("play sound !");
-	// 		if(!z.radio.soundplaying) { 
-	// 			try {
-	// 				z.radio.player.context.resume().then(() => {
-	// 					z.tools.logmsg("playback resumed");
-	// 					z.radio.soundplaying = true;
-	// 					z.radio.play();
-	// 					soundlink.innerText = "turn off sound";
-	// 				});
-	// 			} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
-	// 		}
-	// 		else { 
-	// 			try {
-	// 				z.radio.player.context.suspend().then(() => {
-	// 					z.radio.soundplaying = false;
-	// 					z.radio.pause();
-	// 					soundlink.innerText = "turn on sound";
-	// 				});
-	// 			} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
-	// 		}
-	// 	});
-	// 	let hidetextlink = document.querySelector("#hidetextlink");
-	// 	if(hidetextlink==null) {
-	// 		let hidetext = z.tools.createElement({
-	// 			parentel: z.elements["body"].el, tag: "div",
-	// 			attributes: [ ["id", "hidetext"] ]
-	// 		});
-	// 		hidetextlink = z.tools.createElement({
-	// 			parentel: hidetext, tag: "a",
-	// 			attributes: [ ["id", "hidetextlink"], ["href", "#"], ["title", "hide text"] ]
-	// 		});
-	// 		hidetextlink.innerText = "-";
-	// 	}
-	// 	Kefir.fromEvents(hidetextlink, "click").onValue( e => {
-	// 		if(z.texthidden) {
-	// 			z.elements["main"].el.style["opacity"] = 1.0;
-	// 			hidetextlink.innerText = "-";
-	// 			hidetextlink.title = "hide text";
-	// 			z.texthidden = false;
-	// 		}
-	// 		else {
-	// 			z.elements["main"].el.style["opacity"] = 0.0;
-	// 			hidetextlink.innerText = "+";
-	// 			hidetextlink.title = "show text";
-	// 			z.texthidden = true;
-	// 		}
-	// 	});
-	// 	let highcontrastlink = document.querySelector("#highcontrastlink");
-	// 	Kefir.fromEvents(highcontrastlink, "click").onValue( e => {
-	// 		if(z.highcontrast) {
-	// 			highcontrastlink.innerText = "make high contrast";
-	// 			z.highcontrast = false;
-	// 		}
-	// 		else {
-	// 			highcontrastlink.innerText = "make not high contrast";
-	// 			z.highcontrast = true;
-	// 		}
-	// 	});
-		
-	// })();
+	
 
 		//set controls
 	( () => {
@@ -873,7 +832,6 @@ let getz = () => {
 			});
 		}
 
-
 		let animationonly = document.querySelector("#animationonly");
 		if(animationonly==null) {
 			animationonly = z.tools.createElement({
@@ -902,12 +860,42 @@ let getz = () => {
 		}
 		highcontrast.addEventListener("change", () => {
 			if(highcontrast.checked) {
-				z.elements["main"].el.classList.add("highcontrast");
+				// z.elements["main"].el.classList.add("highcontrast");
+				z.elements.frames["contentframe"].el.classList.add("highcontrast");
 				z.highcontrast = true;
 			}
 			else {
-				z.elements["main"].el.classList.remove("highcontrast");
+				// z.elements["main"].el.classList.remove("highcontrast");
+				z.elements.frames["contentframe"].el.classList.remove("highcontrast");
 				z.highcontrast = false;
+			}
+			// highcontrast.checked ? z.elements["main"].el.classList.add("highcontrast") : z.elements["main"].el.classList.remove("highcontrast");
+		});
+		let darklight = document.querySelector("#darklight");
+		if(darklight==null) {
+			darklight = z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "input",
+				attributes: [ ["id", "darklight"], ["type", "checkbox"] ]
+			});
+			z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "label",
+				attributes: [ ["for", "darklight"] ]
+			});
+		}
+		darklight.addEventListener("change", () => {
+			if(darklight.checked) {
+				z.elements.frames["contentframe"].el.classList.add("day");
+				document.documentElement.style.setProperty("--corecolor", "var(--daycolor)");
+				document.documentElement.style.setProperty("--corebg", "var(--daybg)");
+				document.documentElement.style.setProperty("--coreveilbg", "var(--dayveilbg)");
+				z.day = true;
+			}
+			else {
+				z.elements.frames["contentframe"].el.classList.remove("day");
+				document.documentElement.style.setProperty("--corecolor", "var(--nightcolor)");
+				document.documentElement.style.setProperty("--corebg", "var(--nightbg)");
+				document.documentElement.style.setProperty("--coreveilbg", "var(--nightveilbg)");
+				z.day = false;
 			}
 			// highcontrast.checked ? z.elements["main"].el.classList.add("highcontrast") : z.elements["main"].el.classList.remove("highcontrast");
 		});
