@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>blue atlas ebooks</title>
+	<title>lattice ::: sketch 8</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="mctavish ::: blue atlas ::: ebooks" />
+	<meta name="description" content="mctavish ::: project lattice ::: sketch 8" />
 	<meta name="keywords" content="mctavish net.art generative algorithmic code electronic literature" />
 	<meta name="author" content="kathy mctavish">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -15,10 +15,10 @@
 		{
 			"@context": "http://schema.org",
 			"@type": "WebPage",
-			"name": "ebooks",
-			"breadcrumb": "mctavish.io > blueatlas > ebooks",
-          		"url": "http://www.mctavish.io/blueatlas/ebooks.html",
-			"description": "blue atlas ::: ebooks",
+			"name": "sketch 8",
+			"breadcrumb": "mctavish.io > lattice > sketch 8",
+          		"url": "http://www.mctavish.io/lattice/sketch8.html",
+			"description": "lattice ::: sketch 8",
 			"datePublished": "2021-02-13",
           		"image": "https://www.mctavish.io/apple-touch-icon.png",
 			"author": "http://mctavish.io",
@@ -34,12 +34,11 @@
 	<svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame" ></svg>
 </div>
 <div id="wordframe" class="frame z0"></div>
-<div id="subtextframe" class="frame z0"></div>
+<div id="subtextframe" class="frame zhigh"></div>
 <div id="contentframe">
 <main id="main">
 <header>
-	<h1>ebooks / pdf flipbooks</h1>
-	<h2>generative drawings</h2>
+	<h1>sketch 8 ::: a<sup>x</sup></h1>
 </header>
 <!-- <ul data-role="narrator" class="info compress">
 	<li class="title typewriter" title="telegraph" id="telegraph"></li>
@@ -67,7 +66,7 @@
 	<header>
 	<a href="#top" aria-label="jump to top">^</a><h1> notes</h1>
 	</header>
-	<p>Below are a set of links to chance-infused, algorithmic sketches.</p>
+	<p>grids grids grids.</p>
 	<div class="screenreader-text"><p>The structure of this page itself also represents a further movement towards accessibility (<a href="https://www.w3.org/WAI/standards-guidelines/wcag/wcag3-intro/">WCAG 3.0</a>).</p>
 	<p>This is a journey that is still unfolding for me. I will write more about this process in the months ahead and will continue to hone all of my content towards the dream of a cross-sensory, accessible art form in the cloud.</p>
 	<p>Your feedback is always welcome.</p></div>
@@ -246,243 +245,123 @@ z.radio.start(z);
 			return state;
 		}, {clock:{t:0}, dt:1}  );
 
-	//lines
-	( dt => {
-		let nshapes = [1,1][z.dimensions.v];
-		let width = window.innerWidth, height = window.innerHeight;
-		let colors = [[z.data.colors.pigments.red,1]].reduce( (acc, color, j) => {
-			Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
-			return acc;
-		}, []);
-		const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-			let el = z.tools.createElement({
-				parentel: z.elements["svg"].el, tag: "line",
-				ns: "http://www.w3.org/2000/svg",
-				attributes: [
-					["stroke-width", width], ["stroke-opacity", 0.01], ["stroke", colors[j%colors.length]],
-					["x1", width/2], ["x2", width/2], ["y1", 0], ["y2", height]
-				],
-				cssclasses: ["shape", "line"]
-			});
-			acc[j] = { el: el };
-		return acc;
-		}, []);
-		const drawings = [
-			e => {
-				try {
-					let count = e.clock.t/dt;
-					let width = e.dimensions.width, height = e.dimensions.height;
-					let y1 = [0, e.dimensions.height, e.dimensions.height/2, 0][count%4];
-					let y2 = [e.dimensions.height, 0, e.dimensions.height/2, 0][count%4];
-					Velocity({	
-						elements: elements[count%nshapes].el,
-						properties: { strokeOpacity: 1.0, strokeWidth: e.dimensions.width, strokeDasharray: z.tools.randominteger(e.dimensions.min/8, e.dimensions.min/2), x1: e.dimensions.width/2, x2: e.dimensions.width/2, y1: y1, y2: y2 },
-						options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
-					});
-				} catch(err) { z.tools.logerror("line animation 1 ::: " + err ) }
-			}
-		];
-		z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-			drawings[0](e);
-		})
-	})(6);
-
-	// //lines 2
+	//boxes
 	// ( dt => {
-	// 	let nshapes = [2,4][z.dimensions.v];
+	// 	let nrows = [2,2][z.dimensions.v]; let ncols = [2,2][z.dimensions.v];
 	// 	let width = window.innerWidth, height = window.innerHeight;
-	// 	const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-	// 		let el = z.tools.createElement({
-	// 			parentel: z.elements["svg"].el, tag: "line",
-	// 			ns: "http://www.w3.org/2000/svg",
-	// 			attributes: [
-	// 				["stroke-width", height], ["stroke-opacity", 0.01],
-	// 				["x1", 0], ["x2", width], ["y1", height/2], ["y2", height/2]
-	// 			],
-	// 			cssclasses: ["shape", "line"]
-	// 		});
-	// 		acc[j] = { el: el };
-	// 	return acc;
-	// 	}, []);
-	// 	let colors = [[z.data.colors.pigments.black,4], [z.data.colors.pigments.white,4], [z.data.colors.pigments.blue,0], [z.data.colors.pigments.yellow,0], [z.data.colors.pigments.red,0]].reduce( (acc, color, j) => {
+	// 	let colors = [[z.data.colors.pigments.black,1],[z.data.colors.pigments.white,1],[z.data.colors.pigments.red,1]].reduce( (acc, color, j) => {
 	// 		Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
 	// 		return acc;
 	// 	}, []);
+	// 	const elements = [...Array(nrows).keys()].reduce( (acc, row) => {
+	// 		acc[row] = [];
+	// 		[...Array(ncols).keys()].forEach( col => {
+	// 			let el = z.tools.createElement({
+	// 				parentel: z.elements.frames["wordframe"].el, tag: "div",
+	// 				attributes: [
+	// 					["id", "r"+row+"c"+col]
+	// 				],
+	// 				cssclasses: ["shape"]
+	// 			});
+	// 			acc[row][col] = { el:el, row:row, col:col };
+	// 		});
+	// 		return acc;
+	// 	}, []);
+	// 	elements.map( (element,j) => {
+	// 		z.tools.logmsg("element " + j + element);
+	// 	});
 	// 	const drawings = [
 	// 		e => {
 	// 			try {
 	// 				let count = e.clock.t/dt;
-	// 				let width = e.dimensions.width, height = e.dimensions.height;
-	// 				let color = colors[z.tools.randominteger(0, colors.length)];
-	// 				let x1 = [0, e.dimensions.width, e.dimensions.width, 0][count%4];
-	// 				let x2 = [e.dimensions.width, 0, e.dimensions.width, 0][count%4];
+	// 				// let width = e.dimensions.width, height = e.dimensions.height;
+	// 				let dx = Math.floor(e.dimensions.width/nrows), dy = Math.floor(e.dimensions.height/ncols);
+	// 				// z.tools.logmsg("dx = "+dx + " dy = "+dy);
+	// 				let col = Math.floor((count%(nrows*ncols))/ncols);
+	// 				let row = (count%(nrows*ncols))%ncols;
+	// 				// z.tools.logmsg("boxes 1 ::: row " + row + " col " + col);
+	// 				let w = z.tools.randominteger(2,dx*2), h = z.tools.randominteger(2,dy*2);
+	// 				let m = Math.min(w,h);
+	// 				let element = elements[row][col];
 	// 				Velocity({	
-	// 					elements: elements[count%nshapes].el,
-	// 					properties: { strokeOpacity: 1.0, stroke: color, strokeWidth: e.dimensions.height, strokeDasharray: z.tools.randominteger(e.dimensions.min/8, e.dimensions.min/2), x1: x1, x2: x2, y1: e.dimensions.height/2, y2: e.dimensions.height/2 },
-	// 					options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
+	// 					elements: element.el,
+	// 					properties: { left: z.tools.randominteger(0,e.dimensions.width), top: col*dy-h/4, width:w, height:h, backgroundColor:colors[z.tools.randominteger(0,colors.length)], borderRadius:z.tools.randominteger(m/2,m)},
+	// 					options: { duration: z.tools.randominteger(dt*900, dt*nrows*ncols*900), delay: 0 },
 	// 				});
-	// 			} catch(err) { z.tools.logerror("line animation 2 ::: " + err ) }
+	// 			} catch(err) { z.tools.logerror("box animation ::: " + err ) }
 	// 		}
 	// 	];
 	// 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 	// 		drawings[0](e);
 	// 	})
-	// })(2);
+	// })(1);
 
-	//lines
+	//boxes
 	( dt => {
-		let nshapes = [1,2][z.dimensions.v];
+		let nrows = [4,4][z.dimensions.v]; let ncols = [4,4][z.dimensions.v];
 		let width = window.innerWidth, height = window.innerHeight;
-		let colors = [[z.data.colors.pigments.white,1], [z.data.colors.pigments.black,1]].reduce( (acc, color, j) => {
+		let colors = [[z.data.colors.pigments.black,1],[z.data.colors.pigments.white,1],[z.data.colors.pigments.red,1]].reduce( (acc, color, j) => {
 			Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
 			return acc;
 		}, []);
-		const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-			let el = z.tools.createElement({
-				parentel: z.elements["svg"].el, tag: "line",
-				ns: "http://www.w3.org/2000/svg",
-				attributes: [
-					["stroke-width", width], ["stroke-opacity", 0.01], ["stroke", colors[j%colors.length]],
-					["x1", width/2], ["x2", width/2], ["y1", 0], ["y2", height]
-				],
-				cssclasses: ["shape", "line"]
+		const elements = [...Array(nrows).keys()].reduce( (acc, row) => {
+			acc[row] = [];
+			[...Array(ncols).keys()].forEach( col => {
+				let el = z.tools.createElement({
+					parentel: z.elements.frames["wordframe"].el, tag: "div",
+					attributes: [
+						["id", "r"+row+"c"+col], ["style", "background-color:" + colors[z.tools.randominteger(0,colors.length)]]
+					],
+					cssclasses: ["shape"]
+				});
+				acc[row][col] = { el:el, row:row, col:col };
 			});
-			acc[j] = { el: el };
-		return acc;
+			return acc;
 		}, []);
+		elements.map( (element,j) => {
+			z.tools.logmsg("element " + j + element);
+		});
 		const drawings = [
 			e => {
 				try {
 					let count = e.clock.t/dt;
-					let width = e.dimensions.width, height = e.dimensions.height;
-					let y1 = [0, e.dimensions.height, e.dimensions.height, 0][count%4];
-					let y2 = [e.dimensions.height, 0, e.dimensions.height, 0][count%4];
+					// let width = e.dimensions.width, height = e.dimensions.height;
+					let dx = Math.floor(e.dimensions.width/nrows), dy = Math.floor(e.dimensions.height/ncols);
+					// z.tools.logmsg("dx = "+dx + " dy = "+dy);
+					let row = Math.floor((count%(nrows*ncols))/nrows);
+					let col = (count%(nrows*ncols))%nrows;
+					// z.tools.logmsg("boxes 2 ::: row " + row + " col " + col);
+					let w = z.tools.randominteger(2,dx*2), h = z.tools.randominteger(2,dy*2);
+					let m = Math.min(w,h);
+					let element = elements[row][col];
 					Velocity({	
-						elements: elements[count%nshapes].el,
-						properties: { strokeOpacity: 1.0, strokeWidth: e.dimensions.width, strokeDasharray: z.tools.randominteger(e.dimensions.min/8, e.dimensions.min/2), x1: e.dimensions.width/2, x2: e.dimensions.width/2, y1: y1, y2: y2 },
-						options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
+						elements: element.el,
+						properties: { left: row*dx-w/4, top: z.tools.randominteger(0,e.dimensions.height), width:w, height:h, borderRadius:z.tools.randominteger(m/4,m)},
+						options: { duration: z.tools.randominteger(dt*900, dt*nrows*ncols*900), delay: 0 },
 					});
-				} catch(err) { z.tools.logerror("line animation 1 ::: " + err ) }
+					if(row===0 && col===0) {
+						let zoom = z.tools.randominteger(5,20)/10;
+						let rz = z.tools.randominteger(0,960);
+						z.tools.logmsg("zoom! " + zoom + " rz = " + rz);
+						Velocity({	
+							elements: z.elements.frames["wordframe"].el,
+							properties: { scale: zoom },
+							options: { duration: 1000, delay: 0 },
+						});
+						Velocity({	
+							elements: z.elements.frames["wordframe"].el,
+							properties: { rotateZ: rz },
+							options: { duration: 2000, delay: 0 },
+						});
+
+					}
+				} catch(err) { z.tools.logerror("box animation ::: " + err ) }
 			}
 		];
 		z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 			drawings[0](e);
 		})
-	})(5);
-	// //circles 1
-	// ( dt => {
-	// 	let nshapes = [2,2][z.dimensions.v];
-	// 	let width = window.innerWidth, height = window.innerHeight;
-	// 	let colors = [[z.data.colors.pigments.black,1], [z.data.colors.pigments.white,1]].reduce( (acc, color, j) => {
-	// 		Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
-	// 		return acc;
-	// 	}, []);
-	// 	const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-	// 		let el = z.tools.createElement({
-	// 			parentel: z.elements["svg"].el, tag: "circle",
-	// 			ns: "http://www.w3.org/2000/svg",
-	// 			attributes: [ ["cx", width/2], ["cy", height/2], ["stroke", colors[j%colors.length]], ["fill", colors[j%colors.length]] ],
-	// 			cssclasses: ["shape", "circle"]
-	// 		});
-	// 		acc[j] = { el: el };
-	// 	return acc;
-	// 	}, []);
-	// 	const drawings = [
-	// 		e => {
-	// 			try {
-	// 				let count = e.clock.t/dt;
-	// 				let r = z.tools.randominteger(e.dimensions.min/4, e.dimensions.min);
-	// 				Velocity({	
-	// 					elements: elements[count%nshapes].el,
-	// 					properties: { fillOpacity: count%2===0 ? 1.0 : 1.0, strokeOpacity: count%2===0 ? 0.0: 0.0, strokeWidth: r/2, strokeDasharray: z.tools.randominteger(r/6, r), cx: e.dimensions.width/2, cy: e.dimensions.height/2, r: r },
-	// 					options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
-	// 				});
-	// 			} catch(err) { z.tools.logerror("circle animation 1 ::: " + err ) }
-	// 		},
-			
-	// 	];
-	// 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-	// 		drawings[0](e);
-	// 	})
-	// })(3);
-	// //lines 2
-	// ( dt => {
-	// 	let nshapes = [1,2][z.dimensions.v];
-	// 	let width = window.innerWidth, height = window.innerHeight;
-	// 	const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-	// 		// z.tools.logmsg("create line element ::: " + j);
-	// 		let el = z.tools.createElement({
-	// 			parentel: z.elements["svg"].el, tag: "line",
-	// 			ns: "http://www.w3.org/2000/svg",
-	// 			attributes: [
-	// 				["stroke-width", width], ["stroke-opacity", 0.01],
-	// 				["x1", 0], ["x2", width], ["y1", height/2], ["y2", height/2]
-	// 			],
-	// 			cssclasses: ["shape", "line"]
-	// 		});
-	// 		acc[j] = { el: el };
-	// 	return acc;
-	// 	}, []);
-	// 	let colors = [[z.data.colors.pigments.black,4], [z.data.colors.pigments.white,6], [z.data.colors.pigments.blue,0], [z.data.colors.pigments.yellow,0], [z.data.colors.pigments.red,0]].reduce( (acc, color, j) => {
-	// 		Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
-	// 		return acc;
-	// 	}, []);
-	// 	const drawings = [
-	// 		e => {
-	// 			try {
-	// 				let count = e.clock.t/dt;
-	// 				let width = e.dimensions.width, height = e.dimensions.height;
-	// 				let color = colors[z.tools.randominteger(0, colors.length)];
-	// 				let x1 = [0, e.dimensions.width, e.dimensions.width, 0][count%4];
-	// 				let x2 = [e.dimensions.width, 0, e.dimensions.width, 0][count%4];
-	// 				Velocity({	
-	// 					elements: elements[count%nshapes].el,
-	// 					properties: { strokeOpacity: 1.0, stroke: color, strokeWidth: e.dimensions.height, strokeDasharray: z.tools.randominteger(e.dimensions.min/8, e.dimensions.min/2), x1: x1, x2: x2, y1: e.dimensions.height/2, y2: e.dimensions.height/2 },
-	// 					options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
-	// 				});
-	// 			} catch(err) { z.tools.logerror("line animation 2 ::: " + err ) }
-	// 		}
-	// 	];
-	// 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-	// 		drawings[0](e);
-	// 	})
-	// })(3);
-	//circles 1
-	( dt => {
-		let nshapes = [2,2][z.dimensions.v];
-		let width = window.innerWidth, height = window.innerHeight;
-		let colors = [[z.data.colors.pigments.white,1], [z.data.colors.pigments.black,1]].reduce( (acc, color, j) => {
-			Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
-			return acc;
-		}, []);
-		const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
-			let el = z.tools.createElement({
-				parentel: z.elements["svg"].el, tag: "circle",
-				ns: "http://www.w3.org/2000/svg",
-				attributes: [ ["cx", width/2], ["cy", height/2], ["stroke", colors[j%colors.length]], ["fill", colors[j%colors.length]] ],
-				cssclasses: ["shape", "circle"]
-			});
-			acc[j] = { el: el };
-		return acc;
-		}, []);
-		const drawings = [
-			e => {
-				try {
-					let count = e.clock.t/dt;
-					let r = z.tools.randominteger(e.dimensions.min/10, e.dimensions.min/2);
-					Velocity({	
-						elements: elements[count%nshapes].el,
-						properties: { fillOpacity: count%2===0 ? 1.0 : 1.0, strokeOpacity: count%2===0 ? 0.0: 0.0, strokeWidth: r/2, strokeDasharray: z.tools.randominteger(r/6, r), cx: e.dimensions.width/2, cy: e.dimensions.height/2, r: r },
-						options: { duration: z.tools.randominteger(1000*dt*nshapes/2,1000*dt*nshapes), delay: 0 },
-					});
-				} catch(err) { z.tools.logerror("circle animation 1 ::: " + err ) }
-			},
-			
-		];
-		z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
-			drawings[0](e);
-		})
-	})(2);
+	})(1);
 })();
 
 window.addEventListener('load', e => {

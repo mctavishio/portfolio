@@ -344,7 +344,7 @@ div.frame, svg.frame, h1.frame, main.frame, canvas.frame {
 	overflow: hidden;
 	background-color: transparent;
 	perspective: 50px;
-	transform-origin: 50% 100%;
+	transform-origin: 50% 50% 0;
 }
 body.frame {
 	position: fixed;
@@ -358,14 +358,14 @@ body.frame {
 	overflow: auto;
 	background-color: transparent;
 	perspective: 50px;
-	transform-origin: 50% 100%;
+	transform-origin: 50% 50% 0;
 }
-div.absolute {
+div.absolute, div.shape {
 	position: absolute;
 	top: 0; left: 0;
 	vertical-align: top;
 	perspective: 50px;
-	transform-origin: 50% 100%;
+	transform-origin: 50% 50% 0;
 }
 #contentframe {
 	position: absolute;
@@ -374,8 +374,8 @@ div.absolute {
 	width: 90%;
 	max-width: 840px; 
 	left: 50%; top: 0%;
-	transform: translate(-50%, 0%);
 	z-index: var(--zhighest);
+	transform: translate(-50%, 0%);
 	transition: opacity 1s ease-in-out;
 }
 main {
@@ -899,7 +899,7 @@ fieldset {
 	border: .2em solid var(--corebg);
 }
 legend {
-	padding: .4em;
+	padding: .2em;
 	font-weight: bold;
 	background: var(--corecolor);
 	color: var(--corebg);
