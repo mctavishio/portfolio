@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,7 @@
 			"license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
 		}
 	</script>
-	<link rel="stylesheet" href="/css/mctavish.css"/>
+	<link rel="stylesheet" href="mctavish.css"/>
 	<style>
 		.gridcontainer0 {
 			display: grid;
@@ -133,6 +134,9 @@
 		<li><a href="#maincontent" id="skiptomaincontent" class="corelink">skip to main content</a></li>
 		<li><a href="index.html" id="homelink" class="corelink">return home</a></li>
 		<li><label for="sound"><input id="sound" type="checkbox"> play sound</label></li>
+		<li><audio id="audio0" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li>
+		<li><audio id="audio1" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li>
+		<li><audio id="audio2" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/clarinetnotes.mp3" type="audio/mpeg"></audio></li>
 		<li><a href="#accessfeatures" id="gotoaccessfeatures" class="corelink">tailor your visual experience</a></li>
 	</ul>
 </nav>
@@ -152,7 +156,7 @@
 		<li>flicker of movement ...<li>
 		<li>updraft twist & downward sweep<li>
 		<li>birds ::> contour physics sound<li>
-		<li>network trendrils <li>
+		<li>network tendrils <li>
 		<li>neural sensors<li>
 		<li>circuits gears <li>
 		<li>identify .> (classify)<li>
@@ -225,7 +229,7 @@
 </div>
 
 </body>
-<script src="/code/lattice.js"></script>
+<script src="lattice.js"></script>
 <script>
 let z = getz();
 z.radio.start(z);
@@ -233,43 +237,38 @@ z.radio.start(z);
 //set up sound
 ( () => {
 	const tracks = ["monksfromouterspacecistern", "monksfromouterspacecistern", "clarinetnotes"];
-	const elements = [0,1].reduce( (acc, j) => {
-			let el = z.tools.createElement({
-				parentel: z.elements["body"].el, tag: "audio",
-				attributes: [
-					["id", "audio"+j], ["type", "audio/mpeg"], ["src", "https://storage.googleapis.com/www.blueboatfilms.com/sound/IIca"]
-				]
-			});
-			acc[j] = { el: el };
-		return acc;
-		}, []);
+	const elements = document.querySelectorAll("audio");
 	elements.forEach( element => {
 		let track = tracks[z.tools.randominteger(0, tracks.length)];
-		z.radio.jukebox( { tracks:tracks, partial:true, order:"random", j:0, duration:[12,240], volume:[0.2,0.6], el: element.el});
+		z.radio.jukebox( { tracks:tracks, partial:true, order:"random", j:0, duration:[12,240], volume:[0.2,0.6], el: element});
 	});
 	// const elements = [];
 	// document.querySelectorAll("audio").forEach(element => {
 	// 	elements.push({ el: element });
 	// });
+	let canpause = false;
 	z.radio.play = () => {
 		elements.forEach(element => {
 			// element.el.play();
 			// z.tools.logmsg("now request playing " + element.el.src);
-			let playPromise = element.el.play();
-				playPromise.then( () => {
-				z.tools.logmsg("now playing " + element.el.src);
+			let playPromise = element.play();
+			playPromise.then( () => {
+				z.tools.logmsg("now playing " + element.src);
+				canpause=true;
 			})
 			.catch(error => {
-				z.tools.logerror("error playing " + element.el.src + " " + error);
+				z.tools.logerror("error playing " + element.src + " " + error);
 				// Auto-play was prevented
 				// Show paused UI.
 			});
 		});
 	};
 	z.radio.pause = () => {
-		elements.forEach(element => {
-			element.el.pause();
-		});
+		if(canpause) {
+			elements.forEach(element => {
+				element.pause();
+			});
+		}
 	};
 	
 })();
