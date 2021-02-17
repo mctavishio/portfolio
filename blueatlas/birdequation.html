@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,8 +247,9 @@ z.radio.start(z);
 	let canpause = false;
 	z.radio.play = () => {
 		elements.forEach(element => {
-			// element.el.play();
-			// z.tools.logmsg("now request playing " + element.el.src);
+			let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
+
+			z.tools.logmsg("in play src = " + element.src + " isplaying=" + isPlaying);
 			let playPromise = element.play();
 			playPromise.then( () => {
 				z.tools.logmsg("now playing " + element.src);
@@ -265,7 +265,11 @@ z.radio.start(z);
 	z.radio.pause = () => {
 		if(canpause) {
 			elements.forEach(element => {
-				element.pause();
+				let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
+				z.tools.logmsg("in pause src = " + element.src + " isplaying=" + isPlaying);
+				if(isPlaying) {
+					element.pause();
+				}
 			});
 		}
 	};
@@ -283,7 +287,6 @@ z.radio.start(z);
 		max = Math.max(width, height), min = Math.min(width, height);
 		console.log("window.innerWidth = " + window.innerWidth);
 	});
-
 
 	let count = 0;
 	document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
@@ -303,35 +306,6 @@ z.radio.start(z);
 			// el.style.transform = translate;  
 		}, j*100+1000);
 	});
-
-
-	//boxes
-	// ( dt => {
-	// 	let nrows = [4,4][z.dimensions.v]; let ncols = [4,4][z.dimensions.v];
-	// 	let width = window.innerWidth, height = window.innerHeight;
-	// 	let colors = [[z.data.colors.pigments.black,1],[z.data.colors.pigments.white,1],[z.data.colors.pigments.red,1]].reduce( (acc, color, j) => {
-	// 		Array.prototype.push.apply(acc,[...Array(color[1]).keys()].reduce( (acc2,k) => { acc2.push(color[0]); return acc2 },[]) );
-	// 		return acc;
-	// 	}, []);
-	// 	const elements = [...Array(nrows).keys()].reduce( (acc, row) => {
-	// 		acc[row] = [];
-	// 		[...Array(ncols).keys()].forEach( col => {
-	// 			let el = z.tools.createElement({
-	// 				parentel: z.elements.frames["wordframe"].el, tag: "div",
-	// 				attributes: [
-	// 					["id", "r"+row+"c"+col], ["style", "background-color:" + colors[z.tools.randominteger(0,colors.length)]]
-	// 				],
-	// 				cssclasses: ["shape"]
-	// 			});
-	// 			acc[row][col] = { el:el, row:row, col:col };
-	// 		});
-	// 		return acc;
-	// 	}, []);
-	// 	elements.map( (element,j) => {
-	// 		z.tools.logmsg("element " + j + element);
-	// 	});
-		
-	// })(1);
 })();
 
 window.addEventListener('load', e => {
