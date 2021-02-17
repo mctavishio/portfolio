@@ -1,4 +1,3 @@
-
 let getz = () => {
 	let width = window.innerWidth, height = window.innerHeight;
 	let min = Math.min(width, height), max = Math.max(width, height);
@@ -676,41 +675,22 @@ let getz = () => {
 			// el.playbackRate = z.tools.randominteger(100,200)/100;
 			z.tools.logmsg("in playtrack track = " + track + " el.currentTime = " + el.currentTime + " duration = " + duration + " dt = " + dt + " start = " + start);
 			if(z.radio.soundplaying) {
+
+				let isPlaying = el.currentTime > 0 && !el.paused && !el.ended && el.readyState > el.HAVE_CURRENT_DATA;
+				z.tools.logmsg("in radio -- src = " + el.src + " isplaying=" + isPlaying);
 				let playPromise = el.play();
-				playPromise.then( () => {
-					z.tools.logmsg("now playing " + el.src);
-				})
-				.catch(error => {
-					z.tools.logerror("error playing " + el.src);
-					// Auto-play was prevented
-					// Show paused UI.
-				});
+				if(!isPlaying) {
+					playPromise.then( () => {
+						z.tools.logmsg("now playing " + el.src);
+					})
+					.catch(error => {
+						z.tools.logerror("error playing " + el.src);
+						// Auto-play was prevented
+						// Show paused UI.
+					});
+				}
 			}
 		},
-		// playtracks: ( { tracks=["IIIaIIfIcsharp3"], order="random", j=0, volume=0.2, audioel} = {} ) => {
-		// 	j = order ==="random" ? z.tools.randominteger(0,tracks.length) : j;
-		// 	z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
-		// 	audioel.addEventListener('ended', (event) => {
-		// 		z.tools.logmsg("done playing " + tracks[j]);
-		// 		j = (j+1)%tracks.length;
-		// 		z.radio.playtrack( { track:tracks[j], volume:volume, audioel:audioel } );
-		// 	});
-		// },
-		// playtrack: ( { track="IIIaIIfIcsharp3", volume=0.8, audioel, start=0 } = {} ) => {
-		// 	audioel.src = z.data.sound.basetrackurl + z.data.sound.tracks[track].url; 
-		// 	audioel.volume=volume;
-		// 	audioel.currentTime=start;
-		// 	if(z.radio.soundplaying) {
-		// 		let playPromise = audioel.play();
-		// 		playPromise.then( () => {
-		// 		})
-		// 		.catch(error => {
-		// 			// Auto-play was prevented
-		// 			// Show paused UI.
-		// 		});
-		// 	}
-		// 	z.tools.logmsg("now playing " + audioel.src);
-		// },
 		play: () => {},
 		pause: () => {}
 	};
