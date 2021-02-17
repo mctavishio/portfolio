@@ -1,3 +1,4 @@
+
 let getz = () => {
 	let width = window.innerWidth, height = window.innerHeight;
 	let min = Math.min(width, height), max = Math.max(width, height);
@@ -194,7 +195,7 @@ let getz = () => {
 				holeintheskyall20140504sound: {title: "hole in the sky ::: score surround", url: "holeintheskyall20140504sound.mp3", duration: 1*60*60+60*60+38}, // ::: minimalist bg
 				holeinthesky20140919: {title: "hole in the sky ::: draft", url: "holeinthesky20140919.mp3", duration: 53*60+13}, // ::: minimalist more active bg
 				soundscape20140501_1: {title: "hole in the sky ::: draft", url: "soundscape20140501_1.mp3", duration: 53*60+10}, // ::: minimalist more active bg
-				trains20141218_v2: {title: "trains20141218_v2", url: "trains20141218_v2.mp3", duration: 18*60+17}, // ::: trains cello tuning ping ong
+				trains20141218_v2: {title: "trains20141218_v2", url: "radio.mp3", duration: 18*60+17}, // ::: trains cello tuning ping ong
 				trains20141219: {title: "trains20141219", url: "trains20141219.mp3", duration: 22*60+27}, // ::: trains cello 
 				tuningforkhYmn2: {title: "tuningforkhYmn2", url: "tuningforkhYmn2.mp3", duration: 7*60+25}, // ::: 
 				tuningforkhYmn3: {title: "tuningforkhYmn3", url: "20100603tuningforkhYmn_v3.mp3", duration: 10*60+10}, // ::: with coffeepot
@@ -450,7 +451,7 @@ let getz = () => {
 		},
 		texts: {
 			lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl. Suspendisse rhoncus nisl posuere tortor tempus et dapibus elit porta. Cras leo neque, elementum a rhoncus ut, vestibulum non nibh. Phasellus pretium justo turpis. Etiam vulputate, odio vitae tincidunt ultricies, eros odio dapibus nisi, ut tincidunt lacus arcu eu elit. Aenean velit erat, vehicula eget lacinia ut, dignissim non tellus. Aliquam nec lacus mi, sed vestibulum nunc. Suspendisse potenti. Curabitur vitae sem turpis. Vestibulum sed neque eget dolor dapibus porttitor at sit amet sem. Fusce a turpis lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-			glitch: "xœ½YMo7½Ï¯ÐØ‰(~H‚=$môP oAéÚi{Øöï÷Q³k{Vj½:YÃ#š#½Gj%’’)DüìJIÂá8¹;;;×´üýçÝôêÝ=…_î½M­ýæî¯ßw?½{÷Sœk)‰5U!Ê&PPç¤R#Uƒ¦4!æó‹pø}„øöý#¾ûƒ#²#¾ÙÀÊ?&ê'ëÍÍIÛ”±Èœc 7ÇéÕw¨J¸ù<}xmj«™÷4¼Nwû`mÜ‡ø1Ü|?}{3ýx~±8‹H/·ö9'KV_il3¦f0e…tûbTLòâÃG{ÛÆ$",
+			glitch: "xÅ“Â½YMo7Â½ÃÂ¯ÃÃ˜â€°(~Hâ€š=$mÃ´PÂ ÂoAÃ©Ãši{Ã˜Ã¶Ã¯Ã·QÂ³k{VjÂ½:YÃƒ#Å¡#Â½Gj%â€™â€™)DÃ¼Ã¬JIÃ‚Ã¡8Â¹;;;Ã—Â´Ã¼Ã½Ã§ÃÃ´ÃªÃ=â€¦_Ã®Â½MÂ­Ã½Ã¦Ã®Â¯ÃŸw?Â½{Ã·SÅ“k)â€°5U!ÃŠ&PPÃ§Â¤R#UÆ’Â¦4!Ã¦Ã³â€¹pÃ¸}â€žÃ¸Ã¶Ã½#Â¾Ã»Æ’#Â²#Â¾Ã™Ã€ÃŠ?&Ãª'Ã«ÃÃIÃ›â€Â±ÃˆÅ“c 7Ã‡Ã©Ã•wÂ¨JÂ¸Ã¹<}xmjÂ«â„¢Ã·Â4Â¼NwÃ»`mÃœâ€¡Ã¸1Ãœ|?}{3Ã½x~Â±8â€¹H/Â·Ã¶9'KV_il3Â¦f0eâ€¦tÃ»bTLÃ²Ã¢ÃƒG{Ã›Ã†$",
 			earthprayer: "A prayer for our earth All-powerful God, you are present in the whole universe and in the smallest of your creatures. You embrace with your tenderness all that exists. Pour out upon us the power of your love, that we may protect life and beauty. Fill us with peace, that we may live as brothers and sisters, harming no one. O God of the poor, help us to rescue the abandoned and forgotten of this earth, so precious in your eyes. Bring healing to our lives, that we may protect the world and not prey on it, that we may sow beauty, not pollution and destruction. Touch the hearts of those who look only for gain at the expense of the poor and the earth. Teach us to discover the worth of each thing, to be filled with awe and contemplation, to recognize that we are profoundly united with every creature as we journey towards your infinite light. We thank you for being with us each day. Encourage us, we pray, in our struggle for justice, love and peace.",
 			bird: ".......,.,/(##(/..#%#(*,.,/,,*/#%#(.#&&@#//(%/,.*/,*(&@&@%(.*%#/,*/(&@&%/,/#%&,.,*/(#%#/(%#/*/(#%##/../(,%(//(%&#%/,..,(%#/(#%&@&&/,#%#,*/(#&@&%*.*/(&%(./((#%#&%#%&@%/..*%/##&@&*..#%(%@%/../#%#(/*,,(%/*,*/#&@,*(#(#@%,#%@@/.*(//(#%*..*/(#%&@&@.*(#%&@&*,%@%*.,#%#(#%,#%@&@&,.(#%#@..#%&%#%&@&,..*&%&%/../%@&@%./&@@@&@&(,.,(&%&@&,(%&#%&@&*.*#&@&@,./%&%/@&,.#&/#&@./(&@@/(#(#@*./#&@%#*/#%(/(#@&%//&@&@&@#(/,*(#%@&**#&%@&*,*((*,*/#@%.,@&@*,*/(/(/(%#(#%@#*%*,.#&@&%@,*/(/#%#(#@&,.&(,.%&@&@&@(,/#&##(%@%/.@%,.,(&@@&%*/#(&@%#(/(%&&%,..(%&@&@&%@%(*/(#%#%&@%#%@&%#@#/.%&@&#&#%#(#&@&#@%#.(&#.*&&@&%#%&@#(%&&@&%*..*%&@*,(&%&((#%&&%#&@@%*,#@%(.*#%#(##(#%(/%&@&%&@&%,,#&@*((/(#(*/(%&&&%&/./@%(.(&(/*/*/#(//(#(#%#/,*/(/(%&@&%#&@%(*.,/@&/,(&%/(/,*(#%&#(///#%&%@@@&%(.,#&@&%(./%&%(/*#,/(%&%#&@&@%&@%#*,(@%*(#*/(/*/(#//#(*/#&(*/#%&/(%&,(@,.##(#/,.*/*/(/(%&&%(%(,/&/#%#%#*,*/*,.,,*,#@&@/#%&%((&%#%&@#(*(%@*.(%&%/,(#/.,&@&%(/((%&@%@#%#(/(%&(/#&@%(../%*.,(/(#,,.,*%(*(/(/((#%&%&%&##%&%#/#&*.(%&@/,#/*,(#%(/,/#&@&%##%&@#&@%,.#&@(,*#/*,*,,,*((&@&%(#&/*/#&@%/.*%&@&%*.*(%#(*.*(#&&&&(&@&,.#@%*,.(#/,*/(/(#%&@&#%#%/..*%@&@/,.*%#/*,.,.,/@@&@&%@%#*/,.,&*.,*/#@&#%&%#.,/@/.,/#/*,.*,*(#&&@&%#(,./#@#*,.,*,*##(#//%&&@&(,..*%&%#@(*.*,.,*/#&(/*/(#&@##(,,#&@&%/*,(&@,*/*/#&%#/*(#%@%(.,/%*,.(*,./#%/*,*/(/(&*../&&%(*%&@&(%#/*%(,/#&@&@%#/%@(,.*%&@&%#%&@%(//%&#*./#@&%,.,*/%&%&@&&%/(#%&(,,/%#*,,(*,/#%&%#%&@&%(#&@%../#&@&@(#&@&&%/,..,%@%#%&#*,/&@%,.(%#%&%*.,(/,./#,/@&*,/(@%.,(&%#/,/(/.,/%&@%/#@*.*/#@&@&%/(%*.,#%*(%&%&@@/*/.%/#@%/,(*,/#@(/%#&@&,../&@&@@#*,*/%(#%#%&@&&@#(@&@#,.*&&@&/,/#%#,./#%(*#&#,/&(.,*/,#&@&@/*/#&%#%@#%@&*/#@&(,*#*.*(&@&@&@&@%,..*&@&(((#&@,*%&@@&(/(&@&%&@*../&@%#%&*,.*&@%@%@&@%(#&,./#@&&*.,%&@#&%&@@&*%&@(.,%&%@*..#&(,/%&#&@%.,&@@*.,*#&@*.%@&**&%/#,(&%(/%/,,&@&@#/,.(&@%/,,.,(@%&/.&@%,*(%*,.,#(.(%(,,/#*.,.,*,.*%@%,*.*(*,*.,#@#/(#,*(@%,**&(.**(%&(*.,/&@%/.(&@(,#&@%/,,/((,.,(&(.*,.,/%&%(/.%&@&,*/**,/*,.,./#((#%(,.,*(/(%&%/*(/*,*,,(#/./((%#(//,.*,*%#%&%/.(#/#(/.*,,*,.#%#(/*,*/#%(,&@*,,*/&%(/*,.*,*(%@%/,,.*##/,*,.,&%(,,/&,(/(%#(,,*,(%(*.(,*(%&,,*,,**,,%&/*,#&,*,,/%(*,,*#(*,/@,.,,.,%(/.,,(#*,./(*/(/(/(*,.,*(/,,,/(//(/,*,*.,,./*/,/*,*/*.(*,*,*/*/*((*,,*//*//#(*(%#*,*/,.,*/*/#(*(/(/*/*(*,*/*,#,*/%/*,*,/*(//%/,.#%(*/,/(,*%(/(*//*/*#%#*/(/(#*//(#%#*/(/*/#/%&(#(*/*//#(#/(@%#/(/(/*%&@%#(/#((/(#(#((#%@(#/#(#(#//*(/(#(#(((#(#/#%#(#((#(#(#(#/(/(#(#((#*/#(/(/((/(/%(/((/#%##//(#(#%#%#/*#%#%((*,(&##%",
 			binary: "011010010111010000100000011101110110000101110011001000000110110001101001011010110110010100100000011101000110100001101001011100110010000001100101011101100110010101110010011110010010000001101101011011110111001001101110011010010110111001100111",
@@ -458,7 +459,7 @@ let getz = () => {
 			chancenotes: "Code is a literature ::: a pattern language ::: a score. It is a choreography ::: a performance. A code renderer is the weaver ::: the mill ::: the alchemist ::: the wizard. Code is a spell ::: an incantation ::: an intent. Chance is a frayed thread, a stochastic cloud, a pointillist field, a variance, a complexity, an uncertainty, a ragged line.  When code is performed, it is an activation of text ::: a linguistic gymnastics that speaks in image & sound. In a perfect confluence of electricity, network, rhythm, memory, processing, action & reactions a program comes to life ::: Pinocchio  ::: a real boi at last. The program (the cybernetic ze) speaks to us, calculates for us, responds to our touch : our keystrokes. It becomes our mirror :|: our cyborg self ::: our memory.. ",
 			chancelecturewebs: [": : :", "|:|:| <<-- ::: . ::: -->> |:|:|", "networks", "webs","spiders", "quartets", "the body", "the infinite sky", "the networked (i)", "chords", "tone rows", "electrical current", "radio transmissions", "telephone wires", "choreographies", "scores", "sculpture", "hypertext", "material", "palette", "light", "echo", "resonance", "rivers", "wind mills", "differential equations", "(how things change)", "the carbon cycle", "pipelines", "systems", "cities", "food web", "lattice", "tree", "graph",  "space", "orchestration", "digital cloud", "multi threaded", "multi lingual", "multi dimensional", "infinite between", "gender fluid", "attraction", "diffusion", "distraction", "friction", "resonation", "intra dependent", "ecosystem", "galaxies", "arteries", "cellular connections", "forests", "histories", "the modernist grid", "the API"],
 			chancelecturecyborg: ["the cyborg", "trans / border", "trans / platform", "trans / media", "trans / figured", "trans / formed", "trans / gender", "say my name", "cybernetix ze", "cybernetic she", "networked (i)"],
-			chancelecture: ["xœ½YMo", "7½Ï¯ÐØ‰", "(~H‚=$môP", "oAéÚi{", "Øöï÷Q³", "k{Vj½:YÃ", "#š#½Gj%’’)", "DüìJIÂá8¹", "×´üýçÝôêÝ=", "it was", "like this", "every morning", ". . .", "networks", "quartets", "sine waves", "infinite sky", "networked (i)", "chordal looms", "time", "electrical currents", "radio transmissions", "telephone wires", "hypertext sea", "torrents", "navigation", "score", "script", "material", "palette", "light", "resonance", "rivers", "wind mills", "/#&@%#*/#%(", "cities", "echo &amp; &amp;", "algorithms", "functions", "streams", "sound", "books", "words", "vectors", "code", "glyphs", "chalk pigment", "charcoal graphite", "house paint", "wood", "fragments", "web browsers", "computing machines", "the cloud", "the number 4", "red black", "white yellow", "electrical wires", "the carbon cycle", "the room", "rising walls", "the sky", "timelines", "random numbers", "circles lines", "body", "hand", "pitch", "bone", "sinew", "horse hair", "resin", "reed", "taut wire", "&infin; canvas sky", "cloud compass", "warp &amp; weft", "magnetic poles", "traversals", "transects", "densities", "gravities", "elliptical", "bendable time", "physical time", "manifest time", "open systems", "emergent systems", "evolving systems", "weather", "seasons", "night train", "blue window", "lonely passenger", "the century !", "the universe !", "industry !", "sandwiches", "a coin", "7 heavens", "winged angels", "holy, holy, høly", "love, love", "&amp; &amp; &amp;", "flight", "count", "map", "pulse", "breathe", "a topology", "a calculus", "an algebra", "ascensions", "extinctions", "trains", "grids", "clocks", "gears", "|:|:|Ø|:|:|", "threads |:| twisted", "crash of waves", "diffusion", "friction", "fray", "echo", "galaxies", "arteries", "neural nets", "forests", "food webs", "labyrinths", "histories", "an API", "technicolor", "galaxies", "infinities", "photosynthesis", "the swarm", "|:|:|<<--:::-->>|:|:|", "chance", "frayed thread", "stochastic cloud", "pointillist field", "variance", "complexity", "uncertainty", "ragged line", "prayer", "hYmn", "spell", "incantation", "invocation", "resistance", "persistence", "siren's lure", "witness", "|:|:|<<--:::-->>|:|:|", "net. x (i)", "(n) coded", "orchestrate", "activate", "pattern language", "digital score", "distillation", "choreography", "performance", "spell ::: ", "::: incantation", "intent", "code", "confluence ", "electricity &amp; network", "rhythm &amp; memory", "map filter reduce", "act || react", "code is", "a literature", "::: a poetry", "= > an intimacy", "fingers", "tapping glass", ": || : rubbing glass", "aladdin's lamp", "fiber optics", "the cyborg body", "the fragile", "electric", "body", "say my name", "|:|:|<<--:::-->>|:|:|", "the cyborg", "trans / border", "trans / platform", "trans / media", "trans / figured", "trans / formed", "trans / gender", "cybernetic ze", "cybernetic she", "web spider", "alchemist", "ø Z ", "omniscient", "machine learner", "data consumer", "sensitive", "cybernetic", "skull", "(m) bodied", "intelligence", "networked (i)", "encrypted cipher", "mechanized logic", "thinking loom", "subterranean gears", "::: heart / beat", "networked omniscience", "super intelligent øZ", "big data oracle", "gepetto's workshop", "pinocchio ::: ", ". reAl boi", "zero / øne", "true / false", "on || off", "magnetic s/ze", "(i) mirror you ::: ", "speak to you", "|:|:|  remember", "your fingerprints", "your irises", "your steps &amp;&amp;", "destinations", "purchases", "preferences", "tickets", "searches", "longings", "your intimate", "data sets", "your imprint", "signals", "blood || circuits", "pulse", "|:|:|<<--:::-->>|:|:|", "memory", "trace", "(i) i ."],
+			chancelecture: ["xÅ“Â½YMo", "7Â½ÃÂ¯ÃÃ˜â€°", "(~Hâ€š=$mÃ´P", "oAÃ©Ãši{", "Ã˜Ã¶Ã¯Ã·QÂ³", "k{VjÂ½:YÃƒ", "#Å¡#Â½Gj%â€™â€™)", "DÃ¼Ã¬JIÃ‚Ã¡8Â¹", "Ã—Â´Ã¼Ã½Ã§ÃÃ´ÃªÃ=", "it was", "like this", "every morning", ". . .", "networks", "quartets", "sine waves", "infinite sky", "networked (i)", "chordal looms", "time", "electrical currents", "radio transmissions", "telephone wires", "hypertext sea", "torrents", "navigation", "score", "script", "material", "palette", "light", "resonance", "rivers", "wind mills", "/#&@%#*/#%(", "cities", "echo &amp; &amp;", "algorithms", "functions", "streams", "sound", "books", "words", "vectors", "code", "glyphs", "chalk pigment", "charcoal graphite", "house paint", "wood", "fragments", "web browsers", "computing machines", "the cloud", "the number 4", "red black", "white yellow", "electrical wires", "the carbon cycle", "the room", "rising walls", "the sky", "timelines", "random numbers", "circles lines", "body", "hand", "pitch", "bone", "sinew", "horse hair", "resin", "reed", "taut wire", "&infin; canvas sky", "cloud compass", "warp &amp; weft", "magnetic poles", "traversals", "transects", "densities", "gravities", "elliptical", "bendable time", "physical time", "manifest time", "open systems", "emergent systems", "evolving systems", "weather", "seasons", "night train", "blue window", "lonely passenger", "the century !", "the universe !", "industry !", "sandwiches", "a coin", "7 heavens", "winged angels", "holy, holy, hÃ¸ly", "love, love", "&amp; &amp; &amp;", "flight", "count", "map", "pulse", "breathe", "a topology", "a calculus", "an algebra", "ascensions", "extinctions", "trains", "grids", "clocks", "gears", "|:|:|Ã˜|:|:|", "threads |:| twisted", "crash of waves", "diffusion", "friction", "fray", "echo", "galaxies", "arteries", "neural nets", "forests", "food webs", "labyrinths", "histories", "an API", "technicolor", "galaxies", "infinities", "photosynthesis", "the swarm", "|:|:|<<--:::-->>|:|:|", "chance", "frayed thread", "stochastic cloud", "pointillist field", "variance", "complexity", "uncertainty", "ragged line", "prayer", "hYmn", "spell", "incantation", "invocation", "resistance", "persistence", "siren's lure", "witness", "|:|:|<<--:::-->>|:|:|", "net. x (i)", "(n) coded", "orchestrate", "activate", "pattern language", "digital score", "distillation", "choreography", "performance", "spell ::: ", "::: incantation", "intent", "code", "confluence ", "electricity &amp; network", "rhythm &amp; memory", "map filter reduce", "act || react", "code is", "a literature", "::: a poetry", "= > an intimacy", "fingers", "tapping glass", ": || : rubbing glass", "aladdin's lamp", "fiber optics", "the cyborg body", "the fragile", "electric", "body", "say my name", "|:|:|<<--:::-->>|:|:|", "the cyborg", "trans / border", "trans / platform", "trans / media", "trans / figured", "trans / formed", "trans / gender", "cybernetic ze", "cybernetic she", "web spider", "alchemist", "Ã¸ Z ", "omniscient", "machine learner", "data consumer", "sensitive", "cybernetic", "skull", "(m) bodied", "intelligence", "networked (i)", "encrypted cipher", "mechanized logic", "thinking loom", "subterranean gears", "::: heart / beat", "networked omniscience", "super intelligent Ã¸Z", "big data oracle", "gepetto's workshop", "pinocchio ::: ", ". reAl boi", "zero / Ã¸ne", "true / false", "on || off", "magnetic s/ze", "(i) mirror you ::: ", "speak to you", "|:|:|  remember", "your fingerprints", "your irises", "your steps &amp;&amp;", "destinations", "purchases", "preferences", "tickets", "searches", "longings", "your intimate", "data sets", "your imprint", "signals", "blood || circuits", "pulse", "|:|:|<<--:::-->>|:|:|", "memory", "trace", "(i) i ."],
 		},
 	};
 	z.radio = {
@@ -746,69 +747,12 @@ let getz = () => {
 			}, []),
 		}
 	})();
-	z.streams = {
-		clock: ( () => {
-		let dt = 1;
-		let date0 = new Date();
-		let t0 = Math.floor(date0.getTime()/1000);
-		let state0 = { dt: dt, count: 0, date: date0, t: t0, t0: t0 };
-		return Kefir.withInterval( dt*1000, emitter => { emitter.emit( { date: new Date() } ) })
-				// .filter( e => !z.highcontrast)
-				.scan( (state, e) => { 
-					state.date = e.date;
-					state.t = Math.floor(e.date.getTime()/1000);
-					state.count = state.count + 1;
-					return state;
-				}, state0  )
-		})( ),
-		dimensions: ( () => {
-			let dt = .4;
-			const ngrids=[2,2], npasts=[0,0];
-			let state0 = { dt: dt, count: 0,
-				grid: { nrows: ngrids[v], ncols: ngrids[v], dx: Math.floor(width/ngrids[v]), dy: Math.floor(height/ngrids[v]), sw: 12, pastn: npasts[v] },
-				width: width, height: height, 
-				max: max, min: min, 
-			};
-			return Kefir.fromEvents(window, "resize").throttle(dt*1000)
-				.scan( (state,e) => {
-					state.width = window.innerWidth;
-					state.height = window.innerHeight;
-					state.max = Math.max(state.width, state.height);
-					state.min = Math.min(state.width, state.height);
-					state.grid.dx = Math.floor(state.width/state.grid.ncols);
-					state.grid.dy = Math.floor(state.height/state.grid.nrows);
-					state.grid.sw = Math.floor(Math.max(state.grid.dx*.03, state.grid.dy*.03, 4));
-					return state
-				}, state0) 
-		})( ),
-	};
+
 	
 
 		//set controls
 	( () => {
-		// const soundlink = document.querySelector("#sound");
-		// Kefir.fromEvents(soundlink, "click").onValue( e => {
-		// 	z.tools.logmsg("play sound !");
-		// 	if(!z.radio.soundplaying) { 
-		// 		try {
-		// 			z.radio.player.context.resume().then(() => {
-		// 				z.tools.logmsg("playback resumed");
-		// 				z.radio.soundplaying = true;
-		// 				z.radio.play();
-		// 				soundlink.innerText = "turn off sound";
-		// 			});
-		// 		} catch(e) { z.tools.logerror("dashboard ::: resumeaudio " + e) } 
-		// 	}
-		// 	else { 
-		// 		try {
-		// 			z.radio.player.context.suspend().then(() => {
-		// 				z.radio.soundplaying = false;
-		// 				z.radio.pause();
-		// 				soundlink.innerText = "turn on sound";
-		// 			});
-		// 		} catch(e) { z.tools.logerror("dashboard ::: suspendaudio " + e) }
-		// 	}
-		// });
+
 		let sound = document.querySelector("#sound");
 		if(sound!==null) {
 			sound.addEventListener("change", () => {
