@@ -133,9 +133,9 @@
 		<li><a href="#maincontent" id="skiptomaincontent" class="corelink">skip to main content</a></li>
 		<li><a href="index.html" id="homelink" class="corelink">return home</a></li>
 		<li><label for="sound"><input id="sound" type="checkbox"> play sound</label></li>
-		<li><audio id="audio0" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li>
+		<!-- <li><audio id="audio0" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li> -->
 		<!-- <li><audio id="audio1" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li> -->
-		<li><audio id="audio2" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/clarinetnotes.mp3" type="audio/mpeg"></audio></li>
+		<!-- <li><audio id="audio2" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/clarinetnotes.mp3" type="audio/mpeg"></audio></li> -->
 		<li><a href="#accessfeatures" id="gotoaccessfeatures" class="corelink">tailor your visual experience</a></li>
 	</ul>
 </nav>
@@ -236,7 +236,18 @@ z.radio.start(z);
 // set up sound
 ( () => {
 	const tracks = ["monksfromouterspacecistern", "clarinetnotes"];
-	const elements = document.querySelectorAll("audio");
+	// const elements = document.querySelectorAll("audio");
+
+	const elements = [0,1].reduce( (acc, j) => {
+			let el = z.tools.createElement({
+				parentel: z.elements["body"].el, tag: "audio",
+				attributes: [
+					["id", "audio"+j], ["type", "audio/mpeg"], ["src", "https://storage.googleapis.com/www.blueboatfilms.com/sound/IIca"]
+				]
+			});
+			acc[j] = el;
+		return acc;
+		}, []);
 	elements.forEach( element => {
 		let track = tracks[z.tools.randominteger(0, tracks.length)];
 		z.radio.jukebox( { tracks:tracks, partial:true, order:"random", j:0, duration:[12,240], volume:[0.2,0.6], el: element});
