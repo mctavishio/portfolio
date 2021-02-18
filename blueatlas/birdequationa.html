@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="/css/mctavish.css"/>
 	<style>
 		.gridcontainer0 {
-			display: grid;
+			/*display: grid;
 			gap: 0px 0px;
 			grid-template-areas:
 				"l0r0c0 l0r0c1 l0r0c2 l0r0c3"
@@ -38,10 +38,10 @@
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-template-rows: 1fr 1fr 1fr 1fr;
 			/*transform: translate3d(0, 0, 0);
-			transform: scale3d(1,1,1);*/
+			transform: scale3d(1,1,1);*/*/
 		}
 		.gridcontainer1 {
-			display: grid;
+			/*display: grid;
 			gap: 0px 0px;
 			grid-template-areas:
 				"l1r0c0 l1r0c1 l1r0c2 l1r0c3"
@@ -51,20 +51,29 @@
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 			grid-template-rows: 1fr 1fr 1fr 1fr;
 			/*transform: translate3d(0, 0, 0);
-			transform: scale3d(1,1,1);*/
+			transform: scale3d(1,1,1);*/*/
 		}
 		
 		div.griditem {
 			color: var(--warmwhite);
 			background-color: var(--warmblack);
 			padding:0; margin: 0;
-			min-width:100%, max-width: 100%;
+			min-width:25%, max-width: 25%;
 			/*border-radius: 10vmin;*/
 			/*transform: translate3d(0, 0, 0);
-			transform: scale3d(1,1,1);*/	
-			transition: opacity 2s, transform 2s;
+			transform: scale3d(1,1,1);	*/
+			position: absolute;
+			top: 0; left: 0;
+
+			vertical-align: top;
+			perspective: 50px;
+			transform-origin: 50% 50% 0;
+			transition: opacity 1s, transform 2s;
 		}
-				
+		/*div.griditem {}*/
+		.gridcontainer0 > div.griditem {
+			transition: transform .1s;
+		}	
 		.gridcontainer0 > div.griditem:nth-child(3n) {
 			background-color: var(--warmblack);
 		}
@@ -112,13 +121,13 @@
 <div id="svgframe" class="frame zlow">
 	<svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame" ></svg>
 </div>
-<div id="canvas0" class="frame z0 gridcontainer0" aria-hidden="true">
+<div id="canvas0" class="frame z0 gridcontainer0 frame" aria-hidden="true">
 	<div id="l0r0c0" class="griditem"></div><div id="l0r0c1" class="griditem"></div><div id="l0r0c2" class="griditem"></div><div id="l0r0c2" class="griditem"></div>
 	<div id="l0r1c0" class="griditem"></div><div id="l0r1c1" class="griditem"></div><div id="l0r1c2" class="griditem"></div><div id="l0r1c2" class="griditem"></div>
 	<div id="l0r2c0" class="griditem"></div><div id="l0r2c1" class="griditem"></div><div id="l0r2c2" class="griditem"></div><div id="l0r2c2" class="griditem"></div>
 	<div id="l0r3c0" class="griditem"></div><div id="l0r3c1" class="griditem"></div><div id="l0r3c2" class="griditem"></div><div id="l0r3c2" class="griditem"></div>
 </div>
-<div id="canvas1" class="frame z0 gridcontainer1" aria-hidden="true">
+<div id="canvas1" class="frame z0 gridcontainer1 frame" aria-hidden="true">
 	<div id="l1r0c0" class="griditem"></div><div id="l1r0c1" class="griditem"></div><div id="l1r0c2" class="griditem"></div><div id="l1r0c2" class="griditem"></div>
 	<div id="l1r1c0" class="griditem"></div><div id="l1r1c1" class="griditem"></div><div id="l1r1c2" class="griditem"></div><div id="l1r1c2" class="griditem"></div>
 	<div id="l1r2c0" class="griditem"></div><div id="l1r2c1" class="griditem"></div><div id="l1r2c2" class="griditem"></div><div id="l1r2c2" class="griditem"></div>
@@ -299,32 +308,48 @@ z.radio.start(z);
 	
 })();
 
-
-
 //draw
 ( () => {
 
 	let width = window.innerWidth, height = window.innerHeight;
 	let max = Math.max(width, height), min = Math.min(width, height);
+	let dx = width/4, dy = height/4;
+	document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
+			el.style.width=dx, el.style.height=dy;
+			translateX = " translateX("+ Math.floor(j/4)*dy +"px)";
+			translateY = " translateY("+ (j%4)*dx +"px)";
+			el.style.transform = translateX + translateY;
+		});
 
 	window.addEventListener("resize", e => {
 		width = window.innerWidth; height = window.innerHeight;
 		max = Math.max(width, height), min = Math.min(width, height);
 		console.log("window.innerWidth = " + window.innerWidth);
+
+		let dx = width/4, dy = height/4;
+		document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
+			scaleX = " scaleX("+ Math.floor(j/4)*dy +"px)";
+			scaleY = " scaleY("+ (j%4)*dx +"px)";
+			el.style.transform = scaleX + scaleY;
+		});
 	});
 
 	let count = 0;
+
+	
 	document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
 		window.setInterval(() => { 
 			++count; 
 			el.style.opacity = (count%10)/4 
 			// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
-			let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			let rotate = "rotateX("+36*(count%20)+"deg)";
 			// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
-			let scaleX = " scaleX("+(count%20)/8+")";
-			let scaleY = " scaleY("+(21-count%20)/8+")";
+			// let scaleX = " scaleX("+(count%20)/8+")";
+			// let scaleY = " scaleY("+(21-count%20)/8+")";
 
-			el.style.transform = scaleX + scaleY + rotate; 
+			// el.style.transform = rotate; 
+			// el.style.transform = scaleX + scaleY + rotate; 
 			// el.style.transform = scaleX + scaleY + translate; 
 			
 			// el.style.transform =  scaleX + scaleY;  

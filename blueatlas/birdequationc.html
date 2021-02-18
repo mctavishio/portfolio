@@ -61,7 +61,7 @@
 			min-width:100%, max-width: 100%;
 			/*border-radius: 10vmin;*/
 			/*transform: translate3d(0, 0, 0);
-			transform: scale3d(1,1,1);*/	
+			transform: scale3d(1,1,1);	*/
 			transition: opacity 2s, transform 2s;
 		}
 				
@@ -299,8 +299,6 @@ z.radio.start(z);
 	
 })();
 
-
-
 //draw
 ( () => {
 
@@ -319,12 +317,14 @@ z.radio.start(z);
 			++count; 
 			el.style.opacity = (count%10)/4 
 			// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
-			let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			let rotate = "rotateX("+36*(count%20)+"deg)";
 			// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
-			let scaleX = " scaleX("+(count%20)/8+")";
-			let scaleY = " scaleY("+(21-count%20)/8+")";
+			// let scaleX = " scaleX("+(count%20)/8+")";
+			// let scaleY = " scaleY("+(21-count%20)/8+")";
 
-			el.style.transform = scaleX + scaleY + rotate; 
+			// el.style.transform = rotate; 
+			// el.style.transform = scaleX + scaleY + rotate; 
 			// el.style.transform = scaleX + scaleY + translate; 
 			
 			// el.style.transform =  scaleX + scaleY;  

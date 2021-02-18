@@ -56,12 +56,17 @@
 		
 		div.griditem {
 			color: var(--warmwhite);
-			background-color: var(--warmblack);
+			/*background-color: var(--warmblack);*/
 			padding:0; margin: 0;
 			min-width:100%, max-width: 100%;
+			display:flex;
+			justify-content: center;
+			align-content: space-around;
+			align-items: center;
+			font-size:20vmin;
 			/*border-radius: 10vmin;*/
 			/*transform: translate3d(0, 0, 0);
-			transform: scale3d(1,1,1);*/	
+			transform: scale3d(1,1,1);	*/
 			transition: opacity 2s, transform 2s;
 		}
 				
@@ -70,18 +75,20 @@
 		}
 		.gridcontainer0 > div.griditem:nth-child(3n+1) {
 			background-color: var(--warmwhite);
+			color: var(--warmblack);
 		}
 		.gridcontainer0  > div.griditem:nth-child(3n+2) {
 			background-color: var(--red);
 		}
 		.gridcontainer1 > div.griditem:nth-child(3n+1) {
-			background-color: var(--warmblack);
+			/*background-color: var(--warmblack);*/
 		}
 		.gridcontainer1 > div.griditem:nth-child(3n+2) {
-			background-color: var(--warmwhite);
+			/*background-color: var(--warmwhite);*/
+			color: var(--warmblack);
 		}
 		.gridcontainer1  > div.griditem:nth-child(3n) {
-			background-color: var(--red);
+			/*background-color: var(--red);*/
 		}
 		/*.gridcontainer0 > div.griditem:nth-child(2n) {
 			background-color: var(--warmblack);
@@ -118,14 +125,14 @@
 	<div id="l0r2c0" class="griditem"></div><div id="l0r2c1" class="griditem"></div><div id="l0r2c2" class="griditem"></div><div id="l0r2c2" class="griditem"></div>
 	<div id="l0r3c0" class="griditem"></div><div id="l0r3c1" class="griditem"></div><div id="l0r3c2" class="griditem"></div><div id="l0r3c2" class="griditem"></div>
 </div>
-<div id="canvas1" class="frame z0 gridcontainer1" aria-hidden="true">
+<!-- <div id="canvas1" class="frame z0 gridcontainer1" aria-hidden="true">
 	<div id="l1r0c0" class="griditem"></div><div id="l1r0c1" class="griditem"></div><div id="l1r0c2" class="griditem"></div><div id="l1r0c2" class="griditem"></div>
 	<div id="l1r1c0" class="griditem"></div><div id="l1r1c1" class="griditem"></div><div id="l1r1c2" class="griditem"></div><div id="l1r1c2" class="griditem"></div>
 	<div id="l1r2c0" class="griditem"></div><div id="l1r2c1" class="griditem"></div><div id="l1r2c2" class="griditem"></div><div id="l1r2c2" class="griditem"></div>
 	<div id="l1r3c0" class="griditem"></div><div id="l1r3c1" class="griditem"></div><div id="l1r3c2" class="griditem"></div><div id="l1r3c2" class="griditem"></div>
 
-</div>
-<div id="canvas2" class="frame z0"></div>
+</div> -->
+<!-- <div id="canvas2" class="frame z0"></div> -->
 
 
 <div id="subtextframe" class="frame zhigh"></div>
@@ -299,8 +306,6 @@ z.radio.start(z);
 	
 })();
 
-
-
 //draw
 ( () => {
 
@@ -314,23 +319,32 @@ z.radio.start(z);
 	});
 
 	let count = 0;
-	document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
+	document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
 		window.setInterval(() => { 
 			++count; 
-			el.style.opacity = (count%10)/4 
-			// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
-			let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
-			// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
-			let scaleX = " scaleX("+(count%20)/8+")";
-			let scaleY = " scaleY("+(21-count%20)/8+")";
-
-			el.style.transform = scaleX + scaleY + rotate; 
-			// el.style.transform = scaleX + scaleY + translate; 
-			
-			// el.style.transform =  scaleX + scaleY;  
-			// el.style.transform = translate;  
+			el.innerHTML = "<span>"+z.tools.randominteger(0,9)+"</span>";
 		}, j*100+1000);
 	});
+	// document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
+	// 	window.setInterval(() => { 
+	// 		++count; 
+	// 		el.style.opacity = (count%8)/10;
+	// 		el.innerHTML = "<span>"+z.tools.randominteger(0,9)+"</span>";
+	// 		// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
+	// 		// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+	// 		// let rotate = "rotateX("+36*(count%20)+"deg)";
+	// 		// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
+	// 		let scaleX = " scaleX("+(count%20)/40+")";
+	// 		let scaleY = " scaleY("+(21-count%20)/40+")";
+
+	// 		// el.style.transform = rotate; 
+	// 		// el.style.transform = scaleX + scaleY + rotate; 
+	// 		// el.style.transform = scaleX + scaleY + translate; 
+			
+	// 		// el.style.transform =  scaleX + scaleY;  
+	// 		// el.style.transform = translate;  
+	// 	}, j*100+1000);
+	// });
 })();
 
 window.addEventListener('load', e => {

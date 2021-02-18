@@ -299,7 +299,75 @@ z.radio.start(z);
 	
 })();
 
+//set up sound
+// ( () => {
+// 	// https://github.com/goldfire/howler.js#quick-start
+// 	const clips = [
+// 		{	
+// 			src: ["https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3"],
+// 			duration: (6*60+22)*1000, //382000ms
+// 			clips: {
+// 				clip0: [0, 6000],
+// 				clip1: [800, 13000],
+// 				clip2: [12000, 18600],
+// 			},
+// 		},
+// 		{	
+// 			src: ["https://storage.googleapis.com/www.blueboatfilms.com/sound/clarinetnotes.mp3"],
+// 			duration: (2*60+32)*1000, //152000ms
+// 			clips: {
+// 				clip0: [0, 6000],
+// 				clip1: [800, 13000],
+// 				clip2: [12000, 18600],
+// 			},
+// 		}
+// 	];
 
+// 	const howl0 = new Howl({
+// 		src: clips[0].src,
+// 		html5:true,
+// 		autoplay: false,
+// 		loop: false,
+// 		volume: 0.5,
+// 		onend: () => {
+// 			console.log('finished howl1!');
+// 		},
+// 		sprite: clips[0].clips,
+// 		rate: 4.0 //between 0.5 and 4.0
+// 	});
+// 	const howl1 = new Howl({
+// 		src: clips[1].src,
+// 		html5:true,
+// 		autoplay: false,
+// 		loop: false,
+// 		volume: 0.5,
+// 		onend: () => {
+// 			console.log('finished howl1!');
+// 		},
+// 		sprite: clips[1].clips,
+// 		rate: 4.0 //between 0.5 and 4.0
+// 	});
+// 	// let plays = [ howl.play("clip0"), howl.play("clip1"), howl.play("clip2") ];
+
+// 	// plays.forEach( id => {
+// 	// 	if.on()
+// 	// })
+
+// 	window.setInterval( () => { howl0.play("clip0"); }, 4000);
+// 	window.setInterval( () => { howl1.play("clip1"); }, 4100);
+	
+
+// sound1.on('play', function(){
+//   var fadeouttime = 2000;
+//   setTimeout(
+//     function(){
+//       sound1.fade(1, 0, fadeouttime);
+//     },
+//     (sound1.duration() - sound1.seek())*1000 - fadeouttime
+//   );
+// });
+
+// })();
 
 //draw
 ( () => {
@@ -319,12 +387,14 @@ z.radio.start(z);
 			++count; 
 			el.style.opacity = (count%10)/4 
 			// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
-			let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+			let rotate = "rotateZ("+36*(count%20)+"deg)";
 			// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
-			let scaleX = " scaleX("+(count%20)/8+")";
-			let scaleY = " scaleY("+(21-count%20)/8+")";
+			// let scaleX = " scaleX("+(count%20)/8+")";
+			// let scaleY = " scaleY("+(21-count%20)/8+")";
 
-			el.style.transform = scaleX + scaleY + rotate; 
+			el.style.transform = rotate; 
+			// el.style.transform = scaleX + scaleY + rotate; 
 			// el.style.transform = scaleX + scaleY + translate; 
 			
 			// el.style.transform =  scaleX + scaleY;  
