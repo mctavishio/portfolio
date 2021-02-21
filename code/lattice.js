@@ -702,7 +702,7 @@ let getz = () => {
 			// clock: { el: document.querySelector("#clock") },
 			// telegraph: { el: document.querySelector("#telegraph") },
 			svg:  { el: document.querySelector("#svg") },
-			frames: ["subtextframe", "svgframe", "wordframe", "contentframe"].reduce( (acc, id) => {
+			frames: ["svgframe", "divframe", "wordframe", "subtextframe", "contentframe"].reduce( (acc, id) => {
 				z.tools.logmsg("create frame element ::: " + id);
 				acc[id] = { el: document.querySelector("#"+id) };
 				return acc;
@@ -759,16 +759,49 @@ let getz = () => {
 		let animationonly = document.querySelector("#animationonly");
 		if(animationonly==null) {
 			animationonly = z.tools.createElement({
-				parentel: z.elements["contentframe"].el, tag: "input",
+				parentel: z.elements.frames["contentframe"].el, tag: "input",
 				attributes: [ ["id", "animationonly"], ["type", "checkbox"] ]
 			});
 			z.tools.createElement({
-				parentel: z.elements["contentframe"].el, tag: "label",
+				parentel: z.elements.frames["contentframe"].el, tag: "label",
 				attributes: [ ["for", "animationonly"] ]
 			});
 		}
 		animationonly.addEventListener("change", () => {
-			animationonly.checked ? z.elements["main"].el.style["opacity"] = 0.0 : z.elements["main"].el.style["opacity"] = 0.8;
+			if(animationonly.checked) {
+				z.elements["main"].el.style["opacity"] = 0.0;
+				z.elements.frames["contentframe"].el.classList.add("hidebg");
+			}
+			else {
+				z.elements["main"].el.style["opacity"] = 1.0;
+				z.elements.frames["contentframe"].el.classList.remove("hidebg");
+			}
+		});
+
+		let largetext = document.querySelector("#largetext");
+		if(largetext==null) {
+			largetext = z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "input",
+				attributes: [ ["id", "largetext"], ["type", "checkbox"] ]
+			});
+			let label = z.tools.createElement({
+				parentel: z.elements["main"].el, tag: "label",
+				attributes: [ ["for", "largetext"] ]
+			});
+			label.innerText = "large text";
+		}
+		largetext.addEventListener("change", () => {
+			if(largetext.checked) {
+				// z.elements["main"].el.classList.add("highcontrast");
+				z.elements.frames["contentframe"].el.classList.add("largetext");
+				z.largetext = true;
+			}
+			else {
+				// z.elements["main"].el.classList.remove("highcontrast");
+				z.elements.frames["contentframe"].el.classList.remove("largetext");
+				z.largetext = false;
+			}
+			// highcontrast.checked ? z.elements["main"].el.classList.add("highcontrast") : z.elements["main"].el.classList.remove("highcontrast");
 		});
 
 		let highcontrast = document.querySelector("#highcontrast");
@@ -777,10 +810,11 @@ let getz = () => {
 				parentel: z.elements["main"].el, tag: "input",
 				attributes: [ ["id", "highcontrast"], ["type", "checkbox"] ]
 			});
-			z.tools.createElement({
+			let label = z.tools.createElement({
 				parentel: z.elements["main"].el, tag: "label",
 				attributes: [ ["for", "highcontrast"] ]
 			});
+			label.innerText = "high contrast";
 		}
 		highcontrast.addEventListener("change", () => {
 			if(highcontrast.checked) {

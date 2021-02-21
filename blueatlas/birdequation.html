@@ -25,6 +25,15 @@
 			"license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
 		}
 	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0989MECNZV"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-0989MECNZV');
+	</script>
 	<link rel="stylesheet" href="/css/mctavish.css"/>
 	<style>
 		.gridcontainer0 {
@@ -267,34 +276,25 @@ z.radio.start(z);
 	// document.querySelectorAll("audio").forEach(element => {
 	// 	elements.push({ el: element });
 	// });
-	let canpause = false;
 	z.radio.play = () => {
 		elements.forEach(element => {
-			let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
-
-			z.tools.logmsg("in play src = " + element.src + " isplaying=" + isPlaying);
-			let playPromise = element.play();
-			playPromise.then( () => {
-				z.tools.logmsg("now playing " + element.src);
-				canpause=true;
+			// element.el.play();
+			// z.tools.logmsg("now request playing " + element.el.src);
+			let playPromise = element.el.play();
+				playPromise.then( () => {
+				z.tools.logmsg("now playing " + element.el.src);
 			})
 			.catch(error => {
-				z.tools.logerror("error playing " + element.src + " " + error);
+				z.tools.logerror("error playing " + element.el.src + " " + error);
 				// Auto-play was prevented
 				// Show paused UI.
 			});
 		});
 	};
 	z.radio.pause = () => {
-		if(canpause) {
-			elements.forEach(element => {
-				let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
-				z.tools.logmsg("in pause src = " + element.src + " isplaying=" + isPlaying);
-				if(isPlaying) {
-					element.pause();
-				}
-			});
-		}
+		elements.forEach(element => {
+			element.el.pause();
+		});
 	};
 	
 })();
