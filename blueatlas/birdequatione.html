@@ -36,48 +36,38 @@
 	</script>
 	<link rel="stylesheet" href="/css/mctavish.css"/>
 	<style>
-		.grid_absolute_4x4_rect > div.griditem:nth-child(3n) {
+		div.griditem {
+			color: var(--warmwhite);
+			/*background-color: var(--warmblack);*/
+			padding:0; margin: 0;
+			min-width:100%, max-width: 100%;
+			display:flex;
+			justify-content: center;
+			align-content: space-around;
+			align-items: center;
+			font-size:20vmin;
+			/*border-radius: 10vmin;*/
+			/*transform: translate3d(0, 0, 0);
+			transform: scale3d(1,1,1);	*/
+			transition: opacity 2s, transform 2s;
+		}
+		
+		.grid_4x4_rect > div.griditem:nth-child(3n) {
 			background-color: var(--warmblack);
 		}
-		.grid_absolute_4x4_rect > div.griditem:nth-child(3n+1) {
+		.grid_4x4_rect > div.griditem:nth-child(3n+1) {
 			background-color: var(--warmwhite);
 		}
-		.grid_absolute_4x4_rect  > div.griditem:nth-child(3n+2) {
+		.grid_4x4_rect  > div.griditem:nth-child(3n+2) {
 			background-color: var(--red);
 		}
-		.grid_absolute_4x4_circle > div.griditem:nth-child(3n+1) {
+		.grid_4x4_rect  > div.griditem:nth-child(3n) {
 			background-color: var(--warmblack);
 		}
-		.grid_absolute_4x4_circle > div.griditem:nth-child(3n+2) {
+		.grid_4x4_rect  > div.griditem:nth-child(3n+1) {
 			background-color: var(--warmwhite);
+			color: var(--warmblack);
 		}
-		.grid_absolute_4x4_circle  > div.griditem:nth-child(3n) {
-			background-color: var(--red);
-		}
-		.grid_absolute_4x4_square > div.griditem:nth-child(3n+2) {
-			background-color: var(--warmblack);
-		}
-		.grid_absolute_4x4_square > div.griditem:nth-child(3n) {
-			background-color: var(--warmwhite);
-		}
-		.grid_absolute_4x4_square  > div.griditem:nth-child(3n+1) {
-			background-color: var(--red);
-		}
-
-
-
-		/*.gridcontainer0 > div.griditem:nth-child(2n) {
-			background-color: var(--warmblack);
-		}
-		.gridcontainer0 > div.griditem:nth-child(2n+1) {
-			background-color: var(--warmwhite);
-		}
-		.gridcontainer1 > div.griditem:nth-child(2n+1) {
-			background-color: var(--warmblack);
-		}
-		.gridcontainer1 > div.griditem:nth-child(2n) {
-			background-color: var(--warmwhite);
-		}*/
 	</style>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0989MECNZV"></script>
@@ -92,44 +82,33 @@
 </head>
 <body id="top" >
 
-<div id="svgframe" aria-hidden="true">
+<div id="svgframe">
 	<svg xmlns="http://www.w3.org/2000/svg" id="svg" class="frame" ></svg>
 </div>
 <div id="divframe" aria-hidden="true">
-<div id="canvas0" class="grid_absolute_4x4_rect" aria-hidden="true">
+<div id="canvas0" class="grid_4x4_rect" aria-hidden="true">
 	<div id="l0r0c0" class="griditem"></div><div id="l0r0c1" class="griditem"></div><div id="l0r0c2" class="griditem"></div><div id="l0r0c3" class="griditem"></div>
 	<div id="l0r1c0" class="griditem"></div><div id="l0r1c1" class="griditem"></div><div id="l0r1c2" class="griditem"></div><div id="l0r1c3" class="griditem"></div>
 	<div id="l0r2c0" class="griditem"></div><div id="l0r2c1" class="griditem"></div><div id="l0r2c2" class="griditem"></div><div id="l0r2c3" class="griditem"></div>
 	<div id="l0r3c0" class="griditem"></div><div id="l0r3c1" class="griditem"></div><div id="l0r3c2" class="griditem"></div><div id="l0r3c3" class="griditem"></div>
 </div>
-<div id="canvas1" class="grid_absolute_4x4_square" aria-hidden="true">
-	<div id="l1r0c0" class="griditem"></div><div id="l1r0c1" class="griditem"></div><div id="l1r0c2" class="griditem"></div><div id="l1r0c3" class="griditem"></div>
-	<div id="l1r1c0" class="griditem"></div><div id="l1r1c1" class="griditem"></div><div id="l1r1c2" class="griditem"></div><div id="l1r1c3" class="griditem"></div>
-	<div id="l1r2c0" class="griditem"></div><div id="l1r2c1" class="griditem"></div><div id="l1r2c2" class="griditem"></div><div id="l1r2c3" class="griditem"></div>
-	<div id="l1r3c0" class="griditem"></div><div id="l1r3c1" class="griditem"></div><div id="l1r3c2" class="griditem"></div><div id="l1r3c3" class="griditem"></div>
-</div>
-<div id="canvas2" class="grid_absolute_4x4_circle" aria-hidden="true">
-	<div id="l1r0c0" class="griditem"></div><div id="l1r0c1" class="griditem"></div><div id="l1r0c2" class="griditem"></div><div id="l1r0c3" class="griditem"></div>
-	<div id="l1r1c0" class="griditem"></div><div id="l1r1c1" class="griditem"></div><div id="l1r1c2" class="griditem"></div><div id="l1r1c3" class="griditem"></div>
-	<div id="l1r2c0" class="griditem"></div><div id="l1r2c1" class="griditem"></div><div id="l1r2c2" class="griditem"></div><div id="l1r2c3" class="griditem"></div>
-	<div id="l1r3c0" class="griditem"></div><div id="l1r3c1" class="griditem"></div><div id="l1r3c2" class="griditem"></div><div id="l1r3c3" class="griditem"></div>
 </div>
 
-</div>
-
-<div id="subtextframe" aria-hidden="true"></div>
-
-<div id="contentframe" aria-hidden="true">
+<div id="subtextframe"></div>
+<div id="contentframe">
 <main id="main">
 <header>
 	<h1>the bird equation</h1>
-	<h2>grids cycles & networks</h2>
 </header>
 <nav>
 	<ul class="stanza">
-		<li><a href="#maincontent" id="skiptomaincontent">skip to main content</a></li>
-		<li><a href="index.html" id="homelink">return home</a></li>
-		<li><a href="#dashboard" id="gotodashboard">access dashboard</a></li>
+		<li><a href="#maincontent" id="skiptomaincontent" class="corelink">skip to main content</a></li>
+		<li><a href="index.html" id="homelink" class="corelink">return home</a></li>
+		<li><label for="sound"><input id="sound" type="checkbox"> play sound</label></li>
+		<!-- <li><audio id="audio0" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li> -->
+		<!-- <li><audio id="audio1" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/monksfromouterspacecistern.mp3" type="audio/mpeg"></audio></li> -->
+		<!-- <li><audio id="audio2" src="https://storage.googleapis.com/www.blueboatfilms.com/sound/clarinetnotes.mp3" type="audio/mpeg"></audio></li> -->
+		<li><a href="#accessfeatures" id="gotoaccessfeatures" class="corelink">tailor your visual experience</a></li>
 	</ul>
 </nav>
 
@@ -141,7 +120,7 @@
 
 <article id="maincontent">
 	<header>
-		<h1> tangent line inflection point</h1>
+		<a href="#top" aria-label="jump to top">^</a><h1> tangent line inflection point</h1>
 	</header>
 
 	<ul class="stanza">
@@ -160,29 +139,26 @@
 		<li>deduce reduce distill<li>
 	</ul>
 	<ul class="stanza">
-		<li>flying dinosaurs<li>
-		<li>sealed in text</li>
+		<li>extricate<li>
+		<li>flying dinosaurs from text <li>
 		<li>raster photo pixel pitch<li>
 		<li>& noise<li>
 	</ul>
 	<ul class="stanza">
-		<li>count name calculate<li>
 		<li>wax poetic<li>
-		<li>radio-tagged</li>
-		<li>winged pilots<li>
+		<li>count name calculate<li>
+		<li>radio-tagged winged pilots<li>
 	</ul>
 	<ul class="stanza">
 		<li>updraft twist & downward sweep<li>
-		<li>infinite number data cloud<li>
-		<li>wing beak vial trace</li>
-		<li>science spectacled</li>
-		<li>telescope mariners<li>
+		<li>in my infinite cloud now sealed<li>
+		<li>science spectacled telescope mariners<li>
 		<li>singers poets ghosts<li>
 	</ul>
 </article>
 <article >
 	<header>
-		<h1> maps gears bones site</h1>
+	<a href="#top" aria-label="jump to top">^</a><h1> maps gears bones site</h1>
 	</header>
 	<ul class="countsuffix stanza">
 		<li><a class="countitem" href="https://storage.googleapis.com/www.blueboatfilms.com/stills/7x5postcard/print_lattice6_postcard_1609552427272_output.pdf">view pdf</a></li>
@@ -205,12 +181,13 @@
 	<!-- <p>there is a hole in the middle ... a bowless string a breathless reed a bony piano harp naked keys</p> -->
 </article>
 
-<fieldset id="dashboard">
-<legend>access dashboard</legend>
-<label for="sound"><input id="sound" type="checkbox"> play sound</label>
+
+<fieldset id="accessfeatures">
+<legend>tailor your experience</legend>
+<!-- <label for="sound"><input id="sound" type="checkbox"> play sound</label> -->
 <label for="highcontrast"><input id="highcontrast" type="checkbox"> high contrast</label>
-<label for="largetext"><input id="largetext" type="checkbox"> large text</label>
 <label for="darklight"><input id="darklight" type="checkbox"> dark / light</label>
+<p><a href="#top" class="corelink">^ back to top</a></p>
 </fieldset>
 
 </main>
@@ -218,10 +195,10 @@
 <p id="animationcontrols" style="min-width:100%">
 <label for="animationonly"><input id="animationonly" type="checkbox"> animation only (hide text)</label>
 </p>
-<p><a href="#top" class="corelink">^ back to top</a></p>
 </footer>
-</div> <!-- end contentframe -->
-<div id="veilframe" aria-hidden="true"></div>
+
+</div>
+
 </body>
 <script src="/code/lattice.js"></script>
 <script>
@@ -256,30 +233,34 @@ z.radio.start(z);
 	// document.querySelectorAll("audio").forEach(element => {
 	// 	elements.push({ el: element });
 	// });
+	let canpause = false;
 	z.radio.play = () => {
 		elements.forEach(element => {
 			let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
 
-			z.tools.logmsg("in play() src = " + element.src + " isplaying=" + isPlaying);
+			z.tools.logmsg("in play src = " + element.src + " isplaying=" + isPlaying);
 			let playPromise = element.play();
 			playPromise.then( () => {
 				z.tools.logmsg("now playing " + element.src);
+				canpause=true;
 			})
 			.catch(error => {
 				z.tools.logerror("error playing " + element.src + " " + error);
+				// Auto-play was prevented
+				// Show paused UI.
 			});
 		});
 	};
 	z.radio.pause = () => {
-		
-		elements.forEach(element => {
-			let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
-			z.tools.logmsg("in pause() src = " + element.src + " isplaying=" + isPlaying);
-			if(isPlaying) {
-				element.pause();
-			}
-		});
-		
+		if(canpause) {
+			elements.forEach(element => {
+				let isPlaying = element.currentTime > 0 && !element.paused && !element.ended && element.readyState > element.HAVE_CURRENT_DATA;
+				z.tools.logmsg("in pause src = " + element.src + " isplaying=" + isPlaying);
+				if(isPlaying) {
+					element.pause();
+				}
+			});
+		}
 	};
 	
 })();
@@ -289,73 +270,40 @@ z.radio.start(z);
 
 	let width = window.innerWidth, height = window.innerHeight;
 	let max = Math.max(width, height), min = Math.min(width, height);
-	let dx = width/4, dy = height/4;
-	// document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
-	// 		el.style.width=dx, el.style.height=dy;
-	// 		translateX = " translateX("+ Math.floor(j/4)*dy +"px)";
-	// 		translateY = " translateY("+ (j%4)*dx +"px)";
-	// 		el.style.transform = translateX + translateY;
-	// 	});
 
 	window.addEventListener("resize", e => {
 		width = window.innerWidth; height = window.innerHeight;
 		max = Math.max(width, height), min = Math.min(width, height);
 		console.log("window.innerWidth = " + window.innerWidth);
-
-		let dx = width/4, dy = height/4;
-		// document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
-		// 	scaleX = " scaleX("+ Math.floor(j/4)*dy +"px)";
-		// 	scaleY = " scaleY("+ (j%4)*dx +"px)";
-		// 	el.style.transform = scaleX + scaleY;
-		// });
 	});
 
 	let count = 0;
-
-	
 	document.querySelector("#canvas0").querySelectorAll(".griditem").forEach( (el,j) => {
 		window.setInterval(() => { 
 			++count; 
-			let scaleX = " scaleX("+((count+1)%20)/8+")";
-			let scaleY = " scaleY("+(21-count%20)/8+")";
-			el.style.transform = scaleX + scaleY;
-		}, j*100+3000);
-	});
-
-	document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
-		window.setInterval(() => { 
-			++count; 
-			// el.style.opacity = (count%10)/4 
-			// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
-			// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
-			let rotate = " rotateZ("+36*(count%20)+"deg)";
-			let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
-			let scaleX = " scaleX("+((count+1)%20)/10+")";
-			let scaleY = " scaleY("+(21-count%20)/10+")";
-			// let scale = " scale("+(count%20)/4+")";
-
-			// el.style.transform = translate; 
-			el.style.transform = scaleX + scaleY;
-			// el.style.transform = scale + rotate; 
-			// el.style.transform = scaleX + scaleY + translate; 
-			
-			// el.style.transform =  scaleX + scaleY;  
-			// el.style.transform = translate;  
+			el.innerHTML = "<span>"+z.tools.randominteger(0,9)+"</span>";
 		}, j*100+1000);
 	});
-	document.querySelector("#canvas2").querySelectorAll(".griditem").forEach( (el,j) => {
-		window.setInterval(() => { 
-			++count; 
-			// let scaleX = " scaleX("+((count+1)%20)/10+")";
-			// let scaleY = " scaleY("+(21-count%20)/8+")";
-			let scale = " scale("+( (count+1)%20)/20+")";
+	// document.querySelector("#canvas1").querySelectorAll(".griditem").forEach( (el,j) => {
+	// 	window.setInterval(() => { 
+	// 		++count; 
+	// 		el.style.opacity = (count%8)/10;
+	// 		el.innerHTML = "<span>"+z.tools.randominteger(0,9)+"</span>";
+	// 		// el.style.transform = "scale("+(count%20)/5+") rotate("+36*(count%20)+"deg)"; 
+	// 		// let rotate = j%2===0 ? " rotateY("+36*(count%20)+"deg)" : "rotateX("+36*(count%20)+"deg)";
+	// 		// let rotate = "rotateX("+36*(count%20)+"deg)";
+	// 		// let translate = (count+j)%5===0 ? " translateY("+(count%10)*4+"vh)" : (count+j)%5===2 ? " translateX("+(count%10)*4+"vw)" : "";
+	// 		let scaleX = " scaleX("+(count%20)/40+")";
+	// 		let scaleY = " scaleY("+(21-count%20)/40+")";
 
+	// 		// el.style.transform = rotate; 
+	// 		// el.style.transform = scaleX + scaleY + rotate; 
+	// 		// el.style.transform = scaleX + scaleY + translate; 
 			
-			// el.style.transform =  scaleX + scaleY;  
-			el.style.transform =  scale;  
-			// el.style.transform = translate;  
-		}, j*100+2000);
-	});
+	// 		// el.style.transform =  scaleX + scaleY;  
+	// 		// el.style.transform = translate;  
+	// 	}, j*100+1000);
+	// });
 })();
 
 window.addEventListener('load', e => {

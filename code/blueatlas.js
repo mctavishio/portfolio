@@ -132,7 +132,7 @@ let getz = () => {
 		},
 		sound: {
 			basetrackurl: "https://storage.googleapis.com/www.blueboatfilms.com/sound/",
-			// basetrackurl: "http://www.blueboatfilms.com/sound/",
+			// basetrackurl: "https://storage.googleapis.com/www.blueboatfilms.com/sound/",
 			baseclipurl: "data/sound/",
 			tracks: {
 				lovemeditations: {title: "love meditations", url: "lovemeditationspodcast.mp3", duration: 3980 }, //1:06:24

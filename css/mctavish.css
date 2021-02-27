@@ -14,6 +14,14 @@
 	--warmwhite: #fcfbe3; /*rgba(252, 251, 227, 1)*/
 	--veilwarmwhite: rgba(252, 251, 227, 0.4);
 	--veilwarmblack: rgba(25, 25, 24, 0.4);
+	/*numbers :: set these to random numbers in code*/
+	--n0: 0;
+	--n1: 1;
+	--n2: 2;
+	--n3: 3;
+	/*colors :: set these to color sets in code*/
+	--color1: var(--warmblack);
+	--color2: var(--warmwhite);
 	/*other*/
 	--zhighest: 8888;
 	--zhigher: 4444;
@@ -707,6 +715,25 @@ div.vimeowrapper16x9 iframe {
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+}	
+.grid_4x4_rect {
+	min-width: 100vw; min-height: 100vh;
+	display: grid;
+	gap: 0px 0px;
+	/*grid-template-areas:
+		"r0c0 r0c1 r0c2 r0c3"
+		"r1c0 r1c1 r1c2 r1c3"
+		"r2c0 r2c1 r2c2 r2c3"
+		"r3c0 r3c1 r3c2 r3c3";*/
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.grid_4x4_rect > div.griditem {
+	color: var(--warmwhite);
+	background-color: var(--warmblack);
+	padding:0; margin: 0;
+	min-width:100%, max-width: 100%;
+	transition: opacity 2s, transform 2s;
 }
 .grid_absolute_4x4_rect > div.griditem, .grid_absolute_4x4_circle > div.griditem, .grid_absolute_4x4_square > div.griditem {
 	color: var(--warmwhite);
