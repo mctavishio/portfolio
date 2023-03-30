@@ -50,42 +50,14 @@
 <li class="title typewriter" title="telegraph" id="telegraph"></li>
 <li class="title  typewriter" title="clock" id="clock">here | now</li>
 </ul> -->
-
 <ul>
 	<li><a href="#" id="soundlink" class="corelink">turn on sound</a> <span class="typewriter small" title="telegraph" id="telegraph"></span></li>
 	<!-- <li><a href="#" id="sounddrawings" class="corelink">access sound drawings</a></li> -->
 </ul>
 <hr/>
-<article>
-	<header>
-		<h1>current projects</h1>
-		<h2>in progress</h2>
-	</header>
-	<p>
-	<ul>
-	<li><a href="https://www.blueatlas.work/index.html">blue atlas: field notes</a></li>
-	<li><a href="blueatlas/index.html">blue atlas: v1</a></li>
-	</ul>
-	</p>
-	<h5>the factories</h5>
-	<p><i>experiments in generative media</i></p>
-	<p>
-	<ul>
-	<li><a href="https://filmfactory.work/index.html">film factory</a></li>
-	<li><a href="https://bookfactory.work/index.html">book factory</a></li>
-	<li><a href="https://soundfactory.work/index.html">sound factory</a></li>
-	</ul>
-	</p>
-</article>
-<hr/>
-<article>
-	<header>
-		<h1>about</h1>
-	</header>
-	<ul>
-	<li><a href="bio.html">bio</a></li>
-	</ul>
-</article>
+<ul>
+	<li><a href="bio.html" id="biolink" class="corelink">bio</a></li>
+</ul>
 <hr/>
 <article>
 	<header>
@@ -93,6 +65,7 @@
 		<h2>selected projects</h2>
 	</header>
 	<ul>
+		<li><a href="https://cloudfactory.work">cloud factory: the covid years</a></li>
 		<li><a href="cmpb/index.html">count map pulse breathe</a></li>
 		<li><a href="swarm/index.html">swarm</a></li>
 		<li><a href="chance/index.html">chance</a></li>
@@ -294,6 +267,7 @@ z.streams = {
 			}
 		});
 	})();
+
 z.draw = z => {
 	let ntimings = 32;
 	let dtiming = Math.floor(400/ntimings);
@@ -318,6 +292,7 @@ z.draw = z => {
 		["#163341", "#172F47", "#4477A8", "#2A4A69", "#52779B", "#000000", "#384B60", "#1F3350", "#153A69", "#153559", "#9D9990", "#9D9990", "#181E21", "#0C1D32", "#706959", "#D6D3CE", "#534E48", "#3E5766", "#222E34", "#BBB4A4", "#7C7D7F"], //birdland
 
 	];
+	
 	z.streams["color"] = ( dt => {
 		let date0 = new Date();
 		let t0 = Math.floor(date0.getTime()/1000);
